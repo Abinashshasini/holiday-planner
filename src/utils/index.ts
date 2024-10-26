@@ -1,6 +1,13 @@
 import logoImage from '/public/images/logo.svg';
 import menuImage from '/public/images/menu.svg';
+import bbsrImage from '/public/images/bbsr.jpg';
+import puriImage from '/public/images/puri.jpg';
+import konarkImage from '/public/images/konark.jpg';
+import cuttackImage from '/public/images/cuttack.jpg';
+import balasoreImage from '/public/images/balasore.webp';
+import rourkelaImage from '/public/images/rourkela.webp';
 import catOneImage from '/public/images/cat_one.jpeg';
+import brahmapurImage from '/public/images/brahmapur.jpg';
 
 const LogoImage = logoImage;
 const MenuImage = menuImage;
@@ -47,38 +54,38 @@ const ourServicesData = [
 const popularCitiesData = [
   {
     id: 1,
-    image: 'baklol',
+    image: bbsrImage,
     name: 'Bhubaneswar',
   },
   {
     id: 2,
-    image: 'baklol',
+    image: puriImage,
     name: 'Puri',
   },
   {
     id: 3,
-    image: 'baklol',
+    image: konarkImage,
     name: 'Konark',
   },
   {
     id: 4,
-    image: 'baklol',
+    image: cuttackImage,
     name: 'Cuttack',
   },
   {
     id: 5,
-    image: 'baklol',
+    image: balasoreImage,
     name: 'Balasore',
   },
   {
     id: 6,
-    image: 'baklol',
+    image: rourkelaImage,
     name: 'Rourkela',
   },
   {
-    id: 6   ,
-    image: 'baklol',
-    name: 'Brahmapur',
+    id: 7,
+    image: brahmapurImage,
+    name: 'Berhampur',
   },
 ];
 

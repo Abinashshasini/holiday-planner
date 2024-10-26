@@ -1,0 +1,31 @@
+.container {
+  padding: 20px;
+  padding-bottom: 35px;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.wrapper > h2 {
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-black);
+  text-align: center;
+}
+
+.imageContainer {
+  height: 98px;
+  width: 68px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+
+  & > img {
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

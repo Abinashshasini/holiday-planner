@@ -37,3 +37,7 @@ a {
     color: var(--color-primary);
   }
 }
+
+ul>li {
+  list-style: none;
+}
