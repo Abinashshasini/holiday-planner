@@ -48,6 +48,37 @@ const popularCitiesData = [
   {
     id: 1,
     image: 'baklol',
+    name: 'Bhubaneswar',
+  },
+  {
+    id: 2,
+    image: 'baklol',
+    name: 'Puri',
+  },
+  {
+    id: 3,
+    image: 'baklol',
+    name: 'Konark',
+  },
+  {
+    id: 4,
+    image: 'baklol',
+    name: 'Cuttack',
+  },
+  {
+    id: 5,
+    image: 'baklol',
+    name: 'Balasore',
+  },
+  {
+    id: 6,
+    image: 'baklol',
+    name: 'Rourkela',
+  },
+  {
+    id: 6   ,
+    image: 'baklol',
+    name: 'Brahmapur',
   },
 ];
 
