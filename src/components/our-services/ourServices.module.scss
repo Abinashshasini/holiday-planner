@@ -1,0 +1,59 @@
+.container {
+  padding: 20px;
+}
+
+.servicesWraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 1.1rem;
+
+  & > li {
+    width: calc(50% - 10px);
+    list-style: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 9px;
+    height: 190px;
+    object-fit: cover;
+    z-index: 1;
+
+    & > img {
+      object-fit: cover;
+    }
+
+    & > .buttonSection {
+      z-index: 2;
+      height: 82px;
+      background: rgba(0, 118, 215, 0.9);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-direction: column;
+
+      & > h2 {
+        font-size: 0.8rem;
+        color: var(--color-white);
+        font-weight: 600;
+      }
+
+      & > button {
+        width: 90%;
+        height: 30px;
+        border-radius: 40px;
+        border: none;
+        outline: none;
+        font-size: 0.8rem;
+        color: var(--color-black);
+        font-weight: 600;
+        background: var(--color-white);
+      }
+    }
+  }
+}
