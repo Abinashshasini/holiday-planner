@@ -1,5 +1,5 @@
 import logoImage from '/public/images/logo.svg';
-import menuImage from '/public/images/menu.png';
+import menuImage from '/public/images/menu.svg';
 
 const LogoImage = logoImage;
 const MenuImage = menuImage;
