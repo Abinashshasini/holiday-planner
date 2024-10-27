@@ -8,9 +8,11 @@ import balasoreImage from '/public/images/balasore.webp';
 import rourkelaImage from '/public/images/rourkela.webp';
 import catOneImage from '/public/images/cat_one.jpeg';
 import brahmapurImage from '/public/images/brahmapur.jpg';
+import rfqCardPhoto from '/public/images/rfqBg.jpeg';
 
 const LogoImage = logoImage;
 const MenuImage = menuImage;
+const RfqCardImage = rfqCardPhoto;
 
 const ourServicesData = [
   {
@@ -89,4 +91,10 @@ const popularCitiesData = [
   },
 ];
 
-export { LogoImage, MenuImage, ourServicesData, popularCitiesData };
+export {
+  LogoImage,
+  MenuImage,
+  ourServicesData,
+  popularCitiesData,
+  RfqCardImage,
+};
