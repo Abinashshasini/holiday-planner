@@ -91,10 +91,38 @@ const popularCitiesData = [
   },
 ];
 
+const ourPackagesData = [
+  {
+    id: 1,
+    image: puriImage,
+    title: 'BBSR to Puri',
+    timing: '2D / 1N',
+    location: 'Puri Jagannath Temple',
+    price: '11999',
+  },
+  {
+    id: 2,
+    image: bbsrImage,
+    title: 'BBSR to Daringbadi',
+    timing: '2D / 1N',
+    location: 'Daringbadi',
+    price: '9999',
+  },
+  {
+    id: 2,
+    image: konarkImage,
+    title: 'BBSR to Konark',
+    timing: '2D / 1N',
+    location: 'Konark Sun temple',
+    price: '7999',
+  },
+];
+
 export {
   LogoImage,
   MenuImage,
   ourServicesData,
   popularCitiesData,
   RfqCardImage,
+  ourPackagesData,
 };
