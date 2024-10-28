@@ -29,8 +29,9 @@
     .detailsWrp {
       z-index: 3;
       color: var(--color-white);
-      width: 80%;
+      padding: 0 20px;
       margin-bottom: 20px;
+      width: 100%;
 
       & > .detailsWrpTextOne {
         display: flex;
