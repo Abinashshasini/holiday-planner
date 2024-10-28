@@ -10,6 +10,13 @@ import catOneImage from '/public/images/cat_one.jpeg';
 import brahmapurImage from '/public/images/brahmapur.jpg';
 import rfqCardPhoto from '/public/images/rfqBg.jpeg';
 
+/** Icons */
+import { FaClipboardCheck } from 'react-icons/fa';
+import { TbChecklist } from 'react-icons/tb';
+import { RiCustomerService2Line } from 'react-icons/ri';
+import { MdOutlinePriceChange } from 'react-icons/md';
+
+
 const LogoImage = logoImage;
 const MenuImage = menuImage;
 const RfqCardImage = rfqCardPhoto;
@@ -118,6 +125,29 @@ const ourPackagesData = [
   },
 ];
 
+const whyChooseUsData = [
+  {
+    id: 1,
+    text: 'Unmatched Expertise',
+    Icon: FaClipboardCheck,
+  },
+  {
+    id: 2,
+    text: 'Personalized Travel Plans',
+    Icon: TbChecklist,
+  },
+  {
+    id: 3,
+    text: '24/7 Customer Support',
+    Icon: RiCustomerService2Line,
+  },
+  {
+    id: 4,
+    text: 'Best Price Guarantee',
+    Icon: MdOutlinePriceChange,
+  },
+];
+
 export {
   LogoImage,
   MenuImage,
@@ -125,4 +155,5 @@ export {
   popularCitiesData,
   RfqCardImage,
   ourPackagesData,
+  whyChooseUsData,
 };
