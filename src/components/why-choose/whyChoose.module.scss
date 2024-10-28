@@ -1,0 +1,41 @@
+.container {
+  padding: 20px 20px;
+
+  & > h1 {
+    margin-bottom: 10px !important;
+  }
+}
+
+.wrapper {
+  & > h1 {
+    font-size: 0.9rem;
+    text-indent: 0.8rem;
+    color: var(--color-black);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .servicesWrp {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem 10px;
+    margin-top: 1rem;
+
+    & > li {
+      width: calc(50% - 10px);
+      font-size: 0.8rem;
+      color: #2b2f2c;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+
+      & > svg {
+        width: 16px;
+        height: 16px;
+        color: var(--color-primary);
+      }
+    }
+  }
+}

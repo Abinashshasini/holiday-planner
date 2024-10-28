@@ -11,11 +11,14 @@ import brahmapurImage from '/public/images/brahmapur.jpg';
 import rfqCardPhoto from '/public/images/rfqBg.jpeg';
 
 /** Icons */
-import { FaClipboardCheck } from 'react-icons/fa';
+import { FaRegCalendarCheck } from 'react-icons/fa';
 import { TbChecklist } from 'react-icons/tb';
 import { RiCustomerService2Line } from 'react-icons/ri';
 import { MdOutlinePriceChange } from 'react-icons/md';
-
+import { CiBookmarkCheck } from 'react-icons/ci';
+import { PiPersonArmsSpread } from 'react-icons/pi';
+import { IoCarSportOutline } from 'react-icons/io5';
+import { FaFreeCodeCamp } from 'react-icons/fa';
 
 const LogoImage = logoImage;
 const MenuImage = menuImage;
@@ -128,23 +131,43 @@ const ourPackagesData = [
 const whyChooseUsData = [
   {
     id: 1,
-    text: 'Unmatched Expertise',
-    Icon: FaClipboardCheck,
+    text: 'Unmatched Expertise.',
+    Icon: FaRegCalendarCheck,
   },
   {
     id: 2,
-    text: 'Personalized Travel Plans',
+    text: 'Personalized Travel Plans.',
     Icon: TbChecklist,
   },
   {
     id: 3,
-    text: '24/7 Customer Support',
+    text: '24/7 Customer Support.',
     Icon: RiCustomerService2Line,
   },
   {
     id: 4,
-    text: 'Best Price Guarantee',
+    text: 'Best Price Guarantee.',
     Icon: MdOutlinePriceChange,
+  },
+  {
+    id: 5,
+    text: 'Best Sevicess.',
+    Icon: CiBookmarkCheck,
+  },
+  {
+    id: 6,
+    text: 'Sustainable Tourism.',
+    Icon: PiPersonArmsSpread,
+  },
+  {
+    id: 7,
+    text: 'Best Vechiles.',
+    Icon: IoCarSportOutline,
+  },
+  {
+    id: 8,
+    text: 'Hassle Free Bookings.',
+    Icon: FaFreeCodeCamp,
   },
 ];
 

@@ -5,6 +5,7 @@ import PopularCities from '@/components/popular-cities';
 import RFQCard from '@/components/rfq-card';
 import OurPackages from '@/components/our-packages';
 import GetInTouch from '@/components/get-in-touch';
+import WhyChooseUs from '@/components/why-choose';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <OurServices />
       <OurPackages />
       <GetInTouch />
+      <WhyChooseUs />
       <RFQCard />
     </div>
   );
