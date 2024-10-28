@@ -8,7 +8,7 @@ import balasoreImage from '/public/images/balasore.webp';
 import rourkelaImage from '/public/images/rourkela.webp';
 import catOneImage from '/public/images/cat_one.jpeg';
 import brahmapurImage from '/public/images/brahmapur.jpg';
-import rfqCardPhoto from '/public/images/rfqBg.jpeg';
+import rfqCardPhoto from '/public/images/rfqBg.jpg';
 
 /** Icons */
 import { FaRegCalendarCheck } from 'react-icons/fa';
