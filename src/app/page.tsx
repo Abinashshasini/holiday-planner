@@ -6,6 +6,7 @@ import RFQCard from '@/components/rfq-card';
 import OurPackages from '@/components/our-packages';
 import GetInTouch from '@/components/get-in-touch';
 import WhyChooseUs from '@/components/why-choose';
+import Ratings from '@/components/ratings';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <GetInTouch />
       <WhyChooseUs />
       <RFQCard />
+      <Ratings />
     </div>
   );
 }

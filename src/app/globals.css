@@ -2,7 +2,8 @@
   --color-primary: #0076d7;
   --color-secondary: #313341;
   --color-black: #000;
-  --color-white: #fff
+  --color-white: #fff;
+  --color-black-shade-one: #333333;
 }
 
 html,

@@ -5,7 +5,7 @@ const Heading = ({
   textTwo,
 }: {
   textOne: string;
-  textTwo: string;
+  textTwo?: string;
 }) => {
   return (
     <h1 className="global__heading">
