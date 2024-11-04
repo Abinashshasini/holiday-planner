@@ -12,7 +12,7 @@ const OurPackages = () => {
       <ul className={classes.wrapper}>
         {ourPackagesData.map((element) => (
           <li key={element.id}>
-            <Image src={element.image} fill alt="Images" />
+            <Image src={element.image} fill alt="Images" unoptimized />
             <div className={classes.detailsWrp}>
               <div className={classes.detailsWrpTextOne}>
                 <h3>{element.title}</h3>

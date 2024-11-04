@@ -14,6 +14,7 @@ const PopularCities = () => {
               height={98}
               width={68}
               alt="city_photo"
+              unoptimized
             />
           </div>
           <h2>{element.name}</h2>
