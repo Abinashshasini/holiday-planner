@@ -9,13 +9,7 @@ const PopularCities = () => {
       {popularCitiesData.map((element) => (
         <li key={element.id} className={classes.wrapper}>
           <div className={classes.imageContainer}>
-            <Image
-              src={element.image}
-              height={98}
-              width={68}
-              alt="city_photo"
-              unoptimized
-            />
+            <img src={element.image} alt="city_photo" />
           </div>
           <h2>{element.name}</h2>
         </li>

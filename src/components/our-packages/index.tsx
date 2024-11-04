@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { CiLocationOn } from 'react-icons/ci';
 import Heading from '../heading';
 import { ourPackagesData } from '@/utils';
@@ -11,8 +10,10 @@ const OurPackages = () => {
       <Heading textOne="Our" textTwo="Packages" />
       <ul className={classes.wrapper}>
         {ourPackagesData.map((element) => (
-          <li key={element.id}>
-            <Image src={element.image} fill alt="Images" unoptimized />
+          <li
+            key={element.id}
+            style={{ background: `url(${element.image.src}) no-repeat` }}
+          >
             <div className={classes.detailsWrp}>
               <div className={classes.detailsWrpTextOne}>
                 <h3>{element.title}</h3>
