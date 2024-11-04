@@ -12,7 +12,7 @@ const OurPackages = () => {
         {ourPackagesData.map((element) => (
           <li
             key={element.id}
-            style={{ background: `url(${element.image.src}) no-repeat` }}
+            style={{ backgroundImage: `url(${element.image.src})` }}
           >
             <div className={classes.detailsWrp}>
               <div className={classes.detailsWrpTextOne}>

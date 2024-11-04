@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { ourServicesData } from '@/utils';
-import classes from './ourServices.module.scss';
 import Heading from '../heading';
+import classes from './ourServices.module.scss';
 
 const OurServices = () => {
   return (
