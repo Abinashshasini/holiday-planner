@@ -1,14 +1,14 @@
-import logoImage from '/public/images/logo.svg';
-import menuImage from '/public/images/menu.svg';
-import bbsrImage from '/public/images/bbsr.jpg';
-import puriImage from '/public/images/puri.jpg';
-import konarkImage from '/public/images/konark.jpg';
-import cuttackImage from '/public/images/cuttack.jpg';
-import balasoreImage from '/public/images/balasore.webp';
-import rourkelaImage from '/public/images/rourkela.webp';
-import catOneImage from '/public/images/cat_one.jpeg';
-import brahmapurImage from '/public/images/brahmapur.jpg';
-import rfqCardPhoto from '/public/images/rfqBg.jpg';
+import logoImage from '../../public/images/logo.svg';
+import menuImage from '../../public/images/menu.svg';
+import bbsrImage from '../../public/images/bbsr.jpg';
+import puriImage from '../../public/images/puri.jpg';
+import konarkImage from '../../public/images/konark.jpg';
+import cuttackImage from '../../public/images/cuttack.jpg';
+import balasoreImage from '../../public/images/balasore.webp';
+import rourkelaImage from '../../public/images/rourkela.webp';
+import catOneImage from '../../public/images/cat_one.jpeg';
+import brahmapurImage from '../../public/images/brahmapur.jpg';
+import rfqCardPhoto from '../../public/images/rfqBg.jpg';
 
 /** Icons */
 import { FaRegCalendarCheck } from 'react-icons/fa';
