@@ -17,7 +17,6 @@ const OurPackages = () => {
             <div className={classes.detailsWrp}>
               <div className={classes.detailsWrpTextOne}>
                 <h3>{element.title}</h3>
-                <span>{element.timing}</span>
               </div>
               <div className={classes.detailsWrpLocation}>
                 <div className={classes.locationIcon}>
@@ -25,7 +24,7 @@ const OurPackages = () => {
                 </div>
                 <p>{element.location}</p>
               </div>
-              <div className={classes.priceCnt}>₹ {element.price}</div>
+              <div className={classes.priceCnt}>Know More</div>
             </div>
           </li>
         ))}

@@ -1,13 +1,13 @@
 .container {
   padding: 20px 20px;
 
-  & > h1 {
+  & > h2 {
     margin-bottom: 10px !important;
   }
 }
 
 .wrapper {
-  & > h1 {
+  & > h2 {
     font-size: 0.9rem;
     text-indent: 0.8rem;
     color: var(--color-black);

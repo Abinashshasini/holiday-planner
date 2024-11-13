@@ -48,7 +48,7 @@
 
       & > .detailsWrpLocation {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: 10px;
 
         & > .locationIcon {
@@ -63,6 +63,8 @@
           font-size: 15px;
           font-weight: 400;
           color: var(--color-white);
+          position: relative;
+          top: -2px;
         }
       }
 
