@@ -15,7 +15,7 @@ const useWhatsApp = () => {
       message = dynamicMessage;
     }
     window.open(
-      `https://api.whatsapp.com/send?phone=+917008345662&text=${message}`,
+      `https://api.whatsapp.com/send?phone=+918249262728&text=${message}`,
       '_blank'
     );
   };

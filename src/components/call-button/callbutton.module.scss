@@ -1,15 +1,12 @@
 .container {
   position: fixed;
-  bottom: 150px;
+  bottom: 80px;
   right: 20px;
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.iconCnt {
-  background: linear-gradient(to bottom, #60d66a, #20b038);
+  background: linear-gradient(to bottom, #707070, #202020);
   height: 53px;
   width: 53px;
   border-radius: 50%;
@@ -19,8 +16,8 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   & > svg {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     color: var(--color-white);
   }
 }

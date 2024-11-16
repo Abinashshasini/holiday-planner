@@ -11,7 +11,11 @@ const RFQCard = () => {
       <div className={classes.wrapper}>
         <h2>Dreaming of your next Adventure?</h2>
         <p>Hit us up!</p>
-        <button onClick={handleRedirectTheUserToWhatsApp}>
+        <button
+          onClick={() =>
+            handleRedirectTheUserToWhatsApp({ messageType: 'generic' })
+          }
+        >
           Request a Quote
         </button>
       </div>

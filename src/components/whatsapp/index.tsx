@@ -9,7 +9,9 @@ const WhatsAppButton = () => {
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
   return (
     <div
-      onClick={handleRedirectTheUserToWhatsApp}
+      onClick={() =>
+        handleRedirectTheUserToWhatsApp({ messageType: 'generic' })
+      }
       className={classes.container}
     >
       <div className={classes.iconCnt}>

@@ -8,6 +8,7 @@ import GetInTouch from '@/components/get-in-touch';
 import WhyChooseUs from '@/components/why-choose';
 import Ratings from '@/components/ratings';
 import WhatsAppButton from '@/components/whatsapp';
+import CallButton from '@/components/call-button';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <RFQCard />
       <Ratings />
       <WhatsAppButton />
+      <CallButton />
     </div>
   );
 }
