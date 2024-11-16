@@ -7,6 +7,7 @@ import OurPackages from '@/components/our-packages';
 import GetInTouch from '@/components/get-in-touch';
 import WhyChooseUs from '@/components/why-choose';
 import Ratings from '@/components/ratings';
+import WhatsAppButton from '@/components/whatsapp';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <WhyChooseUs />
       <RFQCard />
       <Ratings />
+      <WhatsAppButton />
     </div>
   );
 }

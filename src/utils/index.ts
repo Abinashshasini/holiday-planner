@@ -39,14 +39,14 @@ const RfqCardImage = rfqCardPhoto;
 const ourServicesData = [
   {
     id: 1,
-    image: catOneImage,
-    title: 'Luxury Car Wedding Car',
+    image: catTwoImage,
+    title: 'Car Rental And Booking',
     buttonText: 'View More',
   },
   {
     id: 2,
-    image: catTwoImage,
-    title: 'Car Rental And Booking',
+    image: catOneImage,
+    title: 'Luxury Car Wedding Car',
     buttonText: 'View More',
   },
   {
