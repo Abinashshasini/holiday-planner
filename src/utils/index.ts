@@ -222,6 +222,45 @@ const whyChooseUsData = [
   },
 ];
 
+const userRatingData = [
+  {
+    id: 1,
+    name: 'Khirod Das',
+    rating: '5',
+    message:
+      'Very good deals and package in odiaha ..... Thank you holiday planner team...',
+    time: '3 weeks ago',
+  },
+  {
+    id: 2,
+    name: 'Asis kumar Pati',
+    rating: '5',
+    message: 'Very good service and with a great price...',
+    time: '2 weeks ago',
+  },
+  {
+    id: 3,
+    name: 'Bunu Nayak',
+    rating: '5',
+    message: 'Such a nice travel agent in Bhubaneswar.',
+    time: '5 weeks ago',
+  },
+  {
+    id: 4,
+    name: 'Subrat nandi',
+    rating: '5',
+    message: 'Best experience and reasonable price.',
+    time: '3 weeks ago',
+  },
+  {
+    id: 5,
+    name: 'Aditya Nath',
+    rating: '5',
+    message: 'Best holiday planner',
+    time: '2 weeks ago',
+  },
+];
+
 export {
   LogoImage,
   MenuImage,
@@ -230,4 +269,5 @@ export {
   RfqCardImage,
   ourPackagesData,
   whyChooseUsData,
+  userRatingData,
 };

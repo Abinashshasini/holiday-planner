@@ -72,14 +72,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.3px solid var(--color-black-shade-one);
-  background-color: var(--color-white);
-
-  & > svg {
-    height: 1rem;
-    width: 1rem;
-    color: var(--color-primary);
-  }
+  color: var(--color-white);
+  font-size: 1.2rem;
 }
 
 .userInfo > h5 {
