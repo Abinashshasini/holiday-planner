@@ -45,7 +45,7 @@ const ourServicesData = [
     Icon: null,
     showIcon: false,
     message: '',
-    URL: 'our-services/car-rental',
+    URL: 'our-services/car-rental-and-booking',
     action: 'redirect',
   },
   {
@@ -56,7 +56,7 @@ const ourServicesData = [
     Icon: null,
     showIcon: false,
     message: '',
-    URL: 'our-services/luxury-car',
+    URL: 'our-services/luxury-car-wedding-car',
     action: 'redirect',
   },
   {
@@ -67,7 +67,7 @@ const ourServicesData = [
     Icon: null,
     showIcon: false,
     message: '',
-    URL: 'our-services/tempo-traveler',
+    URL: 'our-services/tempo-traveler-booking',
     action: 'redirect',
   },
   {
@@ -78,7 +78,7 @@ const ourServicesData = [
     Icon: 'FaWhatsapp',
     showIcon: true,
     message: `Hi, I got to know about Holiday Planner, I'm interested to know more about Bus Travel Rental bookings`,
-    URL: '',
+    URL: 'our-services/bus-travel-rental',
     action: 'whatsapp',
   },
   {
@@ -89,8 +89,8 @@ const ourServicesData = [
     Icon: 'FaWhatsapp',
     showIcon: true,
     message: `Hi, I got to know about Holiday Planner, I'm interested to know more about Package Service / Duty bookings`,
-    URL: '',
     action: 'whatsapp',
+    URL: 'our-services/package-service-duty',
   },
   {
     id: 6,
@@ -100,8 +100,8 @@ const ourServicesData = [
     Icon: 'FaWhatsapp',
     showIcon: true,
     message: `Hi, I got to know about Holiday Planner, I'm interested to know more about Resort Booking bookings`,
-    URL: '',
     action: 'whatsapp',
+    URL: 'our-services/resort-booking',
   },
 ];
 
