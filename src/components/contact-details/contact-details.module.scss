@@ -43,8 +43,22 @@
       text-decoration: underline;
     }
   }
+
+  .copyRight {
+    text-align: center;
+    font-weight: 500;
+    color: var(--color-black-shade-one);
+    font-size: 0.9rem;
+    padding: 20px 0 0;
+
+    & > a {
+      font-style: italic;
+      font-weight: 600;
+    }
+  }
+
   .policyCnt {
-    padding: 30px 0 20px;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -23,6 +23,10 @@ const ContactDetails = () => {
           <p onClick={() => handleCallVendor('7008345662')}>+91 7008345662</p>
         </div>
       </address>
+      <h3 className={classes.copyRight}>
+        © {new Date().getFullYear()} All Rights Reserved. Designed and Developed
+        by <a href="https://abinashshasini.vercel.app/">Abinash Shasini</a>
+      </h3>
       <div className={classes.policyCnt}>
         <p>Booking Policy</p>
         <p>Privacy Policy</p>
