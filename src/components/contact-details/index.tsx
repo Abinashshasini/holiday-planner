@@ -19,8 +19,8 @@ const ContactDetails = () => {
         </h3>
         <div className={classes.contactNumberCnt}>
           <MdPhoneCallback />
-          <p onClick={() => handleCallVendor('8249262728')}>+91 8249262728</p>
-          <p onClick={() => handleCallVendor('7008345662')}>+91 7008345662</p>
+          <p onClick={() => handleCallVendor('8249262728')}>+918249262728</p>
+          <p onClick={() => handleCallVendor('7008345662')}>+917008345662</p>
         </div>
       </address>
       <h3 className={classes.copyRight}>
