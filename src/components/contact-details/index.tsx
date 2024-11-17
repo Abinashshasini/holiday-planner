@@ -14,7 +14,7 @@ const ContactDetails = () => {
       <Heading textOne="Contact" textTwo="Details" />
       <address>
         <h3>
-          Address: Plot number 1692, rath Rode, old town, Bhubaneswar, Odisha
+          Address: Plot number 1692, Rath Rode, Old town, Bhubaneswar, Odisha
           751009
         </h3>
         <div className={classes.contactNumberCnt}>

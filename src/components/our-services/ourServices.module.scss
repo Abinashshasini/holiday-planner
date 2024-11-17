@@ -55,6 +55,15 @@
         color: var(--color-black);
         font-weight: 600;
         background: var(--color-white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+
+        & > svg {
+          color: #20b038;
+          font-size: 0.8rem;
+        }
       }
     }
   }

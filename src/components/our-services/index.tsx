@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+'use server';
 import React from 'react';
 import { ourServicesData } from '@/utils';
 import Heading from '../heading';
 import classes from './ourServices.module.scss';
+import OurServiceButton from './button';
 
 const OurServices = () => {
   return (
@@ -14,7 +16,7 @@ const OurServices = () => {
             <img alt="background_image" src={element.image.src} />
             <div className={classes.buttonSection}>
               <h2>{element.title}</h2>
-              <button>{element.buttonText}</button>
+              <OurServiceButton data={element} />
             </div>
           </li>
         ))}
