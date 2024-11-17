@@ -1,0 +1,57 @@
+.container {
+  padding: 20px;
+  background: url(https://www.odishaholidayplanners.com/wp-content/themes/safreen/images/int-bg.png)
+    no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.772) 0%,
+      rgba(146, 146, 146, 0.17) 100%
+    );
+  }
+
+  address {
+    text-decoration: none;
+    font-style: normal;
+
+    & > h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-black-shade-one);
+      margin-bottom: 10px;
+    }
+  }
+
+  .contactNumberCnt {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--color-black-shade-one);
+
+    & > p {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+  .policyCnt {
+    padding: 30px 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-black-shade-one);
+    gap: 2rem;
+    text-decoration: underline;
+  }
+}
