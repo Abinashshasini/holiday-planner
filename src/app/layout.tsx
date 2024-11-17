@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import Header from '@/components/header';
+import WhatsAppButton from '@/components/whatsapp';
+import CallButton from '@/components/call-button';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -27,7 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Header />
         {children}
+        <WhatsAppButton />
+        <CallButton />
       </body>
     </html>
   );
