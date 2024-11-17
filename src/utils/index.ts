@@ -31,6 +31,7 @@ import { CiBookmarkCheck } from 'react-icons/ci';
 import { PiPersonArmsSpread } from 'react-icons/pi';
 import { IoCarSportOutline } from 'react-icons/io5';
 import { FaFreeCodeCamp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa6';
 
 const LogoImage = logoImage;
 const MenuImage = menuImage;
@@ -42,36 +43,54 @@ const ourServicesData = [
     image: catTwoImage,
     title: 'Car Rental And Booking',
     buttonText: 'View More',
+    Icon: '',
+    showIcon: false,
+    message: '',
   },
   {
     id: 2,
     image: catOneImage,
     title: 'Luxury Car Wedding Car',
     buttonText: 'View More',
+    Icon: '',
+    showIcon: false,
+    message: '',
   },
   {
     id: 3,
     image: catThreeImage,
     title: 'Tempo Traveler Booking',
     buttonText: 'View More',
+    Icon: '',
+    showIcon: false,
+    message: '',
   },
   {
     id: 4,
     image: catFourImage,
     title: 'Bus Travel Rental',
-    buttonText: 'View More',
+    buttonText: 'Contact Us',
+    Icon: FaWhatsapp,
+    showIcon: false,
+    message: `Hi, I got to know about Holiday Planner, I'm interested to know more about *Bus Travel Rental* bookings`,
   },
   {
     id: 5,
     image: catFiveImage,
     title: 'Package Service / Duty',
-    buttonText: 'View More',
+    buttonText: 'Contact Us',
+    Icon: FaWhatsapp,
+    showIcon: false,
+    message: `Hi, I got to know about Holiday Planner, I'm interested to know more about *Package Service / Duty* bookings`,
   },
   {
     id: 6,
     image: catSixImage,
     title: 'Resort Booking',
-    buttonText: 'View More',
+    buttonText: 'Contact Us',
+    Icon: FaWhatsapp,
+    showIcon: false,
+    message: `Hi, I got to know about Holiday Planner, I'm interested to know more about *Resort Booking* bookings`,
   },
 ];
 
