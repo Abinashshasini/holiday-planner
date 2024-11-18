@@ -21,6 +21,9 @@ import catSixImage from '../images/typeSix.webp';
 import brahmapurImage from '../images/brahmapur.jpg';
 import daringhbadiImage from '../images/daringhibadi.jpg';
 import rfqCardPhoto from '../images/rfqBg.jpg';
+import innovaPhoto from '../images/inova-crysta.jpg';
+
+/** Car Images */
 
 /** Icons */
 import { FaRegCalendarCheck } from 'react-icons/fa';
@@ -452,6 +455,44 @@ const serviceDetailsData = {
             price: '₹500',
           },
         ],
+      },
+    ],
+  },
+  'luxury-car-wedding-car': {
+    hTextOne: '',
+    hTextTwo: '',
+    type: 'images',
+    tData: [
+      {
+        id: 1,
+        carName: 'Toyota Innova Crysta',
+        capacity: 'Max Seating Capacity - 7 G + 1 D',
+        image: innovaPhoto,
+      },
+      {
+        id: 2,
+        carName: 'A/C Swift Dzire',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+      },
+      {
+        id: 3,
+        carName: 'A/C Honda Amaze',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+      },
+      {
+        id: 4,
+        carName: 'A/C Tyota Etios',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+      },
+      {
+        id: 5,
+        carName: 'A/C Tyota Innova Crysta',
+        capacity: '',
+      },
+      {
+        id: 5,
+        carName: 'AUDI A6',
+        capacity: '',
       },
     ],
   },
