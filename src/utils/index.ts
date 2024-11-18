@@ -291,6 +291,12 @@ const userRatingData = [
   },
 ];
 
+const serviceDetailsData = {
+  'car-rental-and-booking': {},
+  'luxury-car-wedding-car': {},
+  'tempo-traveler-booking': {},
+};
+
 export {
   LogoImage,
   MenuImage,
@@ -300,4 +306,5 @@ export {
   ourPackagesData,
   whyChooseUsData,
   userRatingData,
+  serviceDetailsData,
 };

@@ -15,7 +15,7 @@ const OurServiceButton = ({ data }: { data: OurServices }) => {
     e: React.MouseEvent<HTMLAnchorElement>
   ): void => {
     e.preventDefault();
-    if ((data.action = 'whatsapp')) {
+    if (data.action === 'whatsapp') {
       handleRedirectTheUserToWhatsApp({
         messageType: 'dynamic',
         dynamicMessage: data.message,
