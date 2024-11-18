@@ -22,6 +22,11 @@ import brahmapurImage from '../images/brahmapur.jpg';
 import daringhbadiImage from '../images/daringhibadi.jpg';
 import rfqCardPhoto from '../images/rfqBg.jpg';
 import innovaPhoto from '../images/inova-crysta.jpg';
+import audiA4Photo from '../images/audi-a4.jpg';
+import audiA6Photo from '../images/audi-a6.jpg';
+import hyundaiElantraPhoto from '../images/hyundai-elantra.webp';
+import hondaCityPhoto from '../images/honda-cty.jpeg';
+import hyundaiVernaPhoto from '../images/hyundai-verna.jpg';
 
 /** Car Images */
 
@@ -462,37 +467,42 @@ const serviceDetailsData = {
     hTextOne: '',
     hTextTwo: '',
     type: 'images',
-    tData: [
+    imageData: [
+      {
+        id: 2,
+        carName: 'Hyundai Elantra',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+        image: hyundaiElantraPhoto,
+      },
+      {
+        id: 3,
+        carName: 'Audi A4',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+        image: audiA4Photo,
+      },
+      {
+        id: 4,
+        carName: 'Audi A6',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+        image: audiA6Photo,
+      },
+      {
+        id: 5,
+        carName: 'Honda City',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+        image: hondaCityPhoto,
+      },
+      {
+        id: 5,
+        carName: 'Hyundai Verna',
+        capacity: 'Max Seating Capacity - 4 G + 1 D',
+        image: hyundaiVernaPhoto,
+      },
       {
         id: 1,
         carName: 'Toyota Innova Crysta',
         capacity: 'Max Seating Capacity - 7 G + 1 D',
         image: innovaPhoto,
-      },
-      {
-        id: 2,
-        carName: 'A/C Swift Dzire',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-      },
-      {
-        id: 3,
-        carName: 'A/C Honda Amaze',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-      },
-      {
-        id: 4,
-        carName: 'A/C Tyota Etios',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-      },
-      {
-        id: 5,
-        carName: 'A/C Tyota Innova Crysta',
-        capacity: '',
-      },
-      {
-        id: 5,
-        carName: 'AUDI A6',
-        capacity: '',
       },
     ],
   },
