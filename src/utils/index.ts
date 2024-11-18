@@ -292,9 +292,169 @@ const userRatingData = [
 ];
 
 const serviceDetailsData = {
-  'car-rental-and-booking': {},
-  'luxury-car-wedding-car': {},
-  'tempo-traveler-booking': {},
+  'car-rental-and-booking': {
+    hTextOne: '',
+    hTextTwo: '',
+    type: 'table',
+    tData: [
+      {
+        id: 1,
+        carName: 'A/C Hyundai Xcent',
+        data: [
+          {
+            info: '8 Hrs - 80 km',
+            price: '₹1800',
+          },
+          {
+            info: '12 Hrs - 120 km',
+            price: '₹2200',
+          },
+          {
+            info: 'Extra Kilometer',
+            price: '₹11 / Km',
+          },
+          {
+            info: 'Extra Hours',
+            price: '₹100 / Hr',
+          },
+          {
+            info: 'Night Charges',
+            price: '₹250',
+          },
+        ],
+      },
+      {
+        id: 2,
+        carName: 'A/C Swift Dzire',
+        data: [
+          {
+            info: '8 Hrs - 80 km',
+            price: '₹1900',
+          },
+          {
+            info: '12 Hrs - 120 km',
+            price: '₹2300',
+          },
+          {
+            info: 'Extra Kilometer',
+            price: '₹12 / Km',
+          },
+          {
+            info: 'Extra Hours',
+            price: '₹150 / Hr',
+          },
+          {
+            info: 'Night Charges',
+            price: '₹250',
+          },
+        ],
+      },
+      {
+        id: 3,
+        carName: 'A/C Honda Amaze',
+        data: [
+          {
+            info: '8 Hrs - 80 km',
+            price: '₹2000',
+          },
+          {
+            info: '12 Hrs - 120 km',
+            price: '₹2500',
+          },
+          {
+            info: 'Extra Kilometer',
+            price: '₹13 / Km',
+          },
+          {
+            info: 'Extra Hours',
+            price: '₹150 / Hr',
+          },
+          {
+            info: 'Night Charges',
+            price: '₹250',
+          },
+        ],
+      },
+      {
+        id: 4,
+        carName: 'A/C Tyota Etios',
+        data: [
+          {
+            info: '8 Hrs - 80 km',
+            price: '₹2100',
+          },
+          {
+            info: '12 Hrs - 120 km',
+            price: '₹2600',
+          },
+          {
+            info: 'Extra Kilometer',
+            price: '₹12 / Km',
+          },
+          {
+            info: 'Extra Hours',
+            price: '₹150 / Hr',
+          },
+          {
+            info: 'Night Charges',
+            price: '₹250',
+          },
+        ],
+      },
+      {
+        id: 5,
+        carName: 'A/C Tyota Innova Crysta',
+        data: [
+          {
+            info: '8 Hrs - 80 km',
+            price: '₹3200',
+          },
+          {
+            info: '12 Hrs - 120 km',
+            price: '₹4100',
+          },
+          {
+            info: 'Extra Kilometer',
+            price: '₹18 / Km',
+          },
+          {
+            info: 'Extra Hours',
+            price: '₹200 / Hr',
+          },
+          {
+            info: 'Night Charges',
+            price: '₹400',
+          },
+        ],
+      },
+      {
+        id: 5,
+        carName: 'AUDI A6',
+        data: [
+          {
+            info: '8 Hrs - 80 km',
+            price: '₹11000',
+          },
+          {
+            info: '12 Hrs - 120 km',
+            price: '₹13000',
+          },
+          {
+            info: 'Extra Kilometer',
+            price: '₹90 / Km',
+          },
+          {
+            info: 'Extra Hours',
+            price: '₹300 / Hr',
+          },
+          {
+            info: 'Night Charges',
+            price: '₹500',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export {

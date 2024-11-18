@@ -11,3 +11,14 @@ export type OurServices = {
   action: string;
   message: string;
 };
+
+export type TcarInfo = {
+  info: string;
+  price: string;
+};
+
+export type TCarRental = {
+  id: number;
+  carName: string;
+  data: TcarInfo[];
+};
