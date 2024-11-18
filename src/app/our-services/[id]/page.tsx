@@ -23,6 +23,10 @@ const OurServices = ({ params }: { params: { id: string } }) => {
 
   if (params.id === 'car-rental-and-booking') {
     data = serviceDetailsData.carRental;
+  } else if (params.id === 'luxury-car-wedding-car') {
+    data = serviceDetailsData.luxuryCar;
+  } else {
+    data = serviceDetailsData.tempoTraveler;
   }
 
   return (
