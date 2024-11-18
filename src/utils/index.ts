@@ -27,6 +27,8 @@ import audiA6Photo from '../images/audi-a6.jpg';
 import hyundaiElantraPhoto from '../images/hyundai-elantra.webp';
 import hondaCityPhoto from '../images/honda-cty.jpeg';
 import hyundaiVernaPhoto from '../images/hyundai-verna.jpg';
+import tataWingerPhoto from '../images/tata-winger.jpg';
+import forcePhoto from '../images/17-force.jpg';
 
 /** Car Images */
 
@@ -300,7 +302,7 @@ const userRatingData = [
 ];
 
 const serviceDetailsData = {
-  'car-rental-and-booking': {
+  carRental: {
     hTextOne: '',
     hTextTwo: '',
     type: 'table',
@@ -463,7 +465,7 @@ const serviceDetailsData = {
       },
     ],
   },
-  'luxury-car-wedding-car': {
+  luxuryCar: {
     hTextOne: '',
     hTextTwo: '',
     type: 'images',
@@ -503,6 +505,37 @@ const serviceDetailsData = {
         carName: 'Toyota Innova Crysta',
         capacity: 'Max Seating Capacity - 7 G + 1 D',
         image: innovaPhoto,
+      },
+    ],
+  },
+  tempoTraveler: {
+    hTextOne: '',
+    hTextTwo: '',
+    type: 'images',
+    imageData: [
+      {
+        id: 1,
+        carName: 'Force 12 Seater',
+        capacity: 'Max Seating Capacity - 12 G + 1 D',
+        image: forcePhoto,
+      },
+      {
+        id: 1,
+        carName: 'Force 17 Seater',
+        capacity: 'Max Seating Capacity - 17 G + 1 D',
+        image: forcePhoto,
+      },
+      {
+        id: 3,
+        carName: 'Tata Winger 26 Seater',
+        capacity: 'Max Seating Capacity - 26 G + 1 D',
+        image: tataWingerPhoto,
+      },
+      {
+        id: 4,
+        carName: 'Force 30 Seater',
+        capacity: 'Max Seating Capacity - 30 G + 1 D',
+        image: forcePhoto,
       },
     ],
   },

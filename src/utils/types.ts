@@ -22,3 +22,12 @@ export type TCarRental = {
   carName: string;
   data: TcarInfo[];
 };
+
+export type TluxuryImages = {
+  id: number;
+  carName: string;
+  capacity: string;
+  image: {
+    src: string;
+  };
+};
