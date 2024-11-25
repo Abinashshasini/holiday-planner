@@ -2,16 +2,17 @@
 import React, { useState } from 'react';
 import Heading from '../heading';
 import classes from './getInTouch.module.scss';
+import toast, { Toaster } from 'react-hot-toast';
 
-type TUserData = {
+interface FormData {
   name: string;
   number: string;
-  message: string;
-};
+  message?: string; // Optional
+}
 
 const GetInTouch = () => {
   /** Required states and refs */
-  const [userData, setUserData] = useState<TUserData>({
+  const [userData, setUserData] = useState<FormData>({
     name: '',
     number: '',
     message: '',
@@ -24,11 +25,52 @@ const GetInTouch = () => {
   ) => {
     e.preventDefault();
     const { name, value } = e.target as HTMLInputElement;
+    if (name === 'number' && value.length > 10) {
+      return;
+    }
     setUserData({ ...userData, [name]: value });
+  };
+
+  /**
+   * Function to validate credentials.
+   * Validate Name, Validate Mobile Number & Return whether the form is valid
+   */
+  const handleValidateCredential = () => {
+    let isValid = true;
+
+    const nameRegex = /^[a-zA-Z]{3,20}$/;
+    if (!nameRegex.test(userData.name)) {
+      toast.error('Please enter a valid name.');
+      isValid = false;
+      return;
+    }
+
+    const mobileRegex = /^[6-9]\d{9}$/;
+    if (!mobileRegex.test(userData.number)) {
+      toast.error('Mobile number must be a valid 10-digit Indian number.');
+      isValid = false;
+      return;
+    }
+
+    return isValid;
+  };
+
+  /** Function to submit the values to server */
+  const handleSubmit = () => {
+    // toast.promise(promise, {
+    //   loading: 'Please wait!!',
+    //   success: 'Hurray uour response successfully submited!',
+    //   error: 'Something went wrong please try again.',
+    // });
+    if (handleValidateCredential()) {
+      console.log('Form Submitted', userData);
+      setUserData({ name: '', number: '', message: '' });
+    }
   };
 
   return (
     <div className={classes.container}>
+      <Toaster position="bottom-center" reverseOrder={false} />
       <Heading textOne="Get In Touch" textTwo="With Us" />
       <div className={classes.wrapper}>
         <div className={classes.inputCnt}>
@@ -49,6 +91,7 @@ const GetInTouch = () => {
             value={number}
             onChange={(e) => handleGetInputValues(e)}
             name="number"
+            pattern="[0-9]*"
           />
         </div>
 
@@ -62,7 +105,7 @@ const GetInTouch = () => {
           />
         </div>
 
-        <button>Request for call back</button>
+        <button onClick={handleSubmit}>Request for call back</button>
       </div>
     </div>
   );
