@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Heading from '../heading';
 import classes from './getInTouch.module.scss';
 import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 interface FormData {
   name: string;
@@ -56,15 +57,28 @@ const GetInTouch = () => {
   };
 
   /** Function to submit the values to server */
-  const handleSubmit = () => {
-    // toast.promise(promise, {
-    //   loading: 'Please wait!!',
-    //   success: 'Hurray uour response successfully submited!',
-    //   error: 'Something went wrong please try again.',
-    // });
+  const handleSubmit = async () => {
     if (handleValidateCredential()) {
       console.log('Form Submitted', userData);
       setUserData({ name: '', number: '', message: '' });
+      try {
+        const response = await axios.post(
+          'https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead',
+          {
+            name,
+            number,
+            message,
+          }
+        );
+        if (response) {
+          toast.success('Hurray uour response successfully submited!');
+        } else {
+          toast.error('Something went wrong please try again.');
+        }
+      } catch (error) {
+        console.log('Error', error);
+        toast.error('Something went wrong please try again.');
+      }
     }
   };
 
