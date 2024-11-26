@@ -1,0 +1,20 @@
+.main {
+  padding: 0 20px 40px;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 1rem;
+}
+
+.filterWrp {
+  padding: 6px 10px;
+  border-radius: 1rem;
+  border: 1px solid #e6e6e6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-black-shade-one);
+}
