@@ -11,10 +11,72 @@
 }
 
 .filterWrp {
-  padding: 6px 10px;
+  padding: 6px 1rem;
   border-radius: 1rem;
   border: 1px solid #e6e6e6;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-black-shade-one);
+  transition: all 0.3s;
+}
+
+.filterWrp[data-active='true'] {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.leadsCnt {
+}
+
+.leadsWrp {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+
+  .index {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  .textWrp {
+    flex: 1;
+
+    & > h2 {
+      font-size: 1rem;
+      color: var(--color-black-shade-one);
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 3px;
+    }
+
+    & > p {
+      font-size: 1rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.noDataText {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  font-size: 1rem;
+  font-weight: 500;
 }

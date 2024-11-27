@@ -35,7 +35,7 @@ const filterArray = [
 const LeadsDashBoard = () => {
   /** Required states and refs */
   const [leads, setLeads] = useState<Leads[]>([]);
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
 
   /** Function to fetch all leads */
   const handleFetchLeads = async (): Promise<void> => {
@@ -65,20 +65,32 @@ const LeadsDashBoard = () => {
     <main className={classes.main}>
       <div className={classes.filterContainer}>
         {filterArray.map((element) => (
-          <div className={classes.filterWrp} key={element._id}>
+          <div
+            className={classes.filterWrp}
+            key={element._id}
+            data-active={element._id === activeFilter}
+            onClick={() => setActiveFilter(element._id)}
+          >
             <p>{element.text}</p>
           </div>
         ))}
       </div>
-      <section>
-        {leads?.length > 0 &&
-          leads.map((element) => (
-            <div key={element._id}>
-              <h1>{element.name}</h1>
-              <h2>{element.number}</h2>
-              <h2>{element.message}</h2>
+      <section className={classes.leadsCnt}>
+        {leads?.length > 0 ? (
+          leads.map((element, index) => (
+            <div key={element._id} className={classes.leadsWrp}>
+              <div className={classes.index}>{index + 1}</div>
+              <div className={classes.textWrp}>
+                <h2>{element.name}</h2>
+                <p>{element.number}</p>
+              </div>
             </div>
-          ))}
+          ))
+        ) : (
+          <div className={classes.noDataText}>
+            <p>No Data Available...</p>
+          </div>
+        )}
       </section>
     </main>
   );
