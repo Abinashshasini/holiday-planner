@@ -71,7 +71,7 @@ const GetInTouch = () => {
           }
         );
         if (response) {
-          toast.success('Hurray uour response successfully submited!');
+          toast.success('Hurray your response successfully submited!');
         } else {
           toast.error('Something went wrong please try again.');
         }
