@@ -18,8 +18,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Holiday Planner',
-  description: 'Why chose holiday palner',
+  title: 'Holiday Planner | Plan Your Perfect Getaway',
+  description:
+    'Discover why Holiday Planner is your ultimate choice for stress-free, personalized vacation planning. Explore top destinations, curated itineraries, and exclusive deals.',
 };
 
 export default function RootLayout({
