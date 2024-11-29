@@ -20,7 +20,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'Holiday Planner | Plan Your Perfect Getaway',
   description:
-    'Discover why Holiday Planner is your ultimate choice for stress-free, personalized vacation planning. Explore top destinations, curated itineraries, and exclusive deals.',
+    'Experience hassle-free car booking services at affordable prices with holiday planner. Book exotic cars and premium vehicles online for your journeys, events, or special occasions. Rent luxury cars effortlessly and enjoy top-notch service tailored to your needs.',
 };
 
 export default function RootLayout({
