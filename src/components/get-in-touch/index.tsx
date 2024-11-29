@@ -39,7 +39,7 @@ const GetInTouch = () => {
   const handleValidateCredential = () => {
     let isValid = true;
 
-    const nameRegex = /^[a-zA-Z]{3,60}$/;
+    const nameRegex = /^[a-zA-Z\s]{3,60}$/;
     if (!nameRegex.test(userData.name)) {
       toast.error('Please enter a valid name.');
       isValid = false;
