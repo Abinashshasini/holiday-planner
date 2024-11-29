@@ -59,8 +59,6 @@ const GetInTouch = () => {
   /** Function to submit the values to server */
   const handleSubmit = async () => {
     if (handleValidateCredential()) {
-      console.log('Form Submitted', userData);
-      setUserData({ name: '', number: '', message: '' });
       try {
         const response = await axios.post(
           'https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead',
@@ -72,6 +70,7 @@ const GetInTouch = () => {
         );
         if (response) {
           toast.success('Hurray your response successfully submited!');
+          setUserData({ name: '', number: '', message: '' });
         } else {
           toast.error('Something went wrong please try again.');
         }
