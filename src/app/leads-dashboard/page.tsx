@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
+import { MdAddCall } from 'react-icons/md';
 import classes from './style.module.scss';
 
 interface Leads {
@@ -19,12 +20,12 @@ interface ApiResponse {
 
 const filterArray = [
   {
-    _id: 'all',
-    text: 'All',
-  },
-  {
     _id: 'today',
     text: 'Today',
+  },
+  {
+    _id: 'all',
+    text: 'All',
   },
   {
     _id: 'yesterday',
@@ -35,19 +36,22 @@ const filterArray = [
 const LeadsDashBoard = () => {
   /** Required states and refs */
   const [leads, setLeads] = useState<Leads[]>([]);
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [activeFilter, setActiveFilter] = useState<string>('today');
 
   /** Function to fetch all leads */
   const handleFetchLeads = async (): Promise<void> => {
+    setLoading(true);
     try {
       const response: AxiosResponse<ApiResponse> = await axios.get(
-        'https://holiday-planner-be.vercel.app/api/v1/leads/get-leads'
+        `https://holiday-planner-be.vercel.app/api/v1/leads/get-leads?filter=${activeFilter}`
       );
-
+      setLoading(false);
       if (response.data.statusCode === 200) {
         setLeads(response.data.data);
       }
     } catch (error) {
+      setLoading(false);
       if (axios.isAxiosError(error)) {
         console.error('Axios error:', error.message);
       } else {
@@ -56,10 +60,15 @@ const LeadsDashBoard = () => {
     }
   };
 
+  /** Function to call Rishi */
+  const handleCallUser = (number: number): void => {
+    window.location.href = `tel:${number}`;
+  };
+
   /** Effect to fetch all leads data */
   useEffect(() => {
     handleFetchLeads();
-  }, []);
+  }, [activeFilter]);
 
   return (
     <main className={classes.main}>
@@ -75,23 +84,49 @@ const LeadsDashBoard = () => {
           </div>
         ))}
       </div>
-      <section className={classes.leadsCnt}>
-        {leads?.length > 0 ? (
-          leads.map((element, index) => (
-            <div key={element._id} className={classes.leadsWrp}>
-              <div className={classes.index}>{index + 1}</div>
-              <div className={classes.textWrp}>
-                <h2>{element.name}</h2>
-                <p>{element.number}</p>
-              </div>
+      {leads && Array.isArray(leads) && (
+        <div className={classes.totalCount}>
+          <h3>{leads.length}</h3>
+          <p>Total</p>
+        </div>
+      )}
+
+      {(() => {
+        if (loading) {
+          return (
+            <div className={classes.loaderContainer}>
+              <div className={classes.loaderWrp}></div>
             </div>
-          ))
-        ) : (
+          );
+        }
+
+        if (leads && Array.isArray(leads) && leads.length > 0) {
+          return (
+            <section className={classes.leadsCnt}>
+              {leads.map((element) => (
+                <div key={element._id} className={classes.leadsWrp}>
+                  <div
+                    className={classes.index}
+                    onClick={() => handleCallUser(element.number)}
+                  >
+                    <MdAddCall />
+                  </div>
+                  <div className={classes.textWrp}>
+                    <h2>{element.name}</h2>
+                    <p>{element.number}</p>
+                  </div>
+                </div>
+              ))}
+            </section>
+          );
+        }
+
+        return (
           <div className={classes.noDataText}>
             <p>No Data Available...</p>
           </div>
-        )}
-      </section>
+        );
+      })()}
     </main>
   );
 };

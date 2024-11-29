@@ -118,7 +118,6 @@ const GetInTouch = () => {
             onChange={(e) => handleGetInputValues(e)}
           />
         </div>
-
         <button onClick={handleSubmit}>Request for call back</button>
       </div>
     </div>

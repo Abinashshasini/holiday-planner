@@ -26,7 +26,29 @@
   color: var(--color-white);
 }
 
-.leadsCnt {
+.totalCount {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 20px 0;
+
+  & > h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+  }
+
+  & > p {
+    font-size: 1rem;
+    color: var(--color-black-shade-one);
+    font-weight: 500;
+  }
 }
 
 .leadsWrp {
@@ -42,7 +64,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-black-shade-one);
     color: var(--color-white);
     font-size: 1.1rem;
     font-weight: 600;
@@ -79,4 +101,29 @@
   padding: 2rem 0;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.loaderContainer {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loaderWrp {
+    height: 2rem;
+    width: 2rem;
+    border: 3px solid #ddd;
+    border-radius: 50%;
+    border-top: 3px solid var(--color-primary);
+    animation: loginloaderAnimation 1s linear infinite;
+  }
+}
+
+@keyframes loginloaderAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
