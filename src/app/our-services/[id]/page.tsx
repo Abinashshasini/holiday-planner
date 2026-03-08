@@ -1,4 +1,4 @@
-'use server';
+
 import React from 'react';
 import Heading from '@/components/heading';
 import { serviceDetailsData } from '@/utils';

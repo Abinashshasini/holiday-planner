@@ -1,52 +1,126 @@
+.section {
+  padding: 0 0 var(--section-py);
+  background-color: var(--color-white);
+}
+
 .container {
-  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--section-px);
 }
 
 .wrapper {
-  height: 166px;
-  width: 100%;
-  background: url(../../images/rfqBg.jpg) no-repeat;
-  object-fit: cover;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-2xl);
+  padding: 64px 48px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: var(--color-white);
-  gap: 10px;
-  background-size: cover;
+  justify-content: space-between;
+  gap: 40px;
   position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
 
-  & > h2 {
-    font-weight: 800;
-    color: var(--color-white);
-    font-size: 20px;
-    z-index: 3;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 56px 32px;
   }
 
-  & > p {
-    font-weight: 300;
-    font-size: 1rem;
-    color: var(--color-white);
-    z-index: 3;
+  /* Decorative fluid blobs */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    z-index: 0;
   }
 
-  & > button {
-    border: 1px solid #f2f2f2;
-    border-radius: 8px;
-    font-size: 14px;
-    color: var(--color-black);
-    height: 35px;
-    outline: none;
-    width: calc(100% - 70px);
-    background: #f2f2f2;
-    z-index: 3;
+  &::before {
+    width: 600px;
+    height: 600px;
+    top: -250px;
+    right: -150px;
   }
 
   &::after {
-    position: absolute;
-    content: ' ';
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2;
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -100px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.headline {
+  font-family: var(--font-main);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+
+  @media (max-width: 900px) {
+    margin-bottom: 24px;
+  }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  font-weight: 800;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition-fast);
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+    background: var(--color-gray-50);
+    color: var(--color-primary);
+  }
+
+  svg {
+    font-size: 1.4rem;
+    color: #25D366; /* WhatsApp brand color inside CTA */
   }
 }

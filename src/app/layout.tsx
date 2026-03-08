@@ -1,26 +1,15 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
-import Header from '@/components/header';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 import WhatsAppButton from '@/components/whatsapp';
 import CallButton from '@/components/call-button';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 200 300 400 500 600 900',
-});
-
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 200 300 400 500 600 900',
-});
-
 export const metadata: Metadata = {
-  title: 'Holiday Planner | Plan Your Perfect Getaway',
+  title: 'Holiday Planner | #1 Travel & Car Rental in Odisha',
   description:
-    'Experience hassle-free car booking services at affordable prices with holiday planner. Book exotic cars and premium vehicles online for your journeys, events, or special occasions. Rent luxury cars effortlessly and enjoy top-notch service tailored to your needs.',
+    'Discover Odisha with curated tour packages, premium car rentals, and luxury vehicles. Book your dream trip with Holiday Planner — Bhubaneswar\'s most trusted travel partner with 500+ happy travelers and 4.8★ Google rating.',
+  keywords: 'Odisha tours, car rental Bhubaneswar, Puri tour package, Odisha travel planner, tempo traveller Bhubaneswar, luxury car rental Odisha',
 };
 
 export default function RootLayout({
@@ -30,12 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
-        {children}
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
         <WhatsAppButton />
         <CallButton />
       </body>
     </html>
   );
 }
+

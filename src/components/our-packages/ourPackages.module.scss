@@ -1,100 +1,216 @@
-.container {
-  padding-bottom: 30px;
+.section {
+  padding: var(--section-py) 0;
+  background-color: var(--color-gray-50);
+}
 
-  & > h1 {
-    padding-left: 20px;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--section-px);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.titleWrapper {
+  max-width: 600px;
+}
+
+.subtitle {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-main);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+
+  span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-.wrapper {
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  svg {
+    transition: transform var(--transition-fast);
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    color: var(--color-primary-dark);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.card {
   display: flex;
-  overflow-x: scroll;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: box-shadow var(--transition-smooth);
 
-  & > li {
-    background-size: cover;
-    background-position: center;
-    height: 380px;
-    min-width: 70%;
-    border-radius: 20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-right: 20px;
+  &:hover {
+    box-shadow: var(--shadow-xl);
 
-    .detailsWrp {
-      z-index: 3;
-      color: var(--color-white);
-      padding: 0 20px;
-      margin-bottom: 20px;
-      width: 100%;
-
-      & > .detailsWrpTextOne {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-
-        & > h3 {
-          color: var(--color-white);
-          font-size: 1rem;
-        }
-
-        & > span {
-          color: #f1e4bc;
-          font-size: 12px;
-        }
-      }
-
-      & > .detailsWrpLocation {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 10px;
-
-        & > .locationIcon {
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          background: #fff;
-          margin-right: 10px;
-        }
-
-        & > p {
-          font-size: 15px;
-          font-weight: 400;
-          color: var(--color-white);
-          position: relative;
-          top: -2px;
-        }
-      }
-
-      & > .priceCnt {
-        border-radius: 50px;
-        background-color: var(--color-primary);
-        padding: 7px 30px;
-        color: var(--color-white);
-        font-weight: 600;
-        font-size: 15px;
-        width: fit-content;
-      }
+    .cardImage {
+      transform: scale(1.05);
     }
   }
+}
 
-  & > li::after {
-    content: ' ';
-    display: block;
-    inset: 0;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    border-radius: 20px;
+.imageWrapper {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  margin: 8px 8px 0 8px; /* Slightly inset from the card edge for a premium look */
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 23, 42, 0.6) 100%);
+  z-index: 1;
+}
+
+.durationBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cardBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.cardLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  color: var(--color-gray-600);
+
+  svg {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    flex-shrink: 0;
   }
 
-  & > li:first-child {
-    margin-left: 20px;
+  span {
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 }
 
-.wrapper::-webkit-scrollbar {
-  display: none;
+.bookBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-gray-50);
+  color: var(--color-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid var(--color-gray-200);
+  cursor: pointer;
+  margin-top: auto;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    border-color: transparent;
+    box-shadow: var(--shadow-primary);
+  }
 }

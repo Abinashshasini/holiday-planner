@@ -1,24 +1,31 @@
-import styles from './page.module.css';
+import Hero from '@/components/hero';
 import OurServices from '@/components/our-services';
 import PopularCities from '@/components/popular-cities';
 import RFQCard from '@/components/rfq-card';
 import OurPackages from '@/components/our-packages';
+import SearchBar from '@/components/search-bar';
+import TrustRibbon from '@/components/trust-ribbon';
 import GetInTouch from '@/components/get-in-touch';
 import WhyChooseUs from '@/components/why-choose';
 import Ratings from '@/components/ratings';
-import ContactDetails from '@/components/contact-details';
+import FAQ from '@/components/faq';
 
 export default function Home() {
   return (
-    <div className={styles.container__main}>
+    <div>
+      <Hero />
+      <SearchBar />
+      <TrustRibbon />
+      <OurPackages />
       <PopularCities />
       <OurServices />
-      <OurPackages />
-      <GetInTouch />
       <WhyChooseUs />
       <RFQCard />
       <Ratings />
-      <ContactDetails />
+      <FAQ />
+      <GetInTouch />
     </div>
   );
 }
+
+// netstat -ano | findstr :3000

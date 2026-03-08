@@ -1,73 +1,142 @@
-.container {
-  padding: 20px;
+.section {
+  padding: var(--section-py) 0;
+  background-color: var(--color-white);
+  position: relative;
 }
 
-.servicesWraper {
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--section-px);
+}
+
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px;
+}
+
+.subtitle {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-main);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+
+  span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.desc {
+  font-size: 1.1rem;
+  color: var(--color-gray-600);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-xl);
+  padding: 32px 24px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  gap: 1.1rem;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  cursor: pointer;
 
-  & > li {
-    width: calc(50% - 10px);
-    list-style: none;
-    position: relative;
-    overflow: hidden;
-    border-radius: 9px;
-    height: 190px;
-    object-fit: cover;
-    z-index: 1;
-
-    & > img {
-      object-fit: cover;
-      width: 100%;
-      height: inherit;
+  &:hover {
+    background: var(--color-white);
+    
+    .iconWrapper {
+      background: var(--gradient-primary);
+      color: var(--color-white);
+      transform: scale(1.1) rotate(5deg);
     }
+  }
+}
 
-    & > .buttonSection {
-      z-index: 2;
-      height: 82px;
-      background: rgba(0, 118, 215, 0.9);
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-direction: column;
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  transition: all var(--transition-fast);
+}
 
-      & > h2 {
-        font-size: 0.8rem;
-        color: var(--color-white);
-        font-weight: 600;
-      }
+.serviceTitle {
+  font-family: var(--font-main);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
 
-      & > a {
-        width: 90%;
-        & button {
-          width: 100%;
-          height: 30px;
-          border-radius: 40px;
-          border: none;
-          outline: none;
-          font-size: 0.75rem;
-          color: var(--color-black);
-          font-weight: 600;
-          background: var(--color-white);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 6px;
+.serviceDesc {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
 
-          & > svg {
-            color: #20b038;
-            font-size: 0.8rem;
-          }
-        }
-      }
+.action {
+  margin-top: auto;
+  
+  /* Target the internal OurServiceButton if needed */
+  :global(a) {
+    display: block;
+    width: 100%;
+  }
+
+  :global(button) {
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      background: var(--color-primary-light);
+      border-color: var(--color-primary-light);
+    }
+    
+    svg {
+      color: inherit;
     }
   }
 }
