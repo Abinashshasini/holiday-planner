@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: var(--section-py) 0;
+  padding: 80px 0 100px;
   background-color: var(--color-gray-50);
 }
 
@@ -15,7 +15,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 56px;
+  margin-bottom: 60px;
   flex-wrap: wrap;
 }
 
@@ -69,6 +69,10 @@
   &:hover {
     box-shadow: var(--shadow-md);
     color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 

@@ -27,17 +27,17 @@ export default function DestinationsClient() {
     <>
       <Navbar />
       <div className={classes.page}>
-        
+
         {/* Hero */}
         <div className={classes.hero}>
           <div className={classes.heroOverlay} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src="https://images.unsplash.com/photo-1526685472855-6b6fb0b79fd1?q=80&w=1920&auto=format&fit=crop" 
-            alt="Odisha Destinations" 
-            className={classes.heroImage} 
+          <img
+            src="https://images.unsplash.com/photo-1526685472855-6b6fb0b79fd1?q=80&w=1920&auto=format&fit=crop"
+            alt="Odisha Destinations"
+            className={classes.heroImage}
           />
-          <motion.div 
+          <motion.div
             className={classes.heroContent}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function DestinationsClient() {
         </div>
 
         <div className={classes.body}>
-          <motion.div 
+          <motion.div
             className={classes.grid}
             variants={containerVariants}
             initial="hidden"
@@ -60,8 +60,8 @@ export default function DestinationsClient() {
             viewport={{ once: true }}
           >
             {popularCitiesData.map((dest) => (
-              <motion.div 
-                key={dest.id} 
+              <motion.div
+                key={dest.id}
                 className={classes.card}
                 variants={cardVariants}
                 whileHover={{ y: -10 }}
@@ -74,15 +74,15 @@ export default function DestinationsClient() {
                     <h3>{dest.name}</h3>
                   </div>
                 </div>
-                
+
                 <div className={classes.cardBody}>
                   <p className={classes.description}>{dest.history.slice(0, 120)}...</p>
-                  
+
                   <div className={classes.spotsList}>
                     <FaMapMarkerAlt className={classes.icon} />
                     <span>{dest.attractions.slice(0, 2).map(a => a.name).join(' • ')}</span>
                   </div>
-                  
+
                   <Link href={`/destinations/${dest.slug}`} className={classes.exploreBtn}>
                     Explore City <FaArrowRight />
                   </Link>
@@ -92,7 +92,7 @@ export default function DestinationsClient() {
           </motion.div>
         </div>
       </div>
-      <Footer />
+
     </>
   );
 }

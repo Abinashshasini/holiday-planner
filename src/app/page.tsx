@@ -1,6 +1,5 @@
 import Hero from '@/components/hero';
 import OurServices from '@/components/our-services';
-import PopularCities from '@/components/popular-cities';
 import RFQCard from '@/components/rfq-card';
 import OurPackages from '@/components/our-packages';
 import SearchBar from '@/components/search-bar';
@@ -16,9 +15,8 @@ export default function Home() {
       <Hero />
       <SearchBar />
       <TrustRibbon />
-      <OurPackages />
-      <PopularCities />
       <OurServices />
+      <OurPackages />
       <WhyChooseUs />
       <RFQCard />
       <Ratings />
