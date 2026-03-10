@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <motion.header 
+      <motion.header
         className={`${classes.navbar} ${scrolled ? classes.scrolled : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -43,7 +43,6 @@ const Navbar: React.FC = () => {
         <div className={classes.inner}>
           {/* Logo */}
           <Link href="/" className={classes.logo}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={LogoImage.src} alt="Holiday Planner" />
           </Link>
 

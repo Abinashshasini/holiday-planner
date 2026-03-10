@@ -23,14 +23,10 @@ const Footer: React.FC = () => {
 
   return (
     <footer className={classes.footer}>
-      <div className={classes.wave}>
-        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
-          <path d="M0,40 C300,80 900,0 1200,40 L1200,80 L0,80 Z" fill="currentColor" />
-        </svg>
-      </div>
+
 
       <div className={classes.container}>
-        <motion.div 
+        <motion.div
           className={classes.grid}
           variants={containerVariants}
           initial="hidden"
@@ -98,7 +94,7 @@ const Footer: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className={classes.bottom}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { popularCitiesData } from '@/utils';
 import DestinationDetailsClient from './DestinationDetailsClient';
+import Link from 'next/link';
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
@@ -44,5 +45,5 @@ export default async function DestinationPage({ params }: { params: Promise<{ ci
   return <DestinationDetailsClient cityInfo={cityInfo} />;
 }
 
-  return <DestinationDetailsClient cityInfo={cityInfo} />;
-}
+
+

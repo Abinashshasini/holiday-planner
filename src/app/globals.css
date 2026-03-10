@@ -2,18 +2,22 @@
 
 :root {
   /* Core Brand Colors - Premium & Lucrative */
-  --color-primary: #2563EB; /* Electric Blue */
+  --color-primary: #2563EB;
+  /* Electric Blue */
   --color-primary-dark: #1D4ED8;
   --color-primary-light: #EFF6FF;
-  
-  --color-accent: #FF6B6B; /* Vibrant Coral */
+
+  --color-accent: #FF6B6B;
+  /* Vibrant Coral */
   --color-accent-dark: #E11D48;
   --color-accent-light: #FFE4E6;
 
-  --color-secondary: #0EA5E9; /* Sky Blue */
+  --color-secondary: #0EA5E9;
+  /* Sky Blue */
 
   /* Neutrals - High Contrast */
-  --color-dark: #0F172A; /* Deep Navy */
+  --color-dark: #0F172A;
+  /* Deep Navy */
   --color-dark-2: #1E293B;
   --color-black: #020617;
   --color-white: #FFFFFF;
@@ -28,8 +32,8 @@
   --gradient-primary: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%);
   --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #E11D48 100%);
   --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  --gradient-mesh: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-  
+  --gradient-mesh: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+
   /* Overlays */
   --overlay-dark: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.9) 100%);
   --overlay-light: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
@@ -56,14 +60,16 @@
   /* Core Spacing */
   --section-px: clamp(20px, 5vw, 64px);
   --section-py: clamp(64px, 10vw, 120px);
-  
+
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Base Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -92,11 +98,13 @@ a {
   text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   display: block;
 }

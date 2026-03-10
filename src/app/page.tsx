@@ -28,4 +28,3 @@ export default function Home() {
   );
 }
 
-// netstat -ano | findstr :3000
