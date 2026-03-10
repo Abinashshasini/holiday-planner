@@ -9,24 +9,17 @@ type TProps = {
   message: string;
   rating: string;
   time: string;
+  packageInfo?: string;
   index: number;
+  isFeatured?: boolean;
 };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95, y: 20 },
-  show: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
-};
-
-const UserRatingCard: FC<TProps> = ({ name, message, rating, time, index }) => {
-  const colorArray = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6'];
+const UserRatingCard: FC<TProps> = ({ name, message, rating, time, packageInfo, index }) => {
+  const colorArray = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6', '#14B8A6'];
   const avatarBg = colorArray[index % colorArray.length];
 
   return (
-    <motion.div 
-      className={classes.card}
-      variants={itemVariants}
-      whileHover={{ y: -6, boxShadow: '0 12px 24px rgba(0,0,0,0.06)' }}
-    >
+    <div className={classes.card}>
       <div className={classes.cardHeader}>
         <div className={classes.avatar} style={{ background: avatarBg }}>
           {name.charAt(0)}
@@ -39,8 +32,15 @@ const UserRatingCard: FC<TProps> = ({ name, message, rating, time, index }) => {
           {rating} <FaStar />
         </div>
       </div>
+      
+      {packageInfo && (
+        <div className={classes.packageBadge}>
+          <span className={classes.verifiedText}>Verified Trip:</span> {packageInfo}
+        </div>
+      )}
+      
       <p className={classes.reviewText}>"{message}"</p>
-    </motion.div>
+    </div>
   );
 };
 

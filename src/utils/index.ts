@@ -120,36 +120,156 @@ const popularCitiesData = [
     id: 1,
     image: bbsrImage,
     name: 'Bhubaneswar',
+    slug: 'bhubaneswar',
+    history: 'Known as the "Temple City of India," Bhubaneswar has a unique architectural legacy spanning over 2,500 years. The city once boasted over 2,000 ancient stone temples, showcasing the pinnacle of Kalinga architecture. Today, it stands as a bustling capital city that perfectly bridges ancient heritage with modern urban planning. It is also a significant Buddhist and Jain center, with historical sites like Dhauli and Udayagiri testifying to its diverse spiritual roots.',
+    bestTimeToVisit: 'October to March (Winter) - Ideal for sightseeing and attending the Mukteswar Dance Festival in January.',
+    localFood: ['Dahi Bara Aloo Dum', 'Dalma', 'Chhena Poda', 'Pakhala Bhata', 'Gupchup'],
+    travelTips: [
+      'Dress modestly while visiting temples (preferably cotton).',
+      'Hire a local guide at the caves to understand the ancient inscriptions.',
+      'Try the temple "Prasad" at the Ananta Vasudev Temple.',
+      'Use the local "Mo Bus" service for affordable and clean city travel.'
+    ],
+    attractions: [
+      { name: 'Lingaraj Temple', desc: 'An 11th-century architectural marvel dedicated to Lord Shiva, featuring a soaring 54-meter tower and intricate stone carvings.', image: bbsrImage },
+      { name: 'Udayagiri & Khandagiri Caves', desc: 'Ancient Jain rock-cut caves from the 1st century BCE filled with ornate carvings and historic inscriptions.', image: bbsrImage },
+      { name: 'Dhauli Shanti Stupa', desc: 'The historic site where Emperor Ashoka converted to Buddhism. Features a stunning white peace pagoda with river views.', image: bbsrImage },
+      { name: 'Nandankanan Zoological Park', desc: 'A premier zoo and botanical garden, world-famous for its white tiger population and open-air safari.', image: bbsrImage },
+      { name: 'Mukteshwar Temple', desc: 'Often called the "Gem of Odia Architecture," known for its exquisite arched gateway and detailed carvings.', image: bbsrImage },
+      { name: 'Rajarani Temple', desc: 'Famous for its unique "love temple" moniker and the beautiful sculptures of Dikpalas on its walls.', image: bbsrImage }
+    ]
   },
   {
     id: 2,
     image: puriImage,
     name: 'Puri',
+    slug: 'puri',
+    history: 'Puri is one of the original Char Dham pilgrimage sites for Hindus and has been a center of spiritual awakening for centuries. Its heartbeat is the 12th-century Jagannath Temple, a marvel of engineering and devotion. Beyond the temple walls, Puri’s golden sands and the rhythmic waves of the Bay of Bengal offer a serene retreat. The city is also famous for the annual Rath Yatra (Chariot Festival), which draws millions of devotees from around the globe, making it a place where divinity meets humanity.',
+    bestTimeToVisit: 'October to March for pleasant beach weather. June/July for the world-famous Rath Yatra festival.',
+    localFood: ['Khaja', 'Mahaprasad (Abadha)', 'Chhena Poda', 'Puri Upma', 'Fried Seafood'],
+    travelTips: [
+      'Non-Hindus are not allowed inside the Jagannath Temple but can view it from the Raghunandan Library roof.',
+      'Always negotiate with rickshaw pullers before starting your journey.',
+      'Visit the beach early morning to witness the stunning sunrise.',
+      'Be wary of unregulated "Pandas" (priests) around the temple area.'
+    ],
+    attractions: [
+      { name: 'Jagannath Temple', desc: 'A colossal 12th-century shrine and one of the holiest places in India, known for its unique wooden deities and massive kitchen.', image: puriImage },
+      { name: 'Golden Beach', desc: 'A pristine, Blue Flag-certified beach known for its cleanliness, safe swimming zones, and vibrant evening sand art.', image: puriImage },
+      { name: 'Chilika Lake', desc: 'Asia’s largest brackish water lagoon, located nearby. Famous for migratory birds, Irrawaddy dolphins, and serene boat rides.', image: puriImage },
+      { name: 'Gundicha Temple', desc: 'Known as the "Garden House of Jagannath," where the deities reside during the Rath Yatra.', image: puriImage },
+      { name: 'Narendra Tank', desc: 'One of the largest holy tanks in Odisha, featuring a small temple in the center and used for Chandan Yatra.', image: puriImage }
+    ]
   },
   {
     id: 3,
     image: konarkImage,
     name: 'Konark',
+    slug: 'konark',
+    history: 'Konark is globally renowned for its 13th-century Sun Temple, a UNESCO World Heritage site built by King Narasimhadeva I. Designed as a massive stone chariot for the Sun God (Surya) with 24 exquisitely carved wheels pulled by seven horses, the temple is a masterpiece of Kalinga architecture. Legend says the temple had a magnetic top that could pull ships toward the shore, earning it the name "Black Pagoda" from ancient sailors.',
+    bestTimeToVisit: 'November to February. Don’t miss the Konark Festival and International Sand Art Festival in December.',
+    localFood: ['Odia Thali', 'Chhena Poda', 'Pakhala Bhata', 'Gupchup'],
+    travelTips: [
+      'Visit the temple during sunrise or sunset for the best photography lighting.',
+      'Carry an umbrella or hat as there is limited shade in the temple complex.',
+      'Avoid high noon as the stone floors can get very hot.',
+      'Check out the ASI Museum located nearby for a deeper historical dive.'
+    ],
+    attractions: [
+      { name: 'Sun Temple', desc: 'The iconic "Black Pagoda," a stone-carved chariot with wheels that act as sundials, representing the passage of time.', image: konarkImage },
+      { name: 'Chandrabhaga Beach', desc: 'A quiet, spiritual beach just 3km from the temple, believed to have healing properties and famous for the Magha Saptami fair.', image: konarkImage },
+      { name: 'ASI Museum', desc: 'Houses various fallen sculptures, intricate carvings, and real architectural fragments collected during the restoration of the Sun Temple.', image: konarkImage },
+      { name: 'Ramachandi Temple', desc: 'Located on the banks of a river meeting the sea, it is a popular picnic spot with beautiful scenery and water sports.', image: konarkImage },
+      { name: 'Kuruma Buddhist Site', desc: 'An ancient Buddhist site featuring a monastery brick structure and various Buddha statues, located 8km from Konark.', image: konarkImage }
+    ]
   },
   {
     id: 4,
     image: cuttackImage,
     name: 'Cuttack',
+    slug: 'cuttack',
+    history: 'As the former capital and one of the oldest cities in Odisha, Cuttack is known as the "Silver City" due to its world-famous silver filigree work (Tarakasi). Founded in 989 CE by King Nrupa Keshari, the city sits at the apex of the Mahanadi River delta. It is a hub of culture and commerce, famous for its grand celebration of Bali Jatra, the largest open-air trade fair in Asia.',
+    bestTimeToVisit: 'October to February. November is particularly special due to the Bali Jatra fair.',
+    localFood: ['Cuttack Dahi Bara Aloo Dum', 'Silver Filigree Sweets', 'Thunka Puri', 'Machha Jhola'],
+    travelTips: [
+      'Dahi Bara Aloo Dum near Barabati Stadium is a legendary street food experience.',
+      'Shop for authentic Tarakasi (silver filigree) jewelry in the local markets.',
+      'Be prepared for traffic during the Bali Jatra festival—use public transport or walk.',
+      'Visit the Netaji Museum early to avoid school tour crowds.'
+    ],
+    attractions: [
+      { name: 'Barabati Fort', desc: 'The ruins of a massive 14th-century fort standing adjacent to the Mahanadi River, symbolizing the city’s medieval power.', image: cuttackImage },
+      { name: 'Netaji Birth Place Museum', desc: 'The childhood home of Netaji Subhas Chandra Bose, now converted into a museum displaying his life and legacy.', image: cuttackImage },
+      { name: 'Dhabaleswar Island', desc: 'A serene island in the Mahanadi featuring a famous Shiva temple and a thrilling hanging bridge for pedestrians.', image: cuttackImage },
+      { name: 'Odisha Maritime Museum', desc: 'Located in the old Jobra Workshop, it showcases Odisha’s ancient maritime history and engineering.', image: cuttackImage },
+      { name: 'Cuttack Chandi Temple', desc: 'The presiding deity of the city, a peaceful and powerful temple located in the heart of Cuttack.', image: cuttackImage }
+    ]
   },
   {
     id: 5,
     image: balasoreImage,
     name: 'Balasore',
+    slug: 'balasore',
+    history: 'A strategic coastal district in northern Odisha, Balasore (Baleshwar) boasts a unique blend of maritime history and modern scientific importance. It was a vital trading post for the British, French, and Dutch. Today, it is famous for the Chandipur Beach, where the sea recedes up to 5 kilometers during low tide—a rare natural phenomenon found nowhere else in India. The city is also a major industrial hub and the gateway to the breathtaking Kuldiha Wildlife Sanctuary.',
+    bestTimeToVisit: 'October to March. Perfect for witnessing the unique tidal movements at Chandipur.',
+    localFood: ['Fresh Seafood Thali', 'Hot Rasgullas', 'Machha Ghanta', 'Badi Chura'],
+    travelTips: [
+      'Check the tide timings before heading into the sea floor at Chandipur Beach.',
+      'Kuldiha Sanctuary requires prior permission—arrange this via a local tour operator.',
+      'The morning fish market near the coast is a great place to see the local catch.',
+      'Visit the ancient Emami Jagannath Temple for its beautiful modern architecture.'
+    ],
+    attractions: [
+      { name: 'Chandipur Beach', desc: 'The world-famous "vanishing sea," where the water disappears twice a day, allowing you to walk miles into the sea bed.', image: balasoreImage },
+      { name: 'Panchalingeswar', desc: 'A scenic shrine where five Shiva lingams are enshrined beneath a perennial waterfall, accessible via a short hill trek.', image: balasoreImage },
+      { name: 'Khirachora Gopinath Temple', desc: 'Located in Remuna, this 13th-century temple is famous for its delicious "Khira" (condensed milk) offering.', image: balasoreImage },
+      { name: 'Talsari Beach', desc: 'A serene and secluded beach lined with casuarina trees, offering a peaceful retreat near the Bengal-Odisha border.', image: balasoreImage },
+      { name: 'Kuldiha Wildlife Sanctuary', desc: 'A lush forest home to elephants, bisons, and diverse bird species. Great for nature lovers and trekkers.', image: balasoreImage }
+    ]
   },
   {
     id: 6,
     image: rourkelaImage,
     name: 'Rourkela',
+    slug: 'rourkela',
+    history: 'Surrounded by hills and rivers in the tribal heartland of Sundargarh, Rourkela is known as the "Steel City of Odisha." It is home to India’s first integrated steel plant built with German collaboration. The city is a beautiful blend of industrial prowess and lush natural beauty, with monuments like Hanuman Vatika and the sacred Vedvyas temple standing as testaments to its cultural depth.',
+    bestTimeToVisit: 'October to March. The weather is cool and pleasant for exploring the surrounding waterfalls.',
+    localFood: ['Aloo Chop', 'Samosa Chaat', 'Mutton Jhola', 'Chhena Poda'],
+    travelTips: [
+      'Rourkela is very well connected by rail—it is a major junction on the Howrah-Mumbai line.',
+      'Be sure to visit the Vedvyas confluence where the river Brahmani begins.',
+      'The Khandadhar waterfall is about 100km away—plan a full day for this trip.',
+      'Check if the Steel Plant allows industrial tours during your visit for a unique experience.'
+    ],
+    attractions: [
+      { name: 'Hanuman Vatika', desc: 'A sprawling garden featuring a massive 75-foot tall statue of Lord Hanuman, surrounded by several other beautiful temples.', image: rourkelaImage },
+      { name: 'Khandadhar Waterfall', desc: 'One of the tallest and most beautiful waterfalls in India, cascading down in a sword-like shape amidst dense forests.', image: rourkelaImage },
+      { name: 'Vedvyas Temple', desc: 'A sacred spot where the rivers Sankha and Koel meet. Legend says Sage Vyasa composed the Mahabharata here.', image: rourkelaImage },
+      { name: 'Indira Gandhi Park', desc: 'A lush green park with a musical fountain, small zoo, and a library—perfect for a relaxing family evening.', image: rourkelaImage },
+      { name: 'Mandira Dam', desc: 'Located about 25km away, it offers majestic views of the reservoir and is a popular spot for picnics.', image: rourkelaImage }
+    ]
   },
   {
     id: 7,
     image: brahmapurImage,
     name: 'Berhampur',
+    slug: 'berhampur',
+    history: 'Berhampur (Brahmapur), known as the "Silk City," is famous worldwide for its intricate Odissi silk sarees (Berhampuri Patta). It is the gateway to southern Odisha’s stunning beaches and spiritual sites. The city boasts a rich history of trade and culture, particularly influenced by the nearby port of Gopalpur. From the hill shrines of Tara Tarini to the golden sands of Gopalpur-on-Sea, Berhampur offers a diverse travel experience.',
+    bestTimeToVisit: 'Winter months (November to February) are best for beach activities and hill trekking.',
+    localFood: ['Berhampuri Puri Upma', 'Chicken Pakora', 'Pickles & Papad', 'Badam Halwa'],
+    travelTips: [
+      'Gopalpur beach is perfect for early morning walks and seeing the old lighthouse.',
+      'Shop for Berhampuri Silk Sarees at the local handloom cooperatives for authentic quality.',
+      'Check the bus schedules—Berhampur is the main hub for traveling to Daringibadi.',
+      'Try the signature pickles of Berhampur, which come in hundreds of varieties.'
+    ],
+    attractions: [
+      { name: 'Gopalpur-on-Sea', desc: 'A quiet, pristine beach resort that was once a bustling seaport. Famous for its old lighthouse and crumbling colonial ruins.', image: brahmapurImage },
+      { name: 'Tara Tarini Temple', desc: 'One of the oldest Shakti Peethas in India, located atop a hill near the Rushikulya river with panoramic views.', image: brahmapurImage },
+      { name: 'Aryapalli Beach', desc: 'A secluded and tranquil beach known for its golden sands and the nearby sand mineral plant—great for solitude.', image: brahmapurImage },
+      { name: 'Mahuri Kalua Temple', desc: 'A popular religious site surrounded by hills and dense forests, offering a peaceful atmosphere for devotees.', image: brahmapurImage },
+      { name: 'Taptapani Hot Springs', desc: 'Located about 50km away, these natural sulfur springs are believed to have medicinal properties, set in a scenic forest.', image: brahmapurImage }
+    ]
   },
 ];
 
@@ -363,39 +483,51 @@ const whyChooseUsData = [
 const userRatingData = [
   {
     id: 1,
-    name: 'Khirod Das',
+    name: 'Priya Sharma',
     rating: '5',
-    message:
-      'Very good deals and package in odiaha ..... Thank you holiday planner team...',
-    time: '3 weeks ago',
+    message: 'Absolutely phenomenal experience on the Golden Triangle Tour! The guide was extremely knowledgeable, and the hotel near Jagannath Temple was top-notch.',
+    time: '1 week ago',
+    packageInfo: 'Golden Triangle Tour',
   },
   {
     id: 2,
-    name: 'Asis kumar Pati',
+    name: 'Rahul Desai',
     rating: '5',
-    message: 'Very good service and with a great price...',
+    message: 'Booked a luxury Innova Crysta for our family trip. The driver was incredibly polite, the car was spotless, and the riding experience was super smooth. Highly recommended!',
     time: '2 weeks ago',
+    packageInfo: 'Luxury Car Rental',
   },
   {
     id: 3,
-    name: 'Bunu Nayak',
+    name: 'Anjali Verma',
     rating: '5',
-    message: 'Such a nice travel agent in Bhubaneswar.',
-    time: '5 weeks ago',
+    message: 'The Daringibadi Hill Retreat felt like a dream. We loved the mist, the coffee plantations, and the seamless booking process from Holiday Planner. We will be back!',
+    time: '1 month ago',
+    packageInfo: 'Daringibadi Retreat',
   },
   {
     id: 4,
-    name: 'Subrat nandi',
+    name: 'Vikas Nandi',
     rating: '5',
-    message: 'Best experience and reasonable price.',
+    message: 'Excellent coordination for the Bhitarkanika Wildlife Tour. They handled the permits, the eco-resort, and the boat safari perfectly. Spotted 5 massive crocodiles!',
     time: '3 weeks ago',
+    packageInfo: 'Bhitarkanika Tour',
   },
   {
     id: 5,
     name: 'Aditya Nath',
     rating: '5',
-    message: 'Best holiday planner',
+    message: 'Best holiday planner in Bhubaneswar. Transparent pricing, no hidden fees, and absolute peace of mind. Thank you for a memorable tribal heritage trip.',
+    time: '2 months ago',
+    packageInfo: 'Tribal Expedition',
+  },
+  {
+    id: 6,
+    name: 'Sneha Patel',
+    rating: '5',
+    message: 'We customized our entire 7-day Odisha itinerary with them. From the Buddhist circuit to the beaches of Gopalpur, everything was flawless.',
     time: '2 weeks ago',
+    packageInfo: 'Custom Itinerary',
   },
 ];
 

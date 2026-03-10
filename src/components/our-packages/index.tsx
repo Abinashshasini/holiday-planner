@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { CiLocationOn } from 'react-icons/ci';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaWhatsapp } from 'react-icons/fa';
 import { ourPackagesData } from '@/utils';
 import classes from './ourPackages.module.scss';
 import useWhatsApp from '@/hooks/useWhatsApp';
@@ -58,41 +58,61 @@ const OurPackages = () => {
               key={pkg.id} 
               className={classes.card}
               variants={cardVariants}
-              whileHover={{ y: -12 }}
             >
-              <Link href={`/packages/${pkg.id}`} className={classes.imageWrapper}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={pkg.image.src} alt={pkg.title} className={classes.cardImage} />
-                <div className={classes.cardOverlay} />
-                <span className={classes.durationBadge}>{pkg.duration}</span>
-              </Link>
+              {/* Background Image */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={pkg.image.src} alt={pkg.title} className={classes.cardImgBackground} />
+              <div className={classes.cardOverlayFull} />
               
-              <div className={classes.cardBody}>
-                <div className={classes.cardHeader}>
+              <div className={classes.badges}>
+                <span className={classes.durationBadge}>{pkg.duration}</span>
+                <span className={classes.categoryBadge}>{pkg.category}</span>
+              </div>
+
+              <div className={classes.cardContentOverlay}>
+                <div className={classes.cardHeaderMain}>
                   <Link href={`/packages/${pkg.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <h3 className={classes.cardTitle}>{pkg.title}</h3>
+                    <h3 className={classes.cardTitleWhite}>{pkg.title}</h3>
                   </Link>
-                  <span className={classes.price}>{pkg.price}</span>
+                  <div className={classes.locationWhite}>
+                    <CiLocationOn />
+                    <span>{pkg.location}</span>
+                  </div>
                 </div>
-                
-                <div className={classes.cardLocation}>
-                  <CiLocationOn />
-                  <span>{pkg.location}</span>
+
+                <div className={classes.hoverReveal}>
+                  <ul className={classes.highlightsWhite}>
+                    {pkg.highlights.slice(0, 3).map((h) => (
+                      <li key={h}><FaArrowRight /> {h}</li>
+                    ))}
+                  </ul>
+                  
+                  <div className={classes.cardFooterWhite}>
+                    <div className={classes.priceBox}>
+                      <span className={classes.fromLabelWhite}>Starting from</span>
+                      <span className={classes.priceWhite}>{pkg.price}</span>
+                    </div>
+                    <div className={classes.btnGroup}>
+                      <Link href={`/packages/${pkg.id}`} className={classes.viewBtn}>
+                        View Detail
+                      </Link>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={classes.bookBtnSmall}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleRedirectTheUserToWhatsApp({
+                            messageType: 'dynamic',
+                            dynamicMessage: `Hi, I'm interested in the ${pkg.title} package (${pkg.duration}). Please share details and availability.`,
+                          });
+                        }}
+                      >
+                        <FaWhatsapp /> Book
+                      </motion.button>
+                    </div>
+                  </div>
                 </div>
-                
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={classes.bookBtn}
-                  onClick={() =>
-                    handleRedirectTheUserToWhatsApp({
-                      messageType: 'dynamic',
-                      dynamicMessage: `Hi, I'm interested in the ${pkg.title} package. Please share more details.`,
-                    })
-                  }
-                >
-                  Book Now
-                </motion.button>
               </div>
             </motion.div>
           ))}

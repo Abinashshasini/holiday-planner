@@ -42,21 +42,31 @@ const Ratings = () => {
         </motion.div>
 
         <motion.div 
-          className={classes.masonryGrid}
+          className={classes.bentoGrid}
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
         >
           {userRatingData.map((element, index) => (
-            <UserRatingCard
-              message={element.message}
-              name={element.name}
-              rating={element.rating}
-              time={element.time}
+            <motion.div 
               key={element.id}
-              index={index}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={index === 0 ? classes.featuredGridItem : ''}
+            >
+              <UserRatingCard
+                message={element.message}
+                name={element.name}
+                rating={element.rating}
+                time={element.time}
+                packageInfo={element.packageInfo}
+                index={index}
+                isFeatured={index === 0}
+              />
+            </motion.div>
           ))}
         </motion.div>
       </div>

@@ -99,23 +99,52 @@
   }
 }
 
-.masonryGrid {
+.bentoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
+}
+
+.featuredGridItem {
+  @media (min-width: 768px) {
+    grid-column: span 2;
+  }
 }
 
 /* User Rating Card CSS */
 .card {
   background: var(--color-white);
-  padding: 32px 28px;
-  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-smooth);
+  height: 100%;
+  transition: all var(--transition-base);
+
+  &:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    border-color: rgba(37, 99, 235, 0.15);
+  }
+
+  @media (max-width: 600px) {
+    padding: 24px;
+  }
+}
+
+.featuredCard {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+  box-shadow: var(--shadow-primary);
+
+  &:hover {
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    border-color: transparent;
+  }
 }
 
 .cardHeader {
@@ -142,10 +171,11 @@
   flex: 1;
 
   h5 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: var(--color-dark);
     margin: 0 0 4px 0;
+    font-family: var(--font-main);
   }
 }
 
@@ -172,10 +202,83 @@
   }
 }
 
+.textWhite {
+  color: var(--color-white) !important;
+}
+
+.textLight {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.ratingBadgeLight {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 0.8rem;
+    color: #FBBF24; /* Amber-400 */
+  }
+}
+
+.packageBadge {
+  background: var(--color-gray-100);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--color-gray-700);
+  font-weight: 600;
+  border-left: 3px solid var(--color-accent);
+
+  .verifiedText {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+}
+
+.packageBadgeLight {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--color-white);
+  font-weight: 600;
+  border-left: 3px solid var(--color-secondary);
+
+  .verifiedTextLight {
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+}
+
 .reviewText {
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--color-gray-600);
+  font-style: italic;
+  margin: 0;
+}
+
+.reviewTextLight {
+  font-size: 1.15rem; /* slightly larger for hero card */
+  line-height: 1.7;
+  color: var(--color-white);
   font-style: italic;
   margin: 0;
 }
