@@ -1,11 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LogoImage } from '@/utils';
 import classes from './navbar.module.scss';
 import useWhatsApp from '@/hooks/useWhatsApp';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -17,13 +18,15 @@ const navLinks = [
 ];
 
 const Navbar: React.FC = () => {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -32,58 +35,73 @@ const Navbar: React.FC = () => {
     setMenuOpen(false);
   }, [pathname]);
 
+  // If not home page, we want the "scrolled" (solid/glass) look by default
+  const shouldBeSolid = scrolled || !isHomePage;
+
   return (
     <>
       <motion.header
-        className={`${classes.navbar} ${scrolled ? classes.scrolled : ''}`}
+        className={`${classes.navbar} ${shouldBeSolid ? classes.scrolled : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className={classes.inner}>
+          <div className={classes.iconCnt}>
+            {pathname !== '/' && (
+              <div onClick={() => router.back()}>
+                <IoIosArrowBack color="#111" size={24} />
+              </div>
+            )}
+            <Link href="/" className={classes.logo}>
+              <img src={LogoImage.src} alt="Holiday Planner" />
+            </Link>
+          </div>
+
           {/* Logo */}
-          <Link href="/" className={classes.logo}>
-            <img src={LogoImage.src} alt="Holiday Planner" />
-          </Link>
 
           {/* Desktop Nav */}
           <nav className={classes.desktopNav}>
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <Link key={link.href} href={link.href} className={`${classes.navLink} ${isActive ? classes.active : ''}`}>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`${classes.navLink} ${isActive ? classes.active : ''}`}
+                >
                   {link.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-pill"
-                      className={classes.navPill}
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* CTA */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={classes.ctaBtn}
-            onClick={() => handleRedirectTheUserToWhatsApp({ messageType: 'generic' })}
-          >
-            Get a Quote
-          </motion.button>
+          {/* CTA Group */}
+          <div className={classes.ctaGroup}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={classes.ctaBtn}
+              onClick={() =>
+                handleRedirectTheUserToWhatsApp({ messageType: 'generic' })
+              }
+            >
+              Get a Quote
+            </motion.button>
 
-          {/* Hamburger */}
-          <button
-            className={`${classes.hamburger} ${menuOpen ? classes.open : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-          </button>
+            {/* Hamburger */}
+            <button
+              className={`${classes.hamburger} ${menuOpen ? classes.open : ''}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <div className={classes.hamburgerIcon}>
+                <span />
+                <span />
+                <span />
+              </div>
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -125,7 +143,9 @@ const Navbar: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className={classes.drawerCta}
-                onClick={() => handleRedirectTheUserToWhatsApp({ messageType: 'generic' })}
+                onClick={() =>
+                  handleRedirectTheUserToWhatsApp({ messageType: 'generic' })
+                }
               >
                 Get a Quote
               </motion.button>

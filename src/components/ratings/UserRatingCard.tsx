@@ -39,7 +39,7 @@ const UserRatingCard: FC<TProps> = ({ name, message, rating, time, packageInfo, 
         </div>
       )}
       
-      <p className={classes.reviewText}>"{message}"</p>
+      <p className={classes.reviewText}>&quot;{message}&quot;</p>
     </div>
   );
 };

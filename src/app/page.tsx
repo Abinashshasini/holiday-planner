@@ -3,7 +3,6 @@ import OurServices from '@/components/our-services';
 import RFQCard from '@/components/rfq-card';
 import OurPackages from '@/components/our-packages';
 import SearchBar from '@/components/search-bar';
-import TrustRibbon from '@/components/trust-ribbon';
 import GetInTouch from '@/components/get-in-touch';
 import WhyChooseUs from '@/components/why-choose';
 import Ratings from '@/components/ratings';
@@ -14,7 +13,6 @@ export default function Home() {
     <div>
       <Hero />
       <SearchBar />
-      <TrustRibbon />
       <OurServices />
       <OurPackages />
       <WhyChooseUs />
@@ -25,4 +23,3 @@ export default function Home() {
     </div>
   );
 }
-

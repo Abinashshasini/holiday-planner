@@ -1,8 +1,7 @@
 /* SearchBar – open layout on dark bg, seamless with hero */
-
 .section {
   position: relative;
-  background: #050a19;
+  background: linear-gradient(to bottom, rgb(5, 10, 25), rgb(22 29 51));
   padding: 72px var(--section-px) 64px;
   overflow: hidden;
   padding-top: 140px;
@@ -16,7 +15,11 @@
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(14, 165, 233, 0.06) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -102,7 +105,9 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 60px;
   padding: 8px 8px 8px 28px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   margin-bottom: 24px;
 
   &:focus-within {
@@ -208,7 +213,9 @@
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(14, 165, 233, 0.3);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
   white-space: nowrap;
   flex-shrink: 0;
 

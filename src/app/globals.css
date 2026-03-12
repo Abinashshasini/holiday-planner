@@ -130,10 +130,19 @@ button {
 
 /* Container Utility */
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: var(--section-px);
   padding-right: var(--section-px);
+}
+
+/* Lucrative Glow Utility */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3), 0 0 40px rgba(37, 99, 235, 0.1);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3), 0 0 40px rgba(255, 107, 107, 0.1);
 }
 
 /* Typography Utilities */

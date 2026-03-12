@@ -1,90 +1,34 @@
-
 import React from 'react';
-import Heading from '@/components/heading';
+import { notFound } from 'next/navigation';
 import { serviceDetailsData } from '@/utils';
-import classes from './style.module.scss';
-import RFQCard from '@/components/rfq-card';
-import GetInTouch from '@/components/get-in-touch';
-import WhyChooseUs from '@/components/why-choose';
-import ContactDetails from '@/components/contact-details';
-import { TcarInfo, TCarRental, TluxuryImages } from '@/utils/types';
-import CallButton from './callButton';
+import ServiceDetailsClient from './ServiceDetailsClient';
 
-type Tdata = {
-  hTextOne?: string;
-  hTextTwo?: string;
-  type?: string;
-  tData?: TCarRental[];
-  imageData?: TluxuryImages[];
-};
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const id = resolvedParams.id;
+  
+  let data;
+  if (id === 'car-rental-and-booking') data = serviceDetailsData.carRental;
+  else if (id === 'luxury-car-wedding-car') data = serviceDetailsData.luxuryCar;
+  else if (id === 'tempo-traveler-booking') data = serviceDetailsData.tempoTraveler;
 
-const OurServices = ({ params }: { params: { id: string } }) => {
-  let data: Tdata = {};
+  if (!data) return { title: 'Service Not Found | Holiday Planner' };
 
-  if (params.id === 'car-rental-and-booking') {
-    data = serviceDetailsData.carRental;
-  } else if (params.id === 'luxury-car-wedding-car') {
-    data = serviceDetailsData.luxuryCar;
-  } else {
-    data = serviceDetailsData.tempoTraveler;
-  }
+  return {
+    title: `${data.hTextOne} ${data.hTextTwo} | Holiday Planner`,
+    description: `Professional ${data.hTextOne} ${data.hTextTwo} services in Bhubaneswar, Odisha. Book your ride today.`,
+  };
+}
 
-  return (
-    <div className={classes.container}>
-      {data.hTextOne !== '' && (
-        <Heading textOne={data.hTextOne || ''} textTwo={data.hTextTwo} />
-      )}
-      {/* Table handeling */}
-      {data.type === 'table' && (
-        <div className={classes.tableCnt}>
-          {data &&
-            data.tData &&
-            data.tData.map((element: TCarRental) => (
-              <div key={element.id} className={classes.tableWraper}>
-                <div className={classes.tableHeading}>
-                  <h2>{element.carName}</h2>
-                </div>
-                {element.data.map((carDetails: TcarInfo, index) => (
-                  <div
-                    className={classes.infocnt}
-                    key={`${index}-${carDetails.info}`}
-                  >
-                    <span>{carDetails.info}</span>
-                    <span>{carDetails.price}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-        </div>
-      )}
-      {/* Image handeling */}
-      {data.type === 'images' && (
-        <div className={classes.tableCnt} style={{ marginTop: '30px' }}>
-          {data &&
-            data.imageData &&
-            data.imageData.map((element: TluxuryImages) => (
-              <div key={element.id} className={classes.imgCardWrp}>
-                <div className={classes.imgCnt}>
-                  <img src={element.image.src} alt="cara_image" />
-                </div>
-                <div className={classes.textWrp}>
-                  <div className={classes.textCnt}>
-                    <h2>{element.carName}</h2>
-                    <p>{element.capacity}</p>
-                  </div>
-                  <CallButton />
-                </div>
-              </div>
-            ))}
-        </div>
-      )}
+export default async function OurServicesPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const id = resolvedParams.id;
 
-      <GetInTouch />
-      <WhyChooseUs />
-      <RFQCard />
-      <ContactDetails />
-    </div>
-  );
-};
+  let data;
+  if (id === 'car-rental-and-booking') data = serviceDetailsData.carRental;
+  else if (id === 'luxury-car-wedding-car') data = serviceDetailsData.luxuryCar;
+  else if (id === 'tempo-traveler-booking') data = serviceDetailsData.tempoTraveler;
+  else return notFound();
 
-export default OurServices;
+  return <ServiceDetailsClient data={data} />;
+}
