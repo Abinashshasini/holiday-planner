@@ -10,8 +10,7 @@ import { MdOutlineFilterList } from 'react-icons/md';
 import { ourPackagesData } from '@/utils';
 import useWhatsApp from '@/hooks/useWhatsApp';
 import classes from './packages.module.scss';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+
 
 const categories = ['all', 'beach', 'heritage', 'nature', 'tribal'];
 
@@ -39,12 +38,12 @@ export default function PackagesClient() {
 
   return (
     <>
-      <Navbar />
+
       <div className={classes.page}>
         {/* Page Hero */}
         <div className={classes.hero}>
           <Image
-            src="https://images.unsplash.com/photo-1588096344316-f70c1b4221a4?q=80&w=2000&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410046/odisha-desktop_s0n0fu.png"
             alt="Chilika Lake Odisha"
             fill
             style={{ objectFit: 'cover' }}
@@ -117,7 +116,7 @@ export default function PackagesClient() {
                   className={cardClass}
                 >
                   <Image
-                    src={pkg.image.src}
+                    src={pkg.image}
                     alt={pkg.title}
                     fill
                     className={classes.cardImgBackground}

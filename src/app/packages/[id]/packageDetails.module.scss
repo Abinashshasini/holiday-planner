@@ -73,6 +73,7 @@
 
 .heroImage {
   z-index: 0;
+  object-position: 10%;
 }
 
 .heroOverlay {
@@ -141,8 +142,7 @@
   span {
     display: flex;
     align-items: center;
-    gap: 10px;
-    svg { color: var(--color-accent); font-size: 1.25rem; }
+    svg { color: var(--color-accent); font-size: 1.25rem; margin-right: 1px; }
   }
 
   @media (max-width: 600px) {
@@ -269,12 +269,12 @@
   flex-direction: column;
   gap: 32px;
   position: relative;
-  padding-left: 40px;
+  padding-left: 0;
 
   &::before {
     content: '';
     position: absolute;
-    left: 15px;
+    left: 36px;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -283,15 +283,19 @@
 }
 
 .timelineItem {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 20px;
+  align-items: start;
   position: relative;
+  padding-left: 0;
 }
 
 .timelineMarker {
-  position: absolute;
-  left: -55px;
-  top: 0;
-  width: 50px;
-  height: 50px;
+  position: relative;
+  left: 0;
+  width: 64px;
+  height: 64px;
   background: white;
   border: 2px solid var(--color-primary);
   border-radius: 12px;
@@ -300,14 +304,30 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
+  margin-top: 4px;
 
-  span { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; color: var(--color-gray-400); line-height: 1; }
-  strong { font-size: 1.1rem; font-weight: 900; color: var(--color-primary); }
+  span { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--color-gray-400); line-height: 1; }
+  strong { font-size: 1.05rem; font-weight: 900; color: var(--color-primary); }
 }
 
 .timelineContent {
   h3 { font-size: 1.25rem; font-weight: 800; color: var(--color-dark); margin-bottom: 8px; }
-  p { font-size: 1rem; color: var(--color-gray-500); line-height: 1.6; }
+  p { font-size: 1rem; color: var(--color-gray-500); line-height: 1.6; margin: 0; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .timeline { gap: 24px; }
+  .timeline::before { left: 28px; }
+  .timelineItem { grid-template-columns: 56px 1fr; gap: 12px; }
+  .timelineMarker {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    margin-top: 6px;
+    span { font-size: 0.6rem; }
+    strong { font-size: 1rem; }
+  }
 }
 
 /* SIDEBAR */

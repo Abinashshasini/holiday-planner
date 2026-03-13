@@ -1,13 +1,11 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { FaMapMarkerAlt, FaArrowRight, FaCameraRetro } from 'react-icons/fa';
 import classes from './destinations.module.scss';
 import { popularCitiesData } from '@/utils';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -25,7 +23,7 @@ const cardVariants: Variants = {
 export default function DestinationsClient() {
   return (
     <>
-      <Navbar />
+     
       <div className={classes.page}>
         {/* Hero Section */}
         <div className={classes.hero}>
@@ -93,7 +91,7 @@ export default function DestinationsClient() {
                   <div className={classes.imageWrapper}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={dest.image.src}
+                      src={dest.image}
                       alt={dest.name}
                       className={classes.cardImage}
                     />

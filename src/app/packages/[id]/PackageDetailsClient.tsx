@@ -1,7 +1,4 @@
 'use client';
-
-import React from 'react';
-import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import {
   FaWhatsapp,
@@ -11,13 +8,11 @@ import {
   FaMapMarkerAlt,
   FaClock,
   FaPhone,
-  FaArrowLeft,
+
 } from 'react-icons/fa';
 import useWhatsApp from '@/hooks/useWhatsApp';
 import classes from './packageDetails.module.scss';
 import Image from 'next/image';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -55,7 +50,6 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
 
   return (
     <>
-      <Navbar />
       <div className={classes.page}>
         {/* Sticky Booking Bar */}
         <motion.div
@@ -86,7 +80,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
         {/* Hero Banner */}
         <div className={classes.hero}>
           <Image
-            src={pkg.image.src}
+            src={pkg.image}
             alt={pkg.title}
             layout="fill"
             objectFit="cover"
@@ -100,9 +94,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Link href="/packages" className={classes.backLink}>
-              <FaArrowLeft /> All Packages
-            </Link>
+           
             <span className={classes.heroBadge}>{pkg.category}</span>
             <h1 className={classes.heroTitle}>{pkg.title}</h1>
             <div className={classes.heroMeta}>

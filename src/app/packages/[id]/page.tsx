@@ -1,4 +1,3 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { ourPackagesData } from '@/utils';
@@ -21,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     openGraph: {
       title: `${pkg.title} | Holiday Planner`,
       description: pkg.overview,
-      images: [pkg.image.src],
+      images: [pkg.image],
     },
   };
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import RFQCardClient from './RFQCardClient';
 
 const RFQCard = () => {

@@ -59,7 +59,7 @@ const OurPackagesClient = () => {
             >
               <div className={classes.card}>
                 <img
-                  src={pkg.image.src}
+                  src={pkg.image}
                   alt={pkg.title}
                   className={classes.cardImgBackground}
                 />

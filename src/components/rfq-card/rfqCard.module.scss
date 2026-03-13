@@ -46,10 +46,11 @@
 .parallaxBg {
   position: absolute;
   inset: 0;
-  background-image: url('https://res.cloudinary.com/dcudnuu04/image/upload/v1773410028/tata-winger_xi5pni.jpg');
+  background-image: url('https://res.cloudinary.com/dcudnuu04/image/upload/v1773412872/Gemini_Generated_Image_ss7zkqss7zkqss7z_bbfwy7.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
   z-index: 0;
 
   @media (max-width: 1024px) {

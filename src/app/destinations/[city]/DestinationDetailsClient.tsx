@@ -1,9 +1,9 @@
 'use client';
-import React from 'react';
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  FaArrowLeft,
+
   FaArrowRight,
   FaWhatsapp,
   FaMapMarkerAlt,
@@ -15,8 +15,7 @@ import { CiLocationOn } from 'react-icons/ci';
 import { ourPackagesData } from '@/utils';
 import useWhatsApp from '@/hooks/useWhatsApp';
 import classes from './destinationDetails.module.scss';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+
 
 import Image from 'next/image';
 
@@ -46,12 +45,12 @@ export default function DestinationDetailsClient({
 
   return (
     <>
-      <Navbar />
+     
       <main className={classes.main}>
         {/* Dynamic Hero Section */}
         <section className={classes.hero}>
           <Image
-            src={cityInfo.image.src}
+            src={cityInfo.image}
             alt={cityInfo.name}
             layout="fill"
             objectFit="cover"
@@ -66,9 +65,6 @@ export default function DestinationDetailsClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Link href="/destinations" className={classes.backLink}>
-              <FaArrowLeft /> Destinations
-            </Link>
             <span className={classes.badge}>Destination Guide</span>
             <h1 className={classes.cityName}>{cityInfo.name}</h1>
           </motion.div>
@@ -175,7 +171,7 @@ export default function DestinationDetailsClient({
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={attr.image.src}
+                      src={attr.image}
                       alt={attr.name}
                       className={classes.attrImage}
                     />
@@ -248,7 +244,7 @@ export default function DestinationDetailsClient({
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={pkg.image.src}
+                      src={pkg.image}
                       alt={pkg.title}
                       className={classes.pkgImgBackground}
                     />

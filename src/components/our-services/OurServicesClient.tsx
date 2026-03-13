@@ -81,7 +81,7 @@ const OurServicesClient = () => {
               >
                 <div className={classes.card}>
                   <img
-                    src={service.image.src}
+                    src={service.image}
                     alt={service.title}
                     className={classes.cardBg}
                   />
