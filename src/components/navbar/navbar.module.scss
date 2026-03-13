@@ -38,8 +38,9 @@
       background: var(--color-dark);
     }
 
+    /* When navbar is scrolled, prefer original logo colors; don't force recolor. */
     .logo img {
-      filter: brightness(1) invert(0);
+      filter: none;
     }
   }
 }
@@ -65,17 +66,45 @@
   align-items: center;
   z-index: 1001;
 
-  img {
-    height: 36px;
-    width: auto;
-    filter: brightness(0) invert(1);
-    transition: all var(--transition-smooth);
+  /* Support both external SVGs (<img src="logo.svg">) and inline <svg> */
+  /* Default: show the SVG's original fills. */
+  color: inherit;
 
-    @media (max-width: 600px) {
-      height: 28px;
+  img,
+  svg {
+    height: 48px;
+    width: auto;
+    transition: all var(--transition-smooth);
+    display: inline-block;
+    max-height: 64px;
+  }
+
+  /* Modifier class to force a single monochrome color (used on homepage before scroll) */
+  &.mono {
+    color: white;
+
+    img { filter: brightness(0) invert(1); }
+
+    svg {
+      color: currentColor;
+      & * {
+        fill: currentColor !important;
+        stroke: currentColor !important;
+      }
     }
   }
+
+  @media (max-width: 900px) {
+    img, svg { height: 40px; }
+  }
+
+  @media (max-width: 600px) {
+    img, svg { height: 32px; }
+  }
 }
+
+/* exported helper class used to toggle monochrome logo state from JS */
+.mono { color: inherit; }
 
 .desktopNav {
   display: flex;

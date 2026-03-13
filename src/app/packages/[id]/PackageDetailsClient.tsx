@@ -121,7 +121,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
                 <p className={classes.overviewText}>{overview}</p>
 
                 <div className={classes.highlightsGrid}>
-                  {pkg.highlights.map((h) => (
+                  {pkg.highlights.map((h: string) => (
                     <div key={h} className={classes.highlightTag}>
                       <FaArrowRight /> {h}
                     </div>
@@ -139,7 +139,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
                     Included
                   </h3>
                   <ul>
-                    {included.map((i) => (
+                    {included.map((i: string) => (
                       <li key={i}>{i}</li>
                     ))}
                   </ul>
@@ -150,7 +150,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
                     Excluded
                   </h3>
                   <ul>
-                    {excluded.map((i) => (
+                    {excluded.map((i: string) => (
                       <li key={i}>{i}</li>
                     ))}
                   </ul>
@@ -160,7 +160,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
               <motion.section variants={fadeUp} className={classes.section}>
                 <h2 className={classes.sectionTitle}>Itinerary</h2>
                 <div className={classes.timeline}>
-                  {itinerary.map((item, index) => (
+                  {itinerary.map((item: { day: number; title: string; description: string }, index: number) => (
                     <div key={index} className={classes.timelineItem}>
                       <div className={classes.timelineMarker}>
                         <span>Day</span>

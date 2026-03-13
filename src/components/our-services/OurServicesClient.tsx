@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
+import { FaWhatsapp } from 'react-icons/fa';
 import { ourServicesData } from '@/utils';
 import classes from './ourServices.module.scss';
 
@@ -15,6 +16,13 @@ import {
   FaCarSide,
   FaArrowRight,
 } from 'react-icons/fa';
+
+const WHATSAPP_NUMBER = '917978065576';
+
+const openWhatsApp = (message: string) => {
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
+};
 
 const getIcon = (title: string) => {
   if (title === 'Car Rental And Booking') return <FaCarSide />;
@@ -72,44 +80,63 @@ const OurServicesClient = () => {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
         >
-          {ourServicesData.map((service) => (
-            <motion.div key={service.id} variants={cardVariants}>
-              <Link
-                href={`/${service.URL}`}
-                style={{ textDecoration: 'none' }}
-                passHref
-              >
-                <div className={classes.card}>
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className={classes.cardBg}
-                  />
-                  <div className={classes.overlay} />
+          {ourServicesData.map((service) => {
+            const cardContent = (
+              <div className={classes.card}>
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className={classes.cardBg}
+                />
+                <div className={classes.overlay} />
 
-                  <div className={classes.topBar}>
-                    <div className={classes.iconBadge}>
-                      {getIcon(service.title)}
-                    </div>
-                  </div>
-
-                  <div className={classes.content}>
-                    <h3 className={classes.serviceTitle}>{service.title}</h3>
-                    <p className={classes.serviceDesc}>
-                      {service.message ||
-                        'Experience premium quality and comfort with our curated selection of services designed for your ultimate satisfaction.'}
-                    </p>
-
-                    <div className={classes.actionWrap}>
-                      <button className={classes.actionBtn}>
-                        {service.buttonText} <FaArrowRight />
-                      </button>
-                    </div>
+                <div className={classes.topBar}>
+                  <div className={classes.iconBadge}>
+                    {getIcon(service.title)}
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+
+                <div className={classes.content}>
+                  <h3 className={classes.serviceTitle}>{service.title}</h3>
+                  <p className={classes.serviceDesc}>
+                    {service.message ||
+                      'Experience premium quality and comfort with our curated selection of services designed for your ultimate satisfaction.'}
+                  </p>
+
+                  <div className={classes.actionWrap}>
+                    <button className={classes.actionBtn}>
+                      {service.action === 'whatsapp' ? (
+                        <><FaWhatsapp /> {service.buttonText}</>
+                      ) : (
+                        <>{service.buttonText} <FaArrowRight /></>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+
+            return (
+              <motion.div key={service.id} variants={cardVariants}>
+                {service.action === 'redirect' ? (
+                  <Link
+                    href={`/${service.URL}`}
+                    style={{ textDecoration: 'none' }}
+                    passHref
+                  >
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <div
+                    style={{ cursor: 'pointer', textDecoration: 'none' }}
+                    onClick={() => openWhatsApp(service.message)}
+                  >
+                    {cardContent}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

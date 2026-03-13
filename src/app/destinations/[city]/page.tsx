@@ -5,6 +5,8 @@ import { popularCitiesData } from '@/utils';
 import DestinationDetailsClient from './DestinationDetailsClient';
 import Link from 'next/link';
 
+const SITE_URL = 'https://www.holidayplanner.in';
+
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const citySlug = resolvedParams.city;
@@ -12,19 +14,65 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
 
   if (!cityInfo) {
     return {
-      title: 'Destination Not Found | Holiday Planner',
+      title: 'Destination Not Found',
     };
   }
 
+  const description = cityInfo.history
+    ? cityInfo.history.slice(0, 160)
+    : `Discover the rich history and top attractions of ${cityInfo.name}, Odisha with Holiday Planner.`;
+
   return {
-    title: `${cityInfo.name} | Places to Explore & Rich History | Odisha Tourism`,
-    description: cityInfo.history ? cityInfo.history.slice(0, 160) : `Discover the rich history and top attractions of ${cityInfo.name} with Holiday Planner.`,
+    title: `${cityInfo.name} Travel Guide — Top Attractions & History | Odisha Tourism`,
+    description,
+    keywords: [
+      cityInfo.name,
+      `${cityInfo.name} tourism`,
+      `${cityInfo.name} travel guide`,
+      `places to visit in ${cityInfo.name}`,
+      'Odisha tourism',
+      'Holiday Planner',
+    ],
+    alternates: { canonical: `/destinations/${citySlug}` },
     openGraph: {
       title: `${cityInfo.name} Travel Guide | Holiday Planner`,
-      description: cityInfo.history ? cityInfo.history.slice(0, 160) : `Explore ${cityInfo.name}`,
-      images: [cityInfo.image.src],
+      description,
+      url: `${SITE_URL}/destinations/${citySlug}`,
+      type: 'article',
+      images: [cityInfo.image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${cityInfo.name} Travel Guide | Holiday Planner`,
+      description,
     },
   };
+}
+
+function DestinationJsonLd({ cityInfo }: { cityInfo: any }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristDestination',
+    name: cityInfo.name,
+    description:
+      cityInfo.history ||
+      `Explore ${cityInfo.name}, a popular tourist destination in Odisha.`,
+    image: cityInfo.image,
+    url: `${SITE_URL}/destinations/${cityInfo.slug}`,
+    touristType: ['Cultural tourism', 'Sightseeing'],
+    containedInPlace: {
+      '@type': 'State',
+      name: 'Odisha',
+      containedInPlace: { '@type': 'Country', name: 'India' },
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
 }
 
 export default async function DestinationPage({ params }: { params: Promise<{ city: string }> }) {
@@ -42,7 +90,12 @@ export default async function DestinationPage({ params }: { params: Promise<{ ci
     );
   }
 
-  return <DestinationDetailsClient cityInfo={cityInfo} />;
+  return (
+    <>
+      <DestinationJsonLd cityInfo={cityInfo} />
+      <DestinationDetailsClient cityInfo={cityInfo} />
+    </>
+  );
 }
 
 
