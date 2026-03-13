@@ -1,34 +1,4 @@
-import logoImage from '../images/logo.svg';
-import menuImage from '../images/menu.svg';
-import bbsrImage from '../images/bbsr.jpg';
-import puriImage from '../images/puri.jpg';
-import konarkImage from '../images/konark.jpg';
-import cuttackImage from '../images/cuttack.jpg';
-import balasoreImage from '../images/balasore.webp';
-import bhitarkanikaImage from '../images/bhitarkanika.jpg';
-import rourkelaImage from '../images/rourkela.webp';
-import tribalImage from '../images/tribal.webp';
-import ganjamImage from '../images/ganjam.jpg';
-import birajaImage from '../images/biraja.jpg';
-import deomaliImage from '../images/deomali.webp';
-import koraputImage from '../images/koraput.jpg';
-import catOneImage from '../images/typeOne.png';
-import catTwoImage from '../images/typeTwo.png';
-import catThreeImage from '../images/typeThree.png';
-import catFourImage from '../images/typeFour.png';
-import catFiveImage from '../images/typeFive.png';
-import catSixImage from '../images/typeSix.png';
-import brahmapurImage from '../images/brahmapur.jpg';
-import daringhbadiImage from '../images/daringhibadi.jpg';
-import rfqCardPhoto from '../images/rfqBg.jpg';
-import innovaPhoto from '../images/inova-crysta.jpg';
-import audiA4Photo from '../images/audi-a4.jpg';
-import audiA6Photo from '../images/audi-a6.jpg';
-import hyundaiElantraPhoto from '../images/hyundai-elantra.webp';
-import hondaCityPhoto from '../images/honda-cty.jpeg';
-import hyundaiVernaPhoto from '../images/hyundai-verna.jpg';
-import tataWingerPhoto from '../images/tata-winger.jpg';
-import forcePhoto from '../images/17-force.jpg';
+
 
 /** Icons */
 import { 
@@ -48,14 +18,14 @@ import { PiPersonArmsSpread } from 'react-icons/pi';
 import { IoCarSportOutline } from 'react-icons/io5';
 import { FaFreeCodeCamp } from 'react-icons/fa';
 
-const LogoImage = logoImage;
-const MenuImage = menuImage;
-const RfqCardImage = rfqCardPhoto;
+const LogoImage = "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg";
+const MenuImage = "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg";
+const RfqCardImage = "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg";
 
 const ourServicesData = [
   {
     id: 1,
-    image: catTwoImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Car Rental And Booking',
     buttonText: 'Know More',
     Icon: null,
@@ -66,7 +36,7 @@ const ourServicesData = [
   },
   {
     id: 2,
-    image: catOneImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Luxury Car Wedding Car',
     buttonText: 'Know More',
     Icon: null,
@@ -77,7 +47,7 @@ const ourServicesData = [
   },
   {
     id: 3,
-    image: catThreeImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Tempo Traveler Booking',
     buttonText: 'Know More',
     Icon: null,
@@ -88,7 +58,7 @@ const ourServicesData = [
   },
   {
     id: 4,
-    image: catFourImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Bus Travel Rental',
     buttonText: 'Contact Us',
     Icon: 'FaWhatsapp',
@@ -99,7 +69,7 @@ const ourServicesData = [
   },
   {
     id: 5,
-    image: catFiveImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Package Service / Duty',
     buttonText: 'Contact Us',
     Icon: 'FaWhatsapp',
@@ -110,7 +80,7 @@ const ourServicesData = [
   },
   {
     id: 6,
-    image: catSixImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Resort Booking',
     buttonText: 'Contact Us',
     Icon: 'FaWhatsapp',
@@ -124,7 +94,7 @@ const ourServicesData = [
 const popularCitiesData = [
   {
     id: 1,
-    image: bbsrImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     name: 'Bhubaneswar',
     slug: 'bhubaneswar',
     history:
@@ -133,13 +103,13 @@ const popularCitiesData = [
     localFood: ['Dahi Bara Aloo Dum', 'Dalma', 'Chhena Poda'],
     travelTips: ['Dress modestly while visiting temples.', 'Try the temple "Prasad".'],
     attractions: [
-      { name: 'Lingaraj Temple', desc: '11th-century architectural marvel.', image: bbsrImage },
-      { name: 'Udayagiri Caves', desc: 'Ancient Jain rock-cut caves.', image: bbsrImage },
+      { name: 'Lingaraj Temple', desc: '11th-century architectural marvel.', image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg" },
+      { name: 'Udayagiri Caves', desc: 'Ancient Jain rock-cut caves.', image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg" },
     ],
   },
   {
     id: 2,
-    image: puriImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     name: 'Puri',
     slug: 'puri',
     history:
@@ -148,8 +118,8 @@ const popularCitiesData = [
     localFood: ['Khaja', 'Mahaprasad', 'Fried Seafood'],
     travelTips: ['Visit the beach early morning for sunrise.', 'Be wary of unregulated priests.'],
     attractions: [
-      { name: 'Jagannath Temple', desc: 'Colossal 12th-century shrine.', image: puriImage },
-      { name: 'Golden Beach', desc: 'Pristine Blue Flag beach.', image: puriImage },
+      { name: 'Jagannath Temple', desc: 'Colossal 12th-century shrine.', image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg" },
+      { name: 'Golden Beach', desc: 'Pristine Blue Flag beach.', image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg" },
     ],
   },
 ];
@@ -157,7 +127,7 @@ const popularCitiesData = [
 const ourPackagesData = [
   {
     id: 1,
-    image: konarkImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Golden Triangle Tour Odisha',
     location: 'Bhubaneswar · Puri · Konark',
     duration: '4 Days / 3 Nights',
@@ -171,7 +141,7 @@ const ourPackagesData = [
   },
   {
     id: 2,
-    image: puriImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Puri Jagannath Ratha Yatra Tour',
     location: 'Puri',
     duration: '3 Days / 2 Nights',
@@ -185,7 +155,7 @@ const ourPackagesData = [
   },
   {
     id: 3,
-    image: birajaImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Spiritual Tour Odisha',
     location: 'Puri · Jajpur · BBSR',
     duration: '5 Days / 4 Nights',
@@ -199,7 +169,7 @@ const ourPackagesData = [
   },
   {
     id: 4,
-    image: catFiveImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Odisha Family Tour Package',
     location: 'BBSR · Puri · Chilika',
     duration: '6 Days / 5 Nights',
@@ -213,7 +183,7 @@ const ourPackagesData = [
   },
   {
     id: 5,
-    image: balasoreImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Puri Gangasagar Tour Package',
     location: 'Puri · Kolkata · Gangasagar',
     duration: '7 Days / 6 Nights',
@@ -227,7 +197,7 @@ const ourPackagesData = [
   },
   {
     id: 6,
-    image: deomaliImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Odisha Adventure Tour',
     location: 'Koraput · Deomali · Duduma',
     duration: '4 Days / 3 Nights',
@@ -241,7 +211,7 @@ const ourPackagesData = [
   },
   {
     id: 7,
-    image: bhitarkanikaImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Satakosia Wildlife Tour',
     location: 'Angul · Satakosia Gorge',
     duration: '3 Days / 2 Nights',
@@ -255,7 +225,7 @@ const ourPackagesData = [
   },
   {
     id: 8,
-    image: tribalImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Tribal Tour',
     location: 'Rayagada · Koraput · Desia',
     duration: '5 Days / 4 Nights',
@@ -269,7 +239,7 @@ const ourPackagesData = [
   },
   {
     id: 9,
-    image: bbsrImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Bhubaneswar City Tour',
     location: 'Bhubaneswar Landmarks',
     duration: '1 Day',
@@ -283,7 +253,7 @@ const ourPackagesData = [
   },
   {
     id: 10,
-    image: daringhbadiImage,
+    image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
     title: 'Golden Triangle with Daringbadi',
     location: 'BBSR · Puri · Daringbadi',
     duration: '6 Days / 5 Nights',
@@ -384,7 +354,7 @@ const serviceDetailsData = {
         id: 2,
         carName: 'Hyundai Elantra',
         capacity: '4 G + 1 D',
-        image: hyundaiElantraPhoto,
+        image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
       },
     ],
   },
@@ -397,7 +367,7 @@ const serviceDetailsData = {
         id: 1,
         carName: 'Force 17 Seater',
         capacity: '17 G + 1 D',
-        image: forcePhoto,
+        image: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
       },
     ],
   },
