@@ -83,6 +83,11 @@
     padding: 80px 24px 130px;
     justify-content: flex-end;
   }
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    width: min(620px, 88%);
+    padding: 88px clamp(24px, 4vw, 48px) 72px;
+  }
 }
 
 /* ── Headline group – wraps all 3 lines ── */
@@ -93,6 +98,10 @@
   width: 100%;
   margin-bottom: 28px;
   gap: 0;
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    margin-bottom: 20px;
+  }
 }
 
 /**
@@ -115,6 +124,10 @@
   text-transform: uppercase;
   margin: 0;
   display: block;
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    font-size: clamp(2.6rem, 5vw, 4.9rem);
+  }
 }
 
 /* ── Line 2: vivid gradient fill (the "pop" line) ── */
@@ -125,6 +138,10 @@
   background-clip: text;
   /* Slightly larger to draw the eye */
   font-size: clamp(3rem, 8vw, 6.8rem);
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    font-size: clamp(2.8rem, 5.6vw, 5.4rem);
+  }
 }
 
 /* ── Line 3: smaller outlined/muted tag line ── */
@@ -137,6 +154,11 @@
   color: rgba(255, 255, 255, 0.45);
   margin: 8px 0 0;
   display: block;
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    letter-spacing: 0.14em;
+  }
 }
 
 /* ── Subtitle ── */
@@ -147,6 +169,12 @@
   max-width: 460px;
   margin-bottom: 36px;
   font-weight: 400;
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
 }
 
 
@@ -168,6 +196,10 @@
   letter-spacing: 0.04em;
   box-shadow: var(--shadow-sm);
 
+  @media (min-width: 769px) and (max-height: 900px) {
+    margin-bottom: 18px;
+  }
+
   svg {
     font-size: 1.1rem;
     color: var(--color-secondary);
@@ -183,6 +215,10 @@
   gap: 14px;
   flex-wrap: wrap;
   margin-bottom: 48px;
+
+  @media (min-width: 769px) and (max-height: 900px) {
+    margin-bottom: 0;
+  }
 }
 
 .btnPrimary {
