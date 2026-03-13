@@ -11,8 +11,6 @@ import {
 import { MdOutlineStar, MdOutlineVerified } from 'react-icons/md';
 import classes from './about.module.scss';
 import Image from 'next/image';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
 
 const values = [
   {
@@ -60,12 +58,11 @@ const fadeUp: Variants = {
 export default function AboutClient() {
   return (
     <>
-      <Navbar />
       <div className={classes.page}>
         {/* Hero */}
         <div className={classes.hero}>
           <Image
-            src="https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=2000&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png"
             alt="Konark Sun Temple Odisha"
             layout="fill"
             objectFit="cover"

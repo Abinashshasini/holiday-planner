@@ -15,8 +15,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import classes from './contact.module.scss';
 import Image from 'next/image';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
 
 interface FormData {
   name: string;
@@ -94,13 +92,13 @@ export default function ContactClient() {
 
   return (
     <>
-      <Navbar />
+
       <div className={classes.page}>
         <Toaster position="bottom-center" />
         {/* Hero */}
         <div className={classes.hero}>
           <Image
-            src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png"
             alt="Odisha Coastline"
             layout="fill"
             objectFit="cover"
