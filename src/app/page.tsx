@@ -1,12 +1,14 @@
 import Hero from '@/components/hero';
-import OurServices from '@/components/our-services';
-import RFQCard from '@/components/rfq-card';
-import OurPackages from '@/components/our-packages';
-import SearchBar from '@/components/search-bar';
-import GetInTouch from '@/components/get-in-touch';
-import WhyChooseUs from '@/components/why-choose';
-import Ratings from '@/components/ratings';
-import FAQ from '@/components/faq';
+import dynamic from 'next/dynamic';
+
+const SearchBar = dynamic(() => import('@/components/search-bar'));
+const OurServices = dynamic(() => import('@/components/our-services'));
+const RFQCard = dynamic(() => import('@/components/rfq-card'));
+const OurPackages = dynamic(() => import('@/components/our-packages'));
+const GetInTouch = dynamic(() => import('@/components/get-in-touch'));
+const WhyChooseUs = dynamic(() => import('@/components/why-choose'));
+const Ratings = dynamic(() => import('@/components/ratings'));
+const FAQ = dynamic(() => import('@/components/faq'));
 
 const faqJsonLd = {
   '@context': 'https://schema.org',

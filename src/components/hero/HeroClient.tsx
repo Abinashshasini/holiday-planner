@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MdExplore } from 'react-icons/md';
-import { motion, useScroll, useTransform, Variants } from 'framer-motion';
+import { LazyMotion, domAnimation, m, useScroll, useTransform, type Variants } from 'framer-motion';
 import { FaArrowRight, FaCar } from 'react-icons/fa';
 import classes from './hero.module.scss';
 import useWhatsApp from '@/hooks/useWhatsApp';
@@ -59,31 +59,32 @@ const HeroClient: React.FC = () => {
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <section ref={sectionRef} className={classes.hero}>
-      <motion.div className={classes.bgWrap} style={{ y: yBg }}>
+      <m.div className={classes.bgWrap} style={{ y: yBg }}>
         <div className={classes.desktopOnly}>
           <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410046/odisha-desktop_s0n0fu.png" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
         </div>
         <div className={classes.mobileOnly}>
           <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
         </div>
-      </motion.div>
+      </m.div>
 
       <div className={classes.overlay} />
 
-      <motion.div
+      <m.div
         className={classes.content}
         style={{ opacity: textOpacity }}
         variants={pageStagger}
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={fadeUp} className={classes.badge}>
+        <m.div variants={fadeUp} className={classes.badge}>
           <MdExplore />
           <span>Odisha&apos;s #1 Travel Partner</span>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className={classes.headlineGroup}
           variants={headlineContainer}
         >
@@ -104,15 +105,15 @@ const HeroClient: React.FC = () => {
               — India&apos;s Best Kept Secret
             </h1>
           </div>
-        </motion.div>
+        </m.div>
 
-        <p  className={classes.subtitle}>
+        <m.p variants={fadeUp} className={classes.subtitle}>
           Ancient temples, golden beaches, and lush wilderness — all in one state.
           Let us craft your perfect Odisha escape with curated packages and
           premium car rentals.
-        </p>
+        </m.p>
 
-        <motion.div variants={fadeUp} className={classes.actions}>
+        <m.div variants={fadeUp} className={classes.actions}>
           <Link href="/packages" className={classes.btnPrimary}>
             Explore Packages <FaArrowRight />
           </Link>
@@ -122,9 +123,10 @@ const HeroClient: React.FC = () => {
           >
             <FaCar /> Book a Ride
           </button>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 };
 
