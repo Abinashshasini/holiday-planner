@@ -6,6 +6,8 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'res.cloudinary.com' },
     ],
+    loader: 'cloudinary',
+    path: 'https://res.cloudinary.com/dcudnuu04/image/upload',
   },
   webpack: (config) => {
     config.module.rules.push({
