@@ -8,8 +8,6 @@ import { FaArrowRight, FaCar } from 'react-icons/fa';
 import classes from './hero.module.scss';
 import useWhatsApp from '@/hooks/useWhatsApp';
 
-import desktopBg from '@/images/odisha-desktop.png';
-import mobileBg from '@/images/odisha-mobile.png';
 
 /* ─────────────────────────────────────────────────────────
    Animation variants
@@ -90,29 +88,29 @@ const HeroClient: React.FC = () => {
           variants={headlineContainer}
         >
           <div className={classes.lineWrap}>
-            <motion.h1 variants={headlineLine} className={classes.headline}>
+            <h1 className={classes.headline}>
               Discover the
-            </motion.h1>
+            </h1>
           </div>
 
           <div className={classes.lineWrap}>
-            <motion.h1 variants={headlineLine} className={`${classes.headline} ${classes.headlineAccent}`}>
+            <h1 className={`${classes.headline} ${classes.headlineAccent}`}>
               Soul of Odisha
-            </motion.h1>
+            </h1>
           </div>
 
           <div className={classes.lineWrap}>
-            <motion.h1 variants={headlineLine} className={classes.headlineOutline}>
+            <h1 className={classes.headlineOutline}>
               — India&apos;s Best Kept Secret
-            </motion.h1>
+            </h1>
           </div>
         </motion.div>
 
-        <motion.p variants={fadeUp} className={classes.subtitle}>
+        <p  className={classes.subtitle}>
           Ancient temples, golden beaches, and lush wilderness — all in one state.
           Let us craft your perfect Odisha escape with curated packages and
           premium car rentals.
-        </motion.p>
+        </p>
 
         <motion.div variants={fadeUp} className={classes.actions}>
           <Link href="/packages" className={classes.btnPrimary}>

@@ -4,6 +4,13 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import WhatsAppButton from '@/components/whatsapp';
 import CallButton from '@/components/call-button';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+
 
 const SITE_URL = 'https://www.holidayplanner.in';
 const SITE_NAME = 'Holiday Planner';
@@ -173,7 +180,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.className} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
