@@ -7,6 +7,7 @@ import { LazyMotion, domAnimation, m, useScroll, useTransform, type Variants } f
 import { FaArrowRight, FaCar } from 'react-icons/fa';
 import classes from './hero.module.scss';
 import useWhatsApp from '@/hooks/useWhatsApp';
+import  { DesktopBg, MobileBg } from '../../utils/index'
 
 
 /* ─────────────────────────────────────────────────────────
@@ -55,10 +56,10 @@ const HeroClient: React.FC = () => {
     <section ref={sectionRef} className={classes.hero}>
       <m.div className={classes.bgWrap} style={{ y: yBg }}>
         <div className={classes.desktopOnly}>
-          <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773506046/odisha-desktop_s0n0fu.webp" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
+          <Image src={DesktopBg} alt="Scenic Odisha" fill priority unoptimized className={classes.bgImg} />
         </div>
         <div className={classes.mobileOnly}>
-          <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773506504/odisha-mobile_yhelr2.webp" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
+          <Image src={MobileBg} alt="Scenic Odisha" fill priority unoptimized className={classes.bgImg} />
         </div>
       </m.div>
 
@@ -99,11 +100,11 @@ const HeroClient: React.FC = () => {
           </div>
         </m.div>
 
-        <m.p variants={fadeUp} className={classes.subtitle}>
+        <p  className={classes.subtitle}>
           Ancient temples, golden beaches, and lush wilderness — all in one state.
           Let us craft your perfect Odisha escape with curated packages and
           premium car rentals.
-        </m.p>
+        </p>
 
         <m.div variants={fadeUp} className={classes.actions}>
           <Link href="/packages" className={classes.btnPrimary}>

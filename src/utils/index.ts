@@ -12,10 +12,11 @@ import { PiPersonArmsSpread } from "react-icons/pi";
 
 const LogoImage =
   "https://res.cloudinary.com/dcudnuu04/image/upload/v1773411036/logo.5df95dcd_btfbqr.svg";
-const MenuImage =
-  "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg";
-const RfqCardImage =
-  "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg";
+const DesktopBg =
+  "https://res.cloudinary.com/dcudnuu04/image/upload/v1773506046/odisha-desktop_s0n0fu.webp";
+const MobileBg =
+  "https://res.cloudinary.com/dcudnuu04/image/upload/v1773506504/odisha-mobile_yhelr2.webp";
+
 
 const ourServicesData = [
   {
@@ -1038,10 +1039,10 @@ const serviceDetailsData = {
 
 export {
   LogoImage,
-  MenuImage,
+  DesktopBg,
+  MobileBg,
   ourServicesData,
   popularCitiesData,
-  RfqCardImage,
   ourPackagesData,
   whyChooseUsData,
   userRatingData,
