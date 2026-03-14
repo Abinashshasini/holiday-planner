@@ -20,15 +20,7 @@ const headlineContainer: Variants = {
   },
 };
 
-const headlineLine: Variants = {
-  hidden: { opacity: 0, y: 60, skewY: 4 },
-  show: {
-    opacity: 1,
-    y: 0,
-    skewY: 0,
-    transition: { type: 'spring', damping: 18, stiffness: 80 },
-  },
-};
+
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -63,10 +55,10 @@ const HeroClient: React.FC = () => {
     <section ref={sectionRef} className={classes.hero}>
       <m.div className={classes.bgWrap} style={{ y: yBg }}>
         <div className={classes.desktopOnly}>
-          <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410046/odisha-desktop_s0n0fu.png" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
+          <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773506046/odisha-desktop_s0n0fu.webp" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
         </div>
         <div className={classes.mobileOnly}>
-          <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
+          <Image src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773506504/odisha-mobile_yhelr2.webp" alt="Scenic Odisha" fill priority className={classes.bgImg} sizes="100vw" />
         </div>
       </m.div>
 

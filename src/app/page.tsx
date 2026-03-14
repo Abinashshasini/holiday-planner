@@ -1,5 +1,6 @@
 import Hero from '@/components/hero';
 import BelowFoldSections from '@/components/BelowFoldSections';
+import { Suspense } from 'react';
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -56,7 +57,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Hero />
-      <BelowFoldSections />
+      <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
+        <BelowFoldSections />
+      </Suspense>
     </div>
   );
 }

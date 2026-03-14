@@ -1,6 +1,5 @@
 /** Icons */
 import {
-  FaRegCalendarCheck,
   FaHotel,
   FaMapMarkedAlt,
   FaHandHoldingUsd,
@@ -34,7 +33,7 @@ const ourServicesData = [
   {
     id: 2,
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410044/typeTwo_lz0bwa.png",
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773502242/typeOne_tdgdcp.png",
     title: "Luxury Car Wedding Car",
     buttonText: "Know More",
     Icon: null,
@@ -46,7 +45,7 @@ const ourServicesData = [
   {
     id: 3,
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410044/typeTwo_lz0bwa.png",
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773502271/typeThree_dgj3ja.png",
     title: "Tempo Traveler Booking",
     buttonText: "Know More",
     Icon: null,
