@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { LazyMotion, domMax, m as motion, type Variants } from 'framer-motion';
 import {
   FaRegCalendarCheck,
   FaAward,
@@ -57,17 +57,18 @@ const fadeUp: Variants = {
 
 export default function AboutClient() {
   return (
-    <>
+    <LazyMotion features={domMax}>
       <div className={classes.page}>
         {/* Hero */}
         <div className={classes.hero}>
           <Image
             src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png"
             alt="Konark Sun Temple Odisha"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className={classes.heroImage}
             priority
+            unoptimized
           />
           <div className={classes.heroOverlay} />
           <motion.div
@@ -233,6 +234,6 @@ export default function AboutClient() {
           </motion.section>
         </div>
       </div>
-    </>
+    </LazyMotion>
   );
 }

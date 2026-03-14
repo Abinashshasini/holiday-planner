@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { LazyMotion, domAnimation, m as motion, type Variants } from 'framer-motion';
 import { FaMapMarkerAlt, FaArrowRight, FaCameraRetro } from 'react-icons/fa';
 import classes from './destinations.module.scss';
 import { popularCitiesData } from '@/utils';
@@ -22,7 +22,7 @@ const cardVariants: Variants = {
 
 export default function DestinationsClient() {
   return (
-    <>
+    <LazyMotion features={domAnimation}>
      
       <div className={classes.page}>
         {/* Hero Section */}
@@ -129,6 +129,6 @@ export default function DestinationsClient() {
           </motion.div>
         </div>
       </div>
-    </>
+    </LazyMotion>
   );
 }

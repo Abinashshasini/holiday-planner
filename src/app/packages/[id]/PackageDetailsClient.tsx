@@ -1,5 +1,5 @@
 'use client';
-import { motion, Variants } from 'framer-motion';
+import { LazyMotion, domAnimation, m as motion, type Variants } from 'framer-motion';
 import {
   FaWhatsapp,
   FaArrowRight,
@@ -49,7 +49,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
   ];
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <div className={classes.page}>
         {/* Sticky Booking Bar */}
         <motion.div
@@ -82,10 +82,11 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
           <Image
             src={pkg.image}
             alt={pkg.title}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className={classes.heroImage}
             priority
+            unoptimized
           />
           <div className={classes.heroOverlay} />
           <motion.div
@@ -243,6 +244,6 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
           </div>
         </div>
       </div>
-    </>
+    </LazyMotion>
   );
 }

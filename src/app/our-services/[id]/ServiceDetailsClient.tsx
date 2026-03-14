@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
+import { LazyMotion, domAnimation, m as motion, type Variants } from 'framer-motion';
 import { FaWhatsapp, FaUsers, FaTags } from 'react-icons/fa';
-import RFQCard from '@/components/rfq-card';
-import WhyChooseUs from '@/components/why-choose';
-import GetInTouch from '@/components/get-in-touch';
+import dynamic from 'next/dynamic';
+const RFQCard     = dynamic(() => import('@/components/rfq-card'),      { ssr: false });
+const WhyChooseUs = dynamic(() => import('@/components/why-choose'),    { ssr: false });
+const GetInTouch  = dynamic(() => import('@/components/get-in-touch'), { ssr: false });
 import classes from './style.module.scss';
 import useWhatsApp from '@/hooks/useWhatsApp';
 
@@ -28,7 +29,7 @@ const ServiceDetailsClient = ({ data }: { data: any }) => {
       : [];
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <div className={classes.page}>
         {/* ── Hero ── */}
         <div className={classes.hero}>
@@ -39,6 +40,7 @@ const ServiceDetailsClient = ({ data }: { data: any }) => {
             style={{ objectFit: 'cover' }}
             className={classes.heroImage}
             priority
+            unoptimized
           />
           <div className={classes.heroOverlay} />
           <motion.div
@@ -181,7 +183,7 @@ const ServiceDetailsClient = ({ data }: { data: any }) => {
         <RFQCard />
         <GetInTouch />
       </div>
-    </>
+    </LazyMotion>
   );
 };
 

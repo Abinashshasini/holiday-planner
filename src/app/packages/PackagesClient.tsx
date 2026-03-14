@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
+import { LazyMotion, domMax, m as motion, type Variants } from 'framer-motion';
 import { CiLocationOn } from 'react-icons/ci';
 import { FaArrowRight, FaWhatsapp } from 'react-icons/fa';
 import { MdOutlineFilterList } from 'react-icons/md';
@@ -37,7 +37,7 @@ export default function PackagesClient() {
       : ourPackagesData.filter((p) => p.category === activeFilter);
 
   return (
-    <>
+    <LazyMotion features={domMax}>
 
       <div className={classes.page}>
         {/* Page Hero */}
@@ -49,6 +49,7 @@ export default function PackagesClient() {
             style={{ objectFit: 'cover' }}
             className={classes.heroImage}
             priority
+            unoptimized
           />
           <div className={classes.heroOverlay} />
           <motion.div
@@ -225,6 +226,6 @@ export default function PackagesClient() {
           </motion.div>
         </div>
       </div>
-    </>
+    </LazyMotion>
   );
 }

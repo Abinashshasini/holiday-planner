@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { LazyMotion, domMax, m as motion } from 'framer-motion';
 import {
 
   FaArrowRight,
@@ -44,7 +44,7 @@ export default function DestinationDetailsClient({
   );
 
   return (
-    <>
+    <LazyMotion features={domMax}>
      
       <main className={classes.main}>
         {/* Dynamic Hero Section */}
@@ -52,10 +52,11 @@ export default function DestinationDetailsClient({
           <Image
             src={cityInfo.image}
             alt={cityInfo.name}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className={classes.heroImage}
             priority
+            unoptimized
           />
           <div className={classes.heroOverlay} />
 
@@ -321,6 +322,6 @@ export default function DestinationDetailsClient({
           )}
         </div>
       </main>
-    </>
+    </LazyMotion>
   );
 }

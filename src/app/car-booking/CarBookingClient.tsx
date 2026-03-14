@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
+import { LazyMotion, domMax, m as motion, type Variants } from 'framer-motion';
 import { FaWhatsapp, FaPhone, FaUsers, FaCar, FaStar, FaHeadset } from 'react-icons/fa';
 import { serviceDetailsData } from '@/utils';
 import useWhatsApp from '@/hooks/useWhatsApp';
@@ -31,6 +31,7 @@ const CarBookingClient = () => {
   const rowLabels = carRental.tData[0].data.map((d) => d.info);
 
   return (
+    <LazyMotion features={domMax}>
     <div className={classes.page}>
 
       {/* ── Hero ── */}
@@ -42,6 +43,7 @@ const CarBookingClient = () => {
           style={{ objectFit: 'cover' }}
           className={classes.heroImage}
           priority
+          unoptimized
         />
         <div className={classes.heroOverlay} />
         <motion.div
@@ -304,6 +306,7 @@ const CarBookingClient = () => {
 
       </div>
     </div>
+    </LazyMotion>
   );
 };
 
