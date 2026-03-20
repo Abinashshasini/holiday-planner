@@ -7,6 +7,9 @@
 import { NextStudio } from "next-sanity/studio";
 import config from "../../../../sanity.config";
 
+// Must be dynamic — Sanity Studio cannot be statically pre-rendered
+export const dynamic = "force-dynamic";
+
 export default function StudioPage() {
   return (
     <div>
