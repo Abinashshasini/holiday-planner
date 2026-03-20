@@ -1,5 +1,10 @@
-'use client';
-import { LazyMotion, domAnimation, m as motion, type Variants } from 'framer-motion';
+"use client";
+import {
+  LazyMotion,
+  domAnimation,
+  m as motion,
+  type Variants,
+} from "framer-motion";
 import {
   FaWhatsapp,
   FaArrowRight,
@@ -8,11 +13,10 @@ import {
   FaMapMarkerAlt,
   FaClock,
   FaPhone,
-
-} from 'react-icons/fa';
-import useWhatsApp from '@/hooks/useWhatsApp';
-import classes from './packageDetails.module.scss';
-import Image from 'next/image';
+} from "react-icons/fa";
+import useWhatsApp from "@/hooks/useWhatsApp";
+import classes from "./packageDetails.module.scss";
+import Image from "next/image";
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -24,7 +28,7 @@ const staggerContainer: Variants = {
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
 };
 
 export default function PackageDetailsClient({ pkg }: { pkg: any }) {
@@ -32,20 +36,20 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
 
   const overview =
     pkg.overview ||
-    'A beautiful journey through the scenic landscapes of Odisha.';
-  const included = pkg.included || ['Accommodation', 'Transport', 'Breakfast'];
+    "A beautiful journey through the scenic landscapes of Odisha.";
+  const included = pkg.included || ["Accommodation", "Transport", "Breakfast"];
   const excluded = pkg.excluded || [
-    'Flights',
-    'Entry Fees',
-    'Personal Expenses',
+    "Flights",
+    "Entry Fees",
+    "Personal Expenses",
   ];
   const itinerary = pkg.itinerary || [
     {
       day: 1,
-      title: 'Arrival',
-      description: 'Arrive and check in to your hotel.',
+      title: "Arrival",
+      description: "Arrive and check in to your hotel.",
     },
-    { day: 2, title: 'Sightseeing', description: 'Enjoy local sightseeing.' },
+    { day: 2, title: "Sightseeing", description: "Enjoy local sightseeing." },
   ];
 
   return (
@@ -56,7 +60,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
           className={classes.stickyBar}
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          transition={{ delay: 1, type: 'spring', stiffness: 100 }}
+          transition={{ delay: 1, type: "spring", stiffness: 100 }}
         >
           <div className={classes.stickyContainer}>
             <div className={classes.stickyInfo}>
@@ -67,7 +71,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
               className={classes.stickyBtn}
               onClick={() =>
                 handleRedirectTheUserToWhatsApp({
-                  messageType: 'dynamic',
+                  messageType: "dynamic",
                   dynamicMessage: `Hi, I am interested in booking the "${pkg.title}" package (${pkg.duration}). Please share the booking details.`,
                 })
               }
@@ -83,7 +87,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
             src={pkg.image}
             alt={pkg.title}
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover", objectPosition: "10% 20%" }}
             className={classes.heroImage}
             priority
             unoptimized
@@ -95,7 +99,6 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-           
             <span className={classes.heroBadge}>{pkg.category}</span>
             <h1 className={classes.heroTitle}>{pkg.title}</h1>
             <div className={classes.heroMeta}>
@@ -161,18 +164,23 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
               <motion.section variants={fadeUp} className={classes.section}>
                 <h2 className={classes.sectionTitle}>Itinerary</h2>
                 <div className={classes.timeline}>
-                  {itinerary.map((item: { day: number; title: string; description: string }, index: number) => (
-                    <div key={index} className={classes.timelineItem}>
-                      <div className={classes.timelineMarker}>
-                        <span>Day</span>
-                        <strong>{item.day}</strong>
+                  {itinerary.map(
+                    (
+                      item: { day: number; title: string; description: string },
+                      index: number,
+                    ) => (
+                      <div key={index} className={classes.timelineItem}>
+                        <div className={classes.timelineMarker}>
+                          <span>Day</span>
+                          <strong>{item.day}</strong>
+                        </div>
+                        <div className={classes.timelineContent}>
+                          <h3>{item.title}</h3>
+                          <p>{item.description}</p>
+                        </div>
                       </div>
-                      <div className={classes.timelineContent}>
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ),
+                  )}
                 </div>
               </motion.section>
 
@@ -181,7 +189,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
                 <div className={classes.mapWrap}>
                   <iframe
                     title="Tour Map"
-                    src={`https://maps.google.com/maps?q=${encodeURIComponent(pkg.location + ' Odisha')}&t=&z=8&ie=UTF8&iwloc=&output=embed`}
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(pkg.location + " Odisha")}&t=&z=8&ie=UTF8&iwloc=&output=embed`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -197,7 +205,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
               className={classes.sidebar}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, type: 'spring' }}
+              transition={{ delay: 0.5, type: "spring" }}
             >
               <div className={classes.bookingCard}>
                 <h3>Secure Your Spot</h3>
@@ -220,7 +228,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
                   className={classes.primaryBtn}
                   onClick={() =>
                     handleRedirectTheUserToWhatsApp({
-                      messageType: 'dynamic',
+                      messageType: "dynamic",
                       dynamicMessage: `Hi, I am interested in booking the "${pkg.title}" package (${pkg.duration}). Please share the booking details.`,
                     })
                   }
