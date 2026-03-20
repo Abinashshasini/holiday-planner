@@ -1,21 +1,36 @@
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { ourPackagesData } from '@/utils';
-import PackageDetailsClient from './PackageDetailsClient';
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { ourPackagesData } from "@/utils";
+import { getPackageBySlug } from "@/sanity/queries";
+import PackageDetailsClient from "./PackageDetailsClient";
 
-const SITE_URL = 'https://www.holidayplanner.in';
+const SITE_URL = "https://www.holidayplanner.in";
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+/** Resolve package from Sanity by slug, or fall back to static data by numeric ID */
+async function resolvePackage(idOrSlug: string) {
+  const sanityPkg = await getPackageBySlug(idOrSlug).catch(() => null);
+  if (sanityPkg) return sanityPkg;
+
+  const numericId = parseInt(idOrSlug);
+  if (!isNaN(numericId)) {
+    return ourPackagesData.find((p) => p.id === numericId) ?? null;
+  }
+  return null;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
   const resolvedParams = await params;
-  const id = parseInt(resolvedParams.id);
-  const pkg = ourPackagesData.find((p) => p.id === id);
+  const pkg = await resolvePackage(resolvedParams.id);
 
   if (!pkg) {
-    return {
-      title: 'Package Not Found',
-    };
+    return { title: "Package Not Found" };
   }
 
+  const slug = "slug" in pkg ? pkg.slug.current : String((pkg as any).id);
   const description =
     pkg.overview ||
     `Explore ${pkg.title} in ${pkg.location}. Book this ${pkg.duration} package with Holiday Planner, Odisha's most trusted travel agency.`;
@@ -27,19 +42,19 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       pkg.title,
       `${pkg.location} tour`,
       `${pkg.duration} Odisha trip`,
-      'Odisha tour package',
-      'Holiday Planner',
+      "Odisha tour package",
+      "Holiday Planner",
     ],
-    alternates: { canonical: `/packages/${pkg.id}` },
+    alternates: { canonical: `/packages/${slug}` },
     openGraph: {
       title: `${pkg.title} — ${pkg.duration} | Holiday Planner`,
       description: description.slice(0, 160),
-      url: `${SITE_URL}/packages/${pkg.id}`,
-      type: 'website',
+      url: `${SITE_URL}/packages/${slug}`,
+      type: "website",
       images: [pkg.image],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: `${pkg.title} | Holiday Planner`,
       description: description.slice(0, 160),
     },
@@ -48,43 +63,46 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 function PackageJsonLd({ pkg }: { pkg: any }) {
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'TouristTrip',
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
     name: pkg.title,
     description:
       pkg.overview ||
       `${pkg.duration} tour package covering ${pkg.location}, Odisha.`,
-    touristType: pkg.category || 'Leisure',
+    touristType: pkg.category || "Leisure",
     itinerary: {
-      '@type': 'ItemList',
+      "@type": "ItemList",
       numberOfItems: pkg.itinerary?.length || 0,
       itemListElement:
         pkg.itinerary?.map(
-          (item: { day: number; title: string; description: string }, i: number) => ({
-            '@type': 'ListItem',
+          (
+            item: { day: number; title: string; description: string },
+            i: number,
+          ) => ({
+            "@type": "ListItem",
             position: i + 1,
             name: `Day ${item.day}: ${item.title}`,
             description: item.description,
-          })
+          }),
         ) || [],
     },
     offers: {
-      '@type': 'Offer',
-      price: pkg.price?.replace(/[^0-9]/g, ''),
-      priceCurrency: 'INR',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2026-01-01',
+      "@type": "Offer",
+      price: pkg.price?.replace(/[^0-9]/g, ""),
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      validFrom: "2026-01-01",
       seller: {
-        '@type': 'TravelAgency',
-        name: 'Holiday Planner',
-        url: 'https://www.holidayplanner.in',
+        "@type": "TravelAgency",
+        name: "Holiday Planner",
+        url: "https://www.holidayplanner.in",
       },
     },
     provider: {
-      '@type': 'TravelAgency',
-      name: 'Holiday Planner',
-      url: 'https://www.holidayplanner.in',
-      telephone: '+91-7978065576',
+      "@type": "TravelAgency",
+      name: "Holiday Planner",
+      url: "https://www.holidayplanner.in",
+      telephone: "+91-7978065576",
     },
   };
 
@@ -96,10 +114,13 @@ function PackageJsonLd({ pkg }: { pkg: any }) {
   );
 }
 
-export default async function PackageDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function PackageDetailsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const resolvedParams = await params;
-  const id = parseInt(resolvedParams.id);
-  const pkg = ourPackagesData.find((p) => p.id === id);
+  const pkg = await resolvePackage(resolvedParams.id);
 
   if (!pkg) {
     return notFound();

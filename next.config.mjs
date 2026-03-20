@@ -3,8 +3,9 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "cdn.sanity.io" },
     ],
     // loader: 'cloudinary',
     // path: 'https://res.cloudinary.com/dcudnuu04/image/upload',
@@ -14,11 +15,11 @@ const nextConfig = {
       test: /\.pdf$/,
       use: [
         {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: '[path][name].[ext]',
-            publicPath: '/_next/static/files',
-            outputPath: 'static/files',
+            name: "[path][name].[ext]",
+            publicPath: "/_next/static/files",
+            outputPath: "static/files",
           },
         },
       ],

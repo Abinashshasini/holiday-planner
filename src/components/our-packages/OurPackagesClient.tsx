@@ -1,22 +1,32 @@
-'use client';
-import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
-import { CiLocationOn } from 'react-icons/ci';
-import { FaArrowRight } from 'react-icons/fa';
-import { ourPackagesData } from '@/utils';
-import classes from './ourPackages.module.scss';
+"use client";
+import Link from "next/link";
+import { motion, Variants } from "framer-motion";
+import { CiLocationOn } from "react-icons/ci";
+import { FaArrowRight } from "react-icons/fa";
+import { ourPackagesData } from "@/utils";
+import type { SanityPackage } from "@/sanity/queries";
+import classes from "./ourPackages.module.scss";
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 80, damping: 20 },
+    transition: { type: "spring", stiffness: 80, damping: 20 },
   },
 };
 
-const OurPackagesClient = () => {
-  const featured = ourPackagesData.slice(0, 6);
+type PackageItem = SanityPackage | (typeof ourPackagesData)[number];
+
+function getSlug(pkg: PackageItem): string {
+  if ("slug" in pkg && pkg.slug) return pkg.slug.current;
+  return String((pkg as (typeof ourPackagesData)[number]).id);
+}
+
+const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
+  const source: PackageItem[] =
+    packages && packages.length > 0 ? packages : ourPackagesData;
+  const featured = source.slice(0, 6);
 
   return (
     <section className={classes.section}>
@@ -24,7 +34,7 @@ const OurPackagesClient = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className={classes.header}
         >
@@ -48,12 +58,12 @@ const OurPackagesClient = () => {
         className={classes.carouselWrapper}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <div className={classes.carouselInner}>
           {featured.map((pkg) => (
             <motion.div
-              key={pkg.id}
+              key={"_id" in pkg ? pkg._id : pkg.id}
               className={classes.carouselItem}
               variants={cardVariants}
             >
@@ -66,18 +76,14 @@ const OurPackagesClient = () => {
                 <div className={classes.cardOverlayFull} />
 
                 <div className={classes.badges}>
-                  <span className={classes.durationBadge}>
-                    {pkg.duration}
-                  </span>
-                  <span className={classes.categoryBadge}>
-                    {pkg.category}
-                  </span>
+                  <span className={classes.durationBadge}>{pkg.duration}</span>
+                  <span className={classes.categoryBadge}>{pkg.category}</span>
                 </div>
 
                 <div className={classes.cardContentOverlay}>
                   <div className={classes.cardHeaderMain}>
                     <Link
-                      href={`/packages/${pkg.id}`}
+                      href={`/packages/${getSlug(pkg)}`}
                       className={classes.linkReset}
                     >
                       <h3 className={classes.cardTitleWhite}>{pkg.title}</h3>
@@ -96,7 +102,7 @@ const OurPackagesClient = () => {
                       <span className={classes.priceWhite}>{pkg.price}</span>
                     </div>
                     <Link
-                      href={`/packages/${pkg.id}`}
+                      href={`/packages/${getSlug(pkg)}`}
                       className={classes.viewBtn}
                     >
                       Explore <FaArrowRight />

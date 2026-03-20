@@ -1,18 +1,30 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { LazyMotion, domMax, m as motion, type Variants } from 'framer-motion';
-import { CiLocationOn } from 'react-icons/ci';
-import { FaArrowRight, FaWhatsapp } from 'react-icons/fa';
-import { MdOutlineFilterList } from 'react-icons/md';
-import { ourPackagesData } from '@/utils';
-import useWhatsApp from '@/hooks/useWhatsApp';
-import classes from './packages.module.scss';
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { LazyMotion, domMax, m as motion, type Variants } from "framer-motion";
+import { CiLocationOn } from "react-icons/ci";
+import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
+import { MdOutlineFilterList } from "react-icons/md";
+import { ourPackagesData } from "@/utils";
+import type { SanityPackage } from "@/sanity/queries";
+import useWhatsApp from "@/hooks/useWhatsApp";
+import classes from "./packages.module.scss";
 
+type PackageItem = SanityPackage | (typeof ourPackagesData)[number];
 
-const categories = ['all', 'beach', 'heritage', 'nature', 'tribal'];
+function getSlug(pkg: PackageItem): string {
+  if ("slug" in pkg && pkg.slug) return pkg.slug.current;
+  return String((pkg as (typeof ourPackagesData)[number]).id);
+}
+
+function getKey(pkg: PackageItem): string {
+  if ("_id" in pkg) return pkg._id;
+  return String((pkg as (typeof ourPackagesData)[number]).id);
+}
+
+const categories = ["all", "beach", "heritage", "nature", "tribal"];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -24,21 +36,27 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
 };
 
-export default function PackagesClient() {
-  const [activeFilter, setActiveFilter] = useState('all');
+export default function PackagesClient({
+  packages,
+}: {
+  packages?: SanityPackage[];
+}) {
+  const [activeFilter, setActiveFilter] = useState("all");
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
 
+  const source: PackageItem[] =
+    packages && packages.length > 0 ? packages : ourPackagesData;
+
   const filtered =
-    activeFilter === 'all'
-      ? ourPackagesData
-      : ourPackagesData.filter((p) => p.category === activeFilter);
+    activeFilter === "all"
+      ? source
+      : source.filter((p) => p.category === activeFilter);
 
   return (
     <LazyMotion features={domMax}>
-
       <div className={classes.page}>
         {/* Page Hero */}
         <div className={classes.hero}>
@@ -46,7 +64,7 @@ export default function PackagesClient() {
             src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410046/odisha-desktop_s0n0fu.png"
             alt="Chilika Lake Odisha"
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             className={classes.heroImage}
             priority
             unoptimized
@@ -56,7 +74,7 @@ export default function PackagesClient() {
             className={classes.heroContent}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className={classes.heroBadge}>Curated Journeys</span>
             <h1 className={classes.heroTitle}>
@@ -88,7 +106,7 @@ export default function PackagesClient() {
                 key={cat}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`${classes.filterBtn} ${activeFilter === cat ? classes.active : ''}`}
+                className={`${classes.filterBtn} ${activeFilter === cat ? classes.active : ""}`}
                 onClick={() => setActiveFilter(cat)}
               >
                 {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -108,12 +126,12 @@ export default function PackagesClient() {
               const isFeatured = index === 0;
               const isWide = index === 3;
               // On desktop we want some variation, but let's keep it simple to avoid breaking
-              const cardClass = `${classes.card} ${isFeatured ? classes.featured : ''} ${isWide ? classes.wide : ''}`;
+              const cardClass = `${classes.card} ${isFeatured ? classes.featured : ""} ${isWide ? classes.wide : ""}`;
 
               return (
                 <motion.div
                   variants={itemVariants}
-                  key={`${pkg.id}-${pkg.title}`}
+                  key={getKey(pkg)}
                   className={cardClass}
                 >
                   <Image
@@ -136,7 +154,7 @@ export default function PackagesClient() {
                   <div className={classes.cardContentOverlay}>
                     <div className={classes.cardHeaderMain}>
                       <Link
-                        href={`/packages/${pkg.id}`}
+                        href={`/packages/${getSlug(pkg)}`}
                         className={classes.linkReset}
                       >
                         <h3 className={classes.cardTitleWhite}>{pkg.title}</h3>
@@ -168,7 +186,7 @@ export default function PackagesClient() {
                         </div>
                         <div className={classes.btnGroup}>
                           <Link
-                            href={`/packages/${pkg.id}`}
+                            href={`/packages/${getSlug(pkg)}`}
                             className={classes.viewBtn}
                           >
                             View
@@ -180,7 +198,7 @@ export default function PackagesClient() {
                             onClick={(e) => {
                               e.preventDefault();
                               handleRedirectTheUserToWhatsApp({
-                                messageType: 'dynamic',
+                                messageType: "dynamic",
                                 dynamicMessage: `Hi, I'm interested in the ${pkg.title} package (${pkg.duration}).`,
                               });
                             }}
@@ -201,7 +219,7 @@ export default function PackagesClient() {
             className={classes.ctaBanner}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
           >
             <h2>Can&apos;t find what you&apos;re looking for?</h2>
@@ -215,7 +233,7 @@ export default function PackagesClient() {
               className={classes.ctaBtn}
               onClick={() =>
                 handleRedirectTheUserToWhatsApp({
-                  messageType: 'dynamic',
+                  messageType: "dynamic",
                   dynamicMessage:
                     "Hi, I'd like a custom tour package. Please help me plan my trip.",
                 })
