@@ -1,7 +1,7 @@
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import {
   FaSearch,
   FaMapMarkerAlt,
@@ -11,33 +11,33 @@ import {
   FaLandmark,
   FaLeaf,
   FaMask,
-} from 'react-icons/fa';
-import classes from './searchBar.module.scss';
-import useWhatsApp from '@/hooks/useWhatsApp';
+} from "react-icons/fa";
+import classes from "./searchBar.module.scss";
+import useWhatsApp from "@/hooks/useWhatsApp";
 
 const categories = [
-  { id: '', label: 'All', icon: <FaStar /> },
-  { id: 'beach', label: 'Beach', icon: <FaUmbrellaBeach /> },
-  { id: 'heritage', label: 'Heritage', icon: <FaLandmark /> },
-  { id: 'nature', label: 'Nature', icon: <FaLeaf /> },
-  { id: 'tribal', label: 'Tribal', icon: <FaMask /> },
+  { id: "", label: "All", icon: <FaStar /> },
+  { id: "beach", label: "Beach", icon: <FaUmbrellaBeach /> },
+  { id: "heritage", label: "Heritage", icon: <FaLandmark /> },
+  { id: "nature", label: "Nature", icon: <FaLeaf /> },
+  { id: "tribal", label: "Tribal", icon: <FaMask /> },
 ];
 
 const SearchBarClient = () => {
   const router = useRouter();
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
-  const [destination, setDestination] = useState('');
-  const [duration, setDuration] = useState('');
-  const [category, setCategory] = useState('');
+  const [destination, setDestination] = useState("");
+  const [duration, setDuration] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSearch = () => {
     if (destination || duration || category) {
       handleRedirectTheUserToWhatsApp({
-        messageType: 'dynamic',
-        dynamicMessage: `Hi! I'm looking for a tour in Odisha.\n📍 Destination: ${destination || 'Any'}\n📅 Duration: ${duration || 'Any'}\n🏷️ Category: ${category || 'Any'}\nPlease suggest the best package for me!`,
+        messageType: "dynamic",
+        dynamicMessage: `Hi! I'm looking for a tour in Odisha.\n📍 Destination: ${destination || "Any"}\n📅 Duration: ${duration || "Any"}\n🏷️ Category: ${category || "Any"}\nPlease suggest the best package for me!`,
       });
     } else {
-      router.push('/packages');
+      router.push("/packages");
     }
   };
 
@@ -50,13 +50,13 @@ const SearchBarClient = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, type: 'spring', damping: 22 }}
+        transition={{ duration: 0.7, type: "spring", damping: 22 }}
       >
         <div className={classes.header}>
-          <h2 className={classes.title}>Where would you like to go?</h2>
+          <h2 className={classes.title}>Plan Your Perfect Odisha Escape</h2>
           <p className={classes.sub}>
-            Pick a category, choose your destination, and we&apos;ll handle the
-            rest
+            Choose your vibe, pick a destination — we&apos;ll craft an
+            unforgettable journey just for you
           </p>
         </div>
 
@@ -64,8 +64,8 @@ const SearchBarClient = () => {
           {categories.map((c) => (
             <button
               key={c.id}
-              className={`${classes.catPill} ${category === c.id ? classes.catActive : ''}`}
-              onClick={() => setCategory(category === c.id ? '' : c.id)}
+              className={`${classes.catPill} ${category === c.id ? classes.catActive : ""}`}
+              onClick={() => setCategory(category === c.id ? "" : c.id)}
             >
               <span className={classes.catIcon}>{c.icon}</span>
               {c.label}
@@ -120,7 +120,7 @@ const SearchBarClient = () => {
 
         <div className={classes.quickTags}>
           <span className={classes.quickLabel}>Popular:</span>
-          {['Puri Beach', 'Konark Temple', 'Chilika Lake', 'Bhitarkanika'].map(
+          {["Puri Beach", "Konark Temple", "Chilika Lake", "Bhitarkanika"].map(
             (tag) => (
               <button
                 key={tag}
@@ -128,7 +128,7 @@ const SearchBarClient = () => {
                 onClick={() => {
                   setDestination(tag);
                   handleRedirectTheUserToWhatsApp({
-                    messageType: 'dynamic',
+                    messageType: "dynamic",
                     dynamicMessage: `Hi! I'm interested in a tour to ${tag}. Please help me find the best package!`,
                   });
                 }}

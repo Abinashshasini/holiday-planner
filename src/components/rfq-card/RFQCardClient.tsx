@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import classes from './rfqCard.module.scss';
-import useWhatsApp from '@/hooks/useWhatsApp';
-import { FaWhatsapp } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import classes from "./rfqCard.module.scss";
+import useWhatsApp from "@/hooks/useWhatsApp";
+import { FaWhatsapp } from "react-icons/fa";
 
 const RFQCardClient = () => {
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
@@ -15,7 +15,7 @@ const RFQCardClient = () => {
           <div className={classes.parallaxBg}>
             <div className={classes.overlay} />
           </div>
-          
+
           <motion.div
             className={classes.contentWrapper}
             initial={{ opacity: 0, y: 40 }}
@@ -24,15 +24,18 @@ const RFQCardClient = () => {
             transition={{ duration: 0.8 }}
           >
             <div className={classes.textSide}>
-              <span className={classes.eyebrow}>Limited Time Offer</span>
-              <h2 className={classes.headline}>Dreaming of Your Next <span>Adventure?</span></h2>
+              <span className={classes.eyebrow}>Your Journey Starts Here</span>
+              <h2 className={classes.headline}>
+                Ready to Experience <span>Odisha?</span>
+              </h2>
               <p className={classes.sub}>
-                Chat with our travel experts on WhatsApp and get a personalized quote in minutes.
-                Tailored itineraries, exclusive deals, and 24/7 support.
+                Tell us your dream trip — dates, group size, must-see spots —
+                and our experts will craft a bespoke itinerary with transparent
+                pricing. No obligations, just inspiration.
               </p>
             </div>
 
-            <motion.div 
+            <motion.div
               className={classes.actionSide}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -41,7 +44,9 @@ const RFQCardClient = () => {
             >
               <button
                 className={classes.cta}
-                onClick={() => handleRedirectTheUserToWhatsApp({ messageType: 'generic' })}
+                onClick={() =>
+                  handleRedirectTheUserToWhatsApp({ messageType: "generic" })
+                }
               >
                 <FaWhatsapp />
                 <span>Get Your Free Quote</span>

@@ -1,26 +1,29 @@
-import React from 'react';
-import { Metadata } from 'next';
-import AboutClient from './AboutClient';
+import React from "react";
+import { Metadata } from "next";
+import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
-  title: 'About Us — Odisha\'s Most Trusted Travel Agency',
+  title: "About Us — The Story Behind Odisha's Most Trusted Travel Partner",
   description:
-    'Holiday Planner is Bhubaneswar\'s leading travel agency with 500+ happy customers, specializing in authentic Odisha tour packages, car rentals, and luxury vehicles. Discover our mission, team, and why travelers trust us.',
+    "Since 2016, Holiday Planner has been crafting unforgettable Odisha experiences for 500+ travelers. Government-recognized guides, a premium fleet, and a 4.8★ Google rating — discover why families, adventurers, and pilgrims trust us with their most cherished journeys.",
   keywords: [
-    'About Holiday Planner',
-    'Odisha travel agency',
-    'Bhubaneswar tour operator',
-    'authentic Odisha tours',
-    'trusted travel partner Odisha',
-    'best travel agency Bhubaneswar',
+    "About Holiday Planner",
+    "Odisha travel agency",
+    "Bhubaneswar tour operator",
+    "authentic Odisha tours",
+    "trusted travel partner Odisha",
+    "best travel agency Bhubaneswar",
+    "Odisha tourism experts",
+    "premium car rental Odisha",
   ],
-  alternates: { canonical: '/about' },
+  alternates: { canonical: "/about" },
   openGraph: {
-    title: 'About Holiday Planner — Odisha\'s Most Trusted Travel Agency',
+    title:
+      "About Holiday Planner — The Story Behind Odisha's #1 Travel Partner",
     description:
-      'Learn about Holiday Planner\'s mission, values, and why we are Bhubaneswar\'s top-rated travel partner.',
-    url: 'https://www.holidayplanner.in/about',
-    type: 'website',
+      "Since 2016, we've turned Odisha vacations into stories worth retelling. 500+ happy travelers, 4.8★ rated, government-recognized guides.",
+    url: "https://www.holidayplanner.in/about",
+    type: "website",
   },
 };
 

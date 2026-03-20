@@ -17,7 +17,6 @@ const DesktopBg =
 const MobileBg =
   "https://res.cloudinary.com/dcudnuu04/image/upload/v1773506504/odisha-mobile_yhelr2.webp";
 
-
 const ourServicesData = [
   {
     id: 1,
@@ -199,8 +198,7 @@ const ourPackagesData = [
       {
         day: 4,
         title: "Departure",
-        description:
-          "Bhubaneswar Local Sightseeing – Departure",
+        description: "Bhubaneswar Local Sightseeing – Departure",
       },
     ],
   },
@@ -691,42 +689,50 @@ const ourPackagesData = [
 const whyChooseUsData = [
   {
     id: 1,
-    text: "Transport and accommodation arranged",
+    text: "Stay & Transport Sorted",
+    desc: "Handpicked hotels and sanitized fleet — comfort at every stop.",
     Icon: FaHotel,
   },
   {
     id: 2,
-    text: "Land of peace & spirituality",
+    text: "Spiritual Heartland",
+    desc: "Jagannath Puri, Lingaraj, Konark — sacred journeys with VIP access.",
     Icon: FaMapMarkedAlt,
   },
   {
     id: 3,
-    text: "Local knowledge guides arranged",
+    text: "Expert Local Guides",
+    desc: "Government-certified guides who bring legends and history alive.",
     Icon: PiPersonArmsSpread,
   },
   {
     id: 4,
-    text: "Value for money",
+    text: "Best Price Guarantee",
+    desc: "Premium experiences at honest prices — no hidden charges, ever.",
     Icon: FaHandHoldingUsd,
   },
   {
     id: 5,
-    text: "Easy to plan and book",
+    text: "Book in 2 Minutes",
+    desc: "WhatsApp us, pick your dates, and you're done. That simple.",
     Icon: FaRegClock,
   },
   {
     id: 6,
-    text: "Professional drivers arranged",
+    text: "Trained Pro Drivers",
+    desc: "Courteous, punctual, and road-tested across every Odisha highway.",
     Icon: FaCarSide,
   },
   {
     id: 7,
-    text: "Temple with vip Darshan available",
+    text: "VIP Temple Darshan",
+    desc: "Skip the queues — special darshan arranged at major temples.",
     Icon: FaGem,
   },
   {
     id: 8,
-    text: "24/7 Premium Support",
+    text: "24/7 Travel Concierge",
+    desc: "Day or night, our team is one call away throughout your trip.",
     Icon: RiCustomerService2Line,
   },
 ];
@@ -791,7 +797,8 @@ const userRatingData = [
     id: 7,
     name: "Abinash Shasini",
     rating: "4",
-    message: "Gangasagar logistics were smooth though ferry timings were tight. but had a very good experience",
+    message:
+      "Gangasagar logistics were smooth though ferry timings were tight. but had a very good experience",
     time: "2 weeks ago",
     packageInfo: "Puri Gangasagar Tour Package",
   },
@@ -799,239 +806,249 @@ const userRatingData = [
 
 const serviceDetailsData = {
   carRental: {
-    hTextOne: 'Car Rental',
-    hTextTwo: 'Price List',
-    type: 'table',
+    hTextOne: "Car Rental",
+    hTextTwo: "Price List",
+    type: "table",
     tData: [
       {
         id: 1,
-        carName: 'A/C Hyundai Xcent',
+        carName: "A/C Hyundai Xcent",
         data: [
           {
-            info: '8 Hrs - 80 km',
-            price: '₹1800',
+            info: "8 Hrs - 80 km",
+            price: "₹1800",
           },
           {
-            info: '12 Hrs - 120 km',
-            price: '₹2200',
+            info: "12 Hrs - 120 km",
+            price: "₹2200",
           },
           {
-            info: 'Extra Kilometer',
-            price: '₹11 / Km',
+            info: "Extra Kilometer",
+            price: "₹11 / Km",
           },
           {
-            info: 'Extra Hours',
-            price: '₹100 / Hr',
+            info: "Extra Hours",
+            price: "₹100 / Hr",
           },
           {
-            info: 'Night Charges',
-            price: '₹250',
+            info: "Night Charges",
+            price: "₹250",
           },
         ],
       },
       {
         id: 2,
-        carName: 'A/C Swift Dzire',
+        carName: "A/C Swift Dzire",
         data: [
           {
-            info: '8 Hrs - 80 km',
-            price: '₹1900',
+            info: "8 Hrs - 80 km",
+            price: "₹1900",
           },
           {
-            info: '12 Hrs - 120 km',
-            price: '₹2300',
+            info: "12 Hrs - 120 km",
+            price: "₹2300",
           },
           {
-            info: 'Extra Kilometer',
-            price: '₹12 / Km',
+            info: "Extra Kilometer",
+            price: "₹12 / Km",
           },
           {
-            info: 'Extra Hours',
-            price: '₹150 / Hr',
+            info: "Extra Hours",
+            price: "₹150 / Hr",
           },
           {
-            info: 'Night Charges',
-            price: '₹250',
+            info: "Night Charges",
+            price: "₹250",
           },
         ],
       },
       {
         id: 3,
-        carName: 'A/C Honda Amaze',
+        carName: "A/C Honda Amaze",
         data: [
           {
-            info: '8 Hrs - 80 km',
-            price: '₹2000',
+            info: "8 Hrs - 80 km",
+            price: "₹2000",
           },
           {
-            info: '12 Hrs - 120 km',
-            price: '₹2500',
+            info: "12 Hrs - 120 km",
+            price: "₹2500",
           },
           {
-            info: 'Extra Kilometer',
-            price: '₹13 / Km',
+            info: "Extra Kilometer",
+            price: "₹13 / Km",
           },
           {
-            info: 'Extra Hours',
-            price: '₹150 / Hr',
+            info: "Extra Hours",
+            price: "₹150 / Hr",
           },
           {
-            info: 'Night Charges',
-            price: '₹250',
+            info: "Night Charges",
+            price: "₹250",
           },
         ],
       },
       {
         id: 4,
-        carName: 'A/C Tyota Etios',
+        carName: "A/C Tyota Etios",
         data: [
           {
-            info: '8 Hrs - 80 km',
-            price: '₹2100',
+            info: "8 Hrs - 80 km",
+            price: "₹2100",
           },
           {
-            info: '12 Hrs - 120 km',
-            price: '₹2600',
+            info: "12 Hrs - 120 km",
+            price: "₹2600",
           },
           {
-            info: 'Extra Kilometer',
-            price: '₹12 / Km',
+            info: "Extra Kilometer",
+            price: "₹12 / Km",
           },
           {
-            info: 'Extra Hours',
-            price: '₹150 / Hr',
+            info: "Extra Hours",
+            price: "₹150 / Hr",
           },
           {
-            info: 'Night Charges',
-            price: '₹250',
+            info: "Night Charges",
+            price: "₹250",
           },
         ],
       },
       {
         id: 5,
-        carName: 'A/C Tyota Innova Crysta',
+        carName: "A/C Tyota Innova Crysta",
         data: [
           {
-            info: '8 Hrs - 80 km',
-            price: '₹3200',
+            info: "8 Hrs - 80 km",
+            price: "₹3200",
           },
           {
-            info: '12 Hrs - 120 km',
-            price: '₹4100',
+            info: "12 Hrs - 120 km",
+            price: "₹4100",
           },
           {
-            info: 'Extra Kilometer',
-            price: '₹18 / Km',
+            info: "Extra Kilometer",
+            price: "₹18 / Km",
           },
           {
-            info: 'Extra Hours',
-            price: '₹200 / Hr',
+            info: "Extra Hours",
+            price: "₹200 / Hr",
           },
           {
-            info: 'Night Charges',
-            price: '₹400',
+            info: "Night Charges",
+            price: "₹400",
           },
         ],
       },
       {
         id: 5,
-        carName: 'AUDI A6',
+        carName: "AUDI A6",
         data: [
           {
-            info: '8 Hrs - 80 km',
-            price: '₹11000',
+            info: "8 Hrs - 80 km",
+            price: "₹11000",
           },
           {
-            info: '12 Hrs - 120 km',
-            price: '₹13000',
+            info: "12 Hrs - 120 km",
+            price: "₹13000",
           },
           {
-            info: 'Extra Kilometer',
-            price: '₹90 / Km',
+            info: "Extra Kilometer",
+            price: "₹90 / Km",
           },
           {
-            info: 'Extra Hours',
-            price: '₹300 / Hr',
+            info: "Extra Hours",
+            price: "₹300 / Hr",
           },
           {
-            info: 'Night Charges',
-            price: '₹500',
+            info: "Night Charges",
+            price: "₹500",
           },
         ],
       },
     ],
   },
   luxuryCar: {
-    hTextOne: 'Luxury & Wedding',
-    hTextTwo: 'Car Fleet',
-    type: 'images',
+    hTextOne: "Luxury & Wedding",
+    hTextTwo: "Car Fleet",
+    type: "images",
     imageData: [
       {
         id: 2,
-        carName: 'Hyundai Elantra',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410023/hyundai-elantra_qf0zht.webp',
+        carName: "Hyundai Elantra",
+        capacity: "Max Seating Capacity - 4 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410023/hyundai-elantra_qf0zht.webp",
       },
       {
         id: 3,
-        carName: 'Audi A4',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410029/audi-a4_heh37a.jpg',
+        carName: "Audi A4",
+        capacity: "Max Seating Capacity - 4 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410029/audi-a4_heh37a.jpg",
       },
       {
         id: 4,
-        carName: 'Audi A6',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410028/audi-a6_anxokx.jpg',
+        carName: "Audi A6",
+        capacity: "Max Seating Capacity - 4 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410028/audi-a6_anxokx.jpg",
       },
       {
         id: 5,
-        carName: 'Honda City',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410022/honda-cty_kkq4na.jpg',
+        carName: "Honda City",
+        capacity: "Max Seating Capacity - 4 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410022/honda-cty_kkq4na.jpg",
       },
       {
         id: 5,
-        carName: 'Hyundai Verna',
-        capacity: 'Max Seating Capacity - 4 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410024/hyundai-verna_xsp2wl.jpg',
+        carName: "Hyundai Verna",
+        capacity: "Max Seating Capacity - 4 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410024/hyundai-verna_xsp2wl.jpg",
       },
       {
         id: 1,
-        carName: 'Toyota Innova Crysta',
-        capacity: 'Max Seating Capacity - 7 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/inova-crysta_pi91nq.jpg',
+        carName: "Toyota Innova Crysta",
+        capacity: "Max Seating Capacity - 7 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/inova-crysta_pi91nq.jpg",
       },
     ],
   },
   tempoTraveler: {
-    hTextOne: 'Tempo Traveller',
-    hTextTwo: 'Fleet',
-    type: 'images',
+    hTextOne: "Tempo Traveller",
+    hTextTwo: "Fleet",
+    type: "images",
     imageData: [
       {
         id: 1,
-        carName: 'Force 12 Seater',
-        capacity: 'Max Seating Capacity - 12 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg',
+        carName: "Force 12 Seater",
+        capacity: "Max Seating Capacity - 12 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
       },
       {
         id: 1,
-        carName: 'Force 17 Seater',
-        capacity: 'Max Seating Capacity - 17 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg',
+        carName: "Force 17 Seater",
+        capacity: "Max Seating Capacity - 17 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
       },
       {
         id: 3,
-        carName: 'Tata Winger 26 Seater',
-        capacity: 'Max Seating Capacity - 26 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410028/tata-winger_xi5pni.jpg',
+        carName: "Tata Winger 26 Seater",
+        capacity: "Max Seating Capacity - 26 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410028/tata-winger_xi5pni.jpg",
       },
       {
         id: 4,
-        carName: 'Force 30 Seater',
-        capacity: 'Max Seating Capacity - 30 G + 1 D',
-        image: 'https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg',
+        carName: "Force 30 Seater",
+        capacity: "Max Seating Capacity - 30 G + 1 D",
+        image:
+          "https://res.cloudinary.com/dcudnuu04/image/upload/v1773410027/17-force_lfiihk.jpg",
       },
     ],
   },

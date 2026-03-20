@@ -39,12 +39,17 @@ const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
           className={classes.header}
         >
           <div className={classes.titleWrapper}>
-            <span className={classes.subtitle}>Curated For You</span>
+            <span className={classes.subtitle}>Handpicked Journeys</span>
             <Link href="/packages">
               <h2 className={classes.title}>
                 Featured <span>Packages</span>
               </h2>
             </Link>
+            <p className={classes.sectionDesc}>
+              Every itinerary is crafted by local experts — from temple trails
+              and coastal getaways to wildlife safaris deep in Odisha&apos;s
+              untouched heartland.
+            </p>
           </div>
           <motion.div whileHover={{ x: 5 }} className="">
             <Link href="/packages" className={classes.viewAll}>

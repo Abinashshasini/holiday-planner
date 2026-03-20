@@ -49,6 +49,18 @@
   }
 }
 
+.sectionDesc {
+  font-size: 1.05rem;
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-top: 16px;
+  max-width: 500px;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+}
+
 .viewAll {
   display: inline-flex;
   align-items: center;
@@ -101,7 +113,7 @@
 
   /* End padding to ensure last item doesn't hit edge */
   &::after {
-    content: '';
+    content: "";
     padding-right: var(--section-px);
     flex-shrink: 0;
     width: 1px;

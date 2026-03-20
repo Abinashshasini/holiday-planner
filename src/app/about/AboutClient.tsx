@@ -1,45 +1,45 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { LazyMotion, domMax, m as motion, type Variants } from 'framer-motion';
+import Link from "next/link";
+import { LazyMotion, domMax, m as motion, type Variants } from "framer-motion";
 import {
   FaRegCalendarCheck,
   FaAward,
   FaUsers,
   FaMapMarkedAlt,
-} from 'react-icons/fa';
-import { MdOutlineStar, MdOutlineVerified } from 'react-icons/md';
-import classes from './about.module.scss';
-import Image from 'next/image';
+} from "react-icons/fa";
+import { MdOutlineStar, MdOutlineVerified } from "react-icons/md";
+import classes from "./about.module.scss";
+import Image from "next/image";
 
 const values = [
   {
     icon: <MdOutlineVerified />,
-    title: 'Safety First',
-    desc: 'All vehicles are well-maintained and our drivers are verified and licensed.',
+    title: "Your Safety, Non-Negotiable",
+    desc: "GPS-tracked fleet, fully insured vehicles, and government-verified drivers — because peace of mind is the foundation of every great journey.",
   },
   {
     icon: <FaAward />,
-    title: 'Quality Service',
-    desc: 'We go above and beyond to ensure every journey exceeds expectations.',
+    title: "Obsessed With Excellence",
+    desc: "Handpicked hotels, personally vetted routes, and surprise upgrades when we can. We don't just meet expectations — we redefine them.",
   },
   {
     icon: <MdOutlineStar />,
-    title: 'Authenticity',
-    desc: "We curate genuine local experiences that immerse you in Odisha's rich culture.",
+    title: "Unapologetically Local",
+    desc: "Skip the tourist traps. Our certified guides take you to hidden waterfalls, village kitchens, and temple ceremonies most visitors never see.",
   },
   {
     icon: <FaUsers />,
-    title: '24/7 Support',
-    desc: 'Our team is available around the clock to assist with any travel needs.',
+    title: "Always a Call Away",
+    desc: "Midnight flight delay? Need a pharmacy at 3 AM? Our 24/7 travel concierge is your lifeline — before, during, and after your trip.",
   },
 ];
 
 const stats = [
-  { value: '500+', label: 'Happy Travelers' },
-  { value: '15+', label: 'Destinations' },
-  { value: '8+', label: 'Years Experience' },
-  { value: '4.8★', label: 'Google Rating' },
+  { value: "500+", label: "Happy Travelers" },
+  { value: "15+", label: "Destinations" },
+  { value: "3+", label: "Years Experience" },
+  { value: "4.8★", label: "Google Rating" },
 ];
 
 const staggerContainer: Variants = {
@@ -52,7 +52,7 @@ const staggerContainer: Variants = {
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80 } },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80 } },
 };
 
 export default function AboutClient() {
@@ -65,7 +65,7 @@ export default function AboutClient() {
             src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png"
             alt="Konark Sun Temple Odisha"
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             className={classes.heroImage}
             priority
             unoptimized
@@ -77,13 +77,17 @@ export default function AboutClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className={classes.heroBadge}>Our Legacy</span>
+            <span className={classes.heroBadge}>
+              Est. 2016 &bull; Bhubaneswar
+            </span>
             <h1 className={classes.heroTitle}>
-              Crafting <span>Odisha&apos;s</span> Finest Journeys
+              We Don&apos;t Plan Trips. We Craft <span>Memories.</span>
             </h1>
             <p className={classes.heroSub}>
-              From the ancient stones of Konark to the serene waves of Puri, we
-              are your dedicated curators of authentic Indian experiences.
+              Born from a love for Odisha&apos;s untold stories — we&apos;ve
+              spent 3+ years turning temple trails, coastal sunrises, and tribal
+              encounters into journeys that stay with you long after you return
+              home.
             </p>
             <nav className={classes.breadcrumb}>
               <Link href="/">Home</Link> <span>/</span> <span>About Us</span>
@@ -98,31 +102,35 @@ export default function AboutClient() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <motion.div variants={fadeUp} className={classes.missionText}>
               <span className={classes.eyebrow}>
-                <FaMapMarkedAlt /> Our Mission
+                <FaMapMarkedAlt /> Our Story
               </span>
               <h2 className={classes.missionTitle}>
-                Your Gateway to Authentic Odisha
+                We Know Odisha Because We Live It
               </h2>
               <p>
-                At Holiday Planner, we believe every journey should be more than
-                just sightseeing. We craft experiences that connect you to the
-                soul of each destination — its people, traditions, flavors, and
-                landscapes.
+                Holiday Planner was born in 2016 with a simple conviction:
+                Odisha deserves better than cookie-cutter tourism. We started
+                with one car and a notebook full of secret spots. Today,
+                we&apos;re Bhubaneswar&apos;s highest-rated travel partner — but
+                the notebook still grows.
               </p>
               <p>
-                From the white sand beaches of Puri and the architectural marvel
-                of Konark, to the dense mangroves of Bhitarkanika and the
-                vibrant tribal culture of Koraput — we take you beyond the
-                tourist trail.
+                Imagine watching the sunrise paint Konark&apos;s stone chariot
+                in gold. Tasting fresh fish curry on a Chilika houseboat while
+                dolphins surface alongside you. Walking through Koraput&apos;s
+                tribal villages where Dhokra art has been forged for a thousand
+                years. These aren&apos;t itinerary bullet points — they&apos;re
+                the moments we design around.
               </p>
               <p>
-                Our team of government-recognized guides and English-speaking
-                drivers ensures every moment of your trip is safe, comfortable,
-                and deeply enriching.
+                Every guide in our network holds a government-issued license.
+                Every driver is background-verified and road-tested. Every hotel
+                is personally inspected. Because when you trust us with your
+                family&apos;s vacation, we take that personally.
               </p>
             </motion.div>
             <motion.div variants={fadeUp} className={classes.missionImageWrap}>
@@ -133,7 +141,7 @@ export default function AboutClient() {
                 transition={{
                   repeat: Infinity,
                   duration: 4,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               >
                 <FaRegCalendarCheck className={classes.fbIcon} />
@@ -171,15 +179,15 @@ export default function AboutClient() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <motion.div variants={fadeUp} className={classes.sectionHeader}>
               <h2 className={classes.sectionTitle}>
-                What We <span>Stand For</span>
+                The Principles Behind <span>Every Journey</span>
               </h2>
               <p className={classes.sectionSub}>
-                Our core values guide every interaction, every itinerary, and
-                every journey we craft.
+                Four commitments we make to every traveler — no exceptions, no
+                fine print, no compromises.
               </p>
             </motion.div>
 
@@ -204,30 +212,32 @@ export default function AboutClient() {
             className={classes.odishaSection}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
           >
             <div className={classes.odishaContent}>
               <span className={classes.eyebrowWhite}>Why Odisha?</span>
-              <h2>India&apos;s Best Kept Secret</h2>
+              <h2>A Destination the World Is About to Discover</h2>
               <p>
-                Odisha is a state of extraordinary contrasts — ancient temples
-                and pristine beaches, lush forests and colourful tribal markets.
-                Home to the Jagannath Temple in Puri, the Sun Temple at Konark,
-                and UNESCO World Heritage Sites, Odisha offers experiences that
-                rival any destination on earth.
+                While travelers crowd Goa&apos;s beaches and Rajasthan&apos;s
+                forts, Odisha quietly offers everything they have — and more.
+                Three UNESCO World Heritage Sites. 480 km of pristine coastline.
+                Asia&apos;s largest brackish-water lake teeming with Irrawaddy
+                dolphins. Tribal communities preserving art forms older than
+                recorded history.
               </p>
               <p>
-                Yet it remains wonderfully uncommercialized — which means you
-                get authenticity, value, and space that you simply cannot find
-                elsewhere.
+                The secret is getting out. International publications from
+                Lonely Planet to Condé Nast are calling Odisha
+                &ldquo;India&apos;s last unspoiled frontier.&rdquo; The best
+                time to experience it? Before everyone else does.
               </p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link href="/packages" className={classes.exploreBtn}>
-                  Explore Our Packages
+                  Start Your Odisha Story
                 </Link>
               </motion.div>
             </div>
