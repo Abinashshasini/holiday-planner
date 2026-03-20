@@ -146,7 +146,7 @@ export default function AboutClient() {
               >
                 <FaRegCalendarCheck className={classes.fbIcon} />
                 <div>
-                  <strong>Trusted Since 2016</strong>
+                  <strong>Trusted Since 2021</strong>
                   <span>Bhubaneswar&apos;s #1 Travel Partner</span>
                 </div>
               </motion.div>

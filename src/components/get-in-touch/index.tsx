@@ -125,7 +125,7 @@ const GetInTouch = () => {
                 </div>
                 <div>
                   <h5>Email Us</h5>
-                  <p>info@holidayplanner.in</p>
+                  <p>holidayplannertravel@gmail.com</p>
                 </div>
               </div>
               <div className={classes.contactItem}>

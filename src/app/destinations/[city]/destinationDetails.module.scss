@@ -17,15 +17,14 @@
 .heroImage {
   z-index: 0;
   transform: scale(1.1);
-
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg, 
-    rgba(15, 23, 42, 0.2) 0%, 
+    180deg,
+    rgba(15, 23, 42, 0.2) 0%,
     rgba(15, 23, 42, 0.8) 100%
   );
   z-index: 1;
@@ -70,12 +69,12 @@
 
 .cityName {
   font-family: var(--font-main);
-  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 900;
   color: var(--color-white);
   line-height: 1;
   letter-spacing: -0.04em;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* CONTAINER */
@@ -209,7 +208,9 @@
     box-shadow: var(--shadow-md);
   }
 
-  .foodIcon { color: var(--color-accent); }
+  .foodIcon {
+    color: var(--color-accent);
+  }
 }
 
 /* ATTRACTIONS BENTO */
@@ -239,9 +240,16 @@
   background: var(--color-dark);
 
   &:hover {
-    .attrImage { transform: scale(1.1); }
-    .attrOverlay { background: rgba(15, 23, 42, 0.85); }
-    .attrContent p { opacity: 1; transform: translateY(0); }
+    .attrImage {
+      transform: scale(1.1);
+    }
+    .attrOverlay {
+      background: rgba(15, 23, 42, 0.85);
+    }
+    .attrContent p {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -255,7 +263,11 @@
 .attrOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.95) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
   transition: all var(--transition-smooth);
 }
 
@@ -382,8 +394,13 @@
   &:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-xl);
-    .pkgImgBackground { transform: scale(1.1); }
-    .hoverReveal { opacity: 1; transform: translateY(0); }
+    .pkgImgBackground {
+      transform: scale(1.1);
+    }
+    .hoverReveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -399,7 +416,11 @@
 .pkgOverlayFull {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.9) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
 }
 
 .badges {
@@ -412,7 +433,8 @@
   z-index: 2;
 }
 
-.durationBadge, .categoryBadge {
+.durationBadge,
+.categoryBadge {
   padding: 6px 12px;
   border-radius: var(--radius-pill);
   font-size: 0.75rem;
@@ -420,8 +442,13 @@
   color: white;
 }
 
-.durationBadge { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); }
-.categoryBadge { background: var(--gradient-primary); }
+.durationBadge {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+}
+.categoryBadge {
+  background: var(--gradient-primary);
+}
 
 .pkgContentOverlay {
   position: relative;
@@ -464,7 +491,9 @@
     color: white;
     font-size: 0.85rem;
     margin-bottom: 6px;
-    svg { color: var(--color-accent); }
+    svg {
+      color: var(--color-accent);
+    }
   }
 }
 
@@ -476,11 +505,24 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.fromLabelWhite { display: block; font-size: 0.7rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; }
-.priceWhite { font-size: 1.4rem; font-weight: 900; color: white; }
+.fromLabelWhite {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+.priceWhite {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: white;
+}
 
-.btnGroup { display: flex; gap: 10px; }
-.viewBtn, .bookBtnSmall {
+.btnGroup {
+  display: flex;
+  gap: 10px;
+}
+.viewBtn,
+.bookBtnSmall {
   padding: 8px 16px;
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
@@ -490,5 +532,12 @@
   transition: all var(--transition-fast);
 }
 
-.viewBtn { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.3); }
-.bookBtnSmall { background: white; color: var(--color-primary); }
+.viewBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.bookBtnSmall {
+  background: white;
+  color: var(--color-primary);
+}

@@ -1,23 +1,21 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { LazyMotion, domMax, m as motion } from 'framer-motion';
+import Link from "next/link";
+import { LazyMotion, domMax, m as motion } from "framer-motion";
 import {
-
   FaArrowRight,
   FaWhatsapp,
   FaMapMarkerAlt,
   FaCalendarAlt,
   FaUtensils,
   FaLightbulb,
-} from 'react-icons/fa';
-import { CiLocationOn } from 'react-icons/ci';
-import { ourPackagesData } from '@/utils';
-import useWhatsApp from '@/hooks/useWhatsApp';
-import classes from './destinationDetails.module.scss';
+} from "react-icons/fa";
+import { CiLocationOn } from "react-icons/ci";
+import { ourPackagesData } from "@/utils";
+import useWhatsApp from "@/hooks/useWhatsApp";
+import classes from "./destinationDetails.module.scss";
 
-
-import Image from 'next/image';
+import Image from "next/image";
 
 const staggerVariants = {
   hidden: { opacity: 0 },
@@ -45,7 +43,6 @@ export default function DestinationDetailsClient({
 
   return (
     <LazyMotion features={domMax}>
-     
       <main className={classes.main}>
         {/* Dynamic Hero Section */}
         <section className={classes.hero}>
@@ -53,7 +50,7 @@ export default function DestinationDetailsClient({
             src={cityInfo.image}
             alt={cityInfo.name}
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover", objectPosition: "10% 10%" }}
             className={classes.heroImage}
             priority
             unoptimized
@@ -158,7 +155,7 @@ export default function DestinationDetailsClient({
                 variants={staggerVariants}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 {cityInfo.attractions.map((attr: any, index: number) => (
                   <motion.div
@@ -167,7 +164,7 @@ export default function DestinationDetailsClient({
                     variants={itemVariants}
                     whileHover={{
                       y: -8,
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
                     }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -264,7 +261,7 @@ export default function DestinationDetailsClient({
                       <div className={classes.pkgHeaderMain}>
                         <Link
                           href={`/packages/${pkg.id}`}
-                          style={{ textDecoration: 'none', color: 'inherit' }}
+                          style={{ textDecoration: "none", color: "inherit" }}
                         >
                           <h3 className={classes.pkgTitleWhite}>{pkg.title}</h3>
                         </Link>
@@ -304,7 +301,7 @@ export default function DestinationDetailsClient({
                               onClick={(e) => {
                                 e.preventDefault();
                                 handleRedirectTheUserToWhatsApp({
-                                  messageType: 'dynamic',
+                                  messageType: "dynamic",
                                   dynamicMessage: `Hi, I'm interested in the ${pkg.title} package (${pkg.duration}). Please share details and availability.`,
                                 });
                               }}

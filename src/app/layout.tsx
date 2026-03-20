@@ -98,7 +98,7 @@ const jsonLd = {
   description:
     "Bhubaneswar's most trusted travel agency offering curated Odisha tour packages, premium car rentals, tempo travellers, and luxury wedding cars.",
   telephone: "+91-7978065576",
-  email: "info@holidayplanner.in",
+  email: "holidayplannertravel@gmail.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bhubaneswar",

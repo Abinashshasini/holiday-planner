@@ -76,13 +76,16 @@ export default function PackagesClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className={classes.heroBadge}>Curated Journeys</span>
+            <span className={classes.heroBadge}>
+              10+ Handcrafted Itineraries
+            </span>
             <h1 className={classes.heroTitle}>
-              Odisha&apos;s <span>Signature</span> Packages
+              Find Your Perfect <span>Odisha</span> Journey
             </h1>
             <p className={classes.heroSub}>
-              Discover the perfect blend of spirituality, nature, and heritage
-              with our handcrafted travel experiences across the heart of India.
+              Temple trails, coastal escapes, tribal encounters, wildlife
+              safaris — every package designed by locals who&apos;ve explored
+              every corner of this extraordinary state.
             </p>
             <nav className={classes.breadcrumb}>
               <Link href="/">Home</Link> <span>/</span> <span>Packages</span>
@@ -134,6 +137,11 @@ export default function PackagesClient({
                   key={getKey(pkg)}
                   className={cardClass}
                 >
+                  {isFeatured && (
+                    <div className={classes.popularRibbon}>
+                      <span>★ Most Popular</span>
+                    </div>
+                  )}
                   <Image
                     src={pkg.image}
                     alt={pkg.title}
@@ -166,30 +174,32 @@ export default function PackagesClient({
                     </div>
 
                     <div className={classes.detailsArea}>
-                      {/* Only show highlights on featured large card or on hover for others */}
-                      {isFeatured && (
-                        <ul className={classes.highlightsWhite}>
-                          {pkg.highlights.slice(0, 4).map((h) => (
+                      <ul className={classes.highlightsWhite}>
+                        {pkg.highlights
+                          .slice(0, isFeatured ? 4 : 3)
+                          .map((h) => (
                             <li key={h}>
                               <FaArrowRight /> {h}
                             </li>
                           ))}
-                        </ul>
-                      )}
+                      </ul>
 
                       <div className={classes.cardFooterWhite}>
                         <div className={classes.priceBox}>
-                          <span className={classes.fromLabelWhite}>From</span>
+                          <span className={classes.fromLabelWhite}>
+                            Starting from
+                          </span>
                           <span className={classes.priceWhite}>
                             {pkg.price}
                           </span>
+                          <span className={classes.perPerson}>per person</span>
                         </div>
                         <div className={classes.btnGroup}>
                           <Link
                             href={`/packages/${getSlug(pkg)}`}
                             className={classes.viewBtn}
                           >
-                            View
+                            Explore
                           </Link>
                           <motion.button
                             whileHover={{ scale: 1.1 }}
@@ -222,10 +232,13 @@ export default function PackagesClient({
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Can&apos;t find what you&apos;re looking for?</h2>
+            <h2>
+              Your Perfect Trip Doesn&apos;t Exist Yet — Let&apos;s Create It
+            </h2>
             <p>
-              We craft custom itineraries tailored to your preferences and
-              budget.
+              Tell us your dates, dream destinations, and travel style. Our
+              experts will craft a bespoke Odisha itinerary you won&apos;t find
+              anywhere else.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -235,11 +248,11 @@ export default function PackagesClient({
                 handleRedirectTheUserToWhatsApp({
                   messageType: "dynamic",
                   dynamicMessage:
-                    "Hi, I'd like a custom tour package. Please help me plan my trip.",
+                    "Hi, I'd like a custom Odisha tour package tailored to my preferences. Please help me plan!",
                 })
               }
             >
-              Request a Custom Package
+              Design My Trip on WhatsApp
             </motion.button>
           </motion.div>
         </div>

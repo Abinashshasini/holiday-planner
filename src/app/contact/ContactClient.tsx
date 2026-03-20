@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { LazyMotion, domMax, m as motion, type Variants } from 'framer-motion';
+import React, { useState } from "react";
+import Link from "next/link";
+import { LazyMotion, domMax, m as motion, type Variants } from "framer-motion";
 import {
   FaWhatsapp,
   FaPhone,
@@ -10,11 +10,11 @@ import {
   FaMapMarkerAlt,
   FaInstagram,
   FaFacebook,
-} from 'react-icons/fa';
-import toast, { Toaster } from 'react-hot-toast';
-import axios from 'axios';
-import classes from './contact.module.scss';
-import Image from 'next/image';
+} from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import classes from "./contact.module.scss";
+import Image from "next/image";
 
 interface FormData {
   name: string;
@@ -32,59 +32,59 @@ const staggerContainer: Variants = {
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80 } },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80 } },
 };
 
 const slideLeft: Variants = {
   hidden: { opacity: 0, x: -40 },
-  show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 80 } },
+  show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80 } },
 };
 
 const slideRight: Variants = {
   hidden: { opacity: 0, x: 40 },
-  show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 80 } },
+  show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80 } },
 };
 
 export default function ContactClient() {
   const [userData, setUserData] = useState<FormData>({
-    name: '',
-    number: '',
-    message: '',
+    name: "",
+    number: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
-  const { name = '', number = '', message = '' } = userData;
+  const { name = "", number = "", message = "" } = userData;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     e.preventDefault();
     const { name: field, value } = e.target;
-    if (field === 'number' && value.length > 10) return;
+    if (field === "number" && value.length > 10) return;
     setUserData({ ...userData, [field]: value });
   };
 
   const handleSubmit = async () => {
     const nameRegex = /^[a-zA-Z\s]{3,60}$/;
     if (!nameRegex.test(name)) {
-      toast.error('Please enter a valid name.');
+      toast.error("Please enter a valid name.");
       return;
     }
     const mobileRegex = /^[6-9]\d{9}$/;
     if (!mobileRegex.test(number)) {
-      toast.error('Enter a valid 10-digit Indian number.');
+      toast.error("Enter a valid 10-digit Indian number.");
       return;
     }
 
     setLoading(true);
     try {
       await axios.post(
-        'https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead',
+        "https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead",
         { name, number, message },
       );
       toast.success("Message sent! We'll be in touch soon 🎉");
-      setUserData({ name: '', number: '', message: '' });
+      setUserData({ name: "", number: "", message: "" });
     } catch {
-      toast.error('Something went wrong. Please try again.');
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -92,7 +92,6 @@ export default function ContactClient() {
 
   return (
     <LazyMotion features={domMax}>
-
       <div className={classes.page}>
         <Toaster position="bottom-center" />
         {/* Hero */}
@@ -101,7 +100,7 @@ export default function ContactClient() {
             src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410049/odisha-mobile_yhelr2.png"
             alt="Odisha Coastline"
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             className={classes.heroImage}
             priority
             unoptimized
@@ -133,7 +132,7 @@ export default function ContactClient() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             {/* Info Panel */}
             <motion.div variants={slideLeft} className={classes.infoPanel}>
@@ -169,8 +168,8 @@ export default function ContactClient() {
                 </div>
                 <div>
                   <strong>Email</strong>
-                  <a href="mailto:info@holidayplanner.in">
-                    info@holidayplanner.in
+                  <a href="mailto:holidayplannertravel@gmail.com">
+                    holidayplannertravel@gmail.com
                   </a>
                 </div>
               </div>
@@ -253,7 +252,7 @@ export default function ContactClient() {
                 onClick={handleSubmit}
                 disabled={loading}
               >
-                {loading ? 'Sending...' : 'Send Message'}
+                {loading ? "Sending..." : "Send Message"}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -264,7 +263,7 @@ export default function ContactClient() {
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238917.13571684694!2d85.63795!3d20.2960587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000"

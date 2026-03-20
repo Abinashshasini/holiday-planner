@@ -96,7 +96,7 @@ const popularCitiesData = [
   {
     id: 1,
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773414462/1000_F_41903507_uGaLJngjaMPZqGutTLnypQitDW7O3eUn_zckv9r.jpg",
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773502338/Gemini_Generated_Image_c98ondc98ondc98o_iw3atg.png",
     name: "Bhubaneswar",
     slug: "bhubaneswar",
     history:
@@ -125,7 +125,7 @@ const popularCitiesData = [
   {
     id: 2,
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773414461/shri-NcP5gng2uVg-unsplash_tchk6u.jpg",
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773502340/Gemini_Generated_Image_754xh8754xh8754x_1_mxlrmz.png",
     name: "Puri",
     slug: "puri",
     history:
