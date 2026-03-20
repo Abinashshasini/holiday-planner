@@ -38,13 +38,41 @@ export default defineType({
       description: 'e.g. "3 Nights / 4 Days"',
       validation: (Rule) => Rule.required(),
     }),
+
+    // ── Pricing ────────────────────────────────────────────────
     defineField({
-      name: "price",
-      title: "Price",
-      type: "string",
-      description: 'e.g. "\u20b911,999"',
-      validation: (Rule) => Rule.required(),
+      name: "originalPrice",
+      title: "Original Price (₹)",
+      type: "number",
+      description: "Full price before any discount",
+      validation: (Rule) =>
+        Rule.required().positive().error("Must be a positive number"),
     }),
+    defineField({
+      name: "discountedPrice",
+      title: "Discounted Price (₹)",
+      type: "number",
+      description: "The sale price shown to customers",
+      validation: (Rule) =>
+        Rule.required()
+          .positive()
+          .error("Must be a positive number")
+          .custom((discountedPrice, context) => {
+            const original = context.document?.originalPrice as number;
+            if (original && (discountedPrice as number) >= original)
+              return "Discounted price must be less than the original price";
+            return true;
+          }),
+    }),
+    defineField({
+      name: "isOnSale",
+      title: "On Sale",
+      type: "boolean",
+      description: "Show a sale badge and strike-through the original price",
+      initialValue: false,
+    }),
+    // ──────────────────────────────────────────────────────────
+
     defineField({
       name: "category",
       title: "Category",
@@ -120,9 +148,20 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { title: "title", subtitle: "location" },
-    prepare(selection) {
-      return { title: selection.title, subtitle: selection.subtitle };
+    select: {
+      title: "title",
+      subtitle: "location",
+      isOnSale: "isOnSale",
+      originalPrice: "originalPrice",
+      discountedPrice: "discountedPrice",
+    },
+    prepare({ title, subtitle, isOnSale, originalPrice, discountedPrice }) {
+      const price = `₹${discountedPrice?.toLocaleString("en-IN")} (was ₹${originalPrice?.toLocaleString("en-IN")})`;
+      const saleTag = isOnSale ? " 🏷️ Sale" : "";
+      return {
+        title: `${title}${saleTag}`,
+        subtitle: [subtitle, price].filter(Boolean).join(" · "),
+      };
     },
   },
   orderings: [

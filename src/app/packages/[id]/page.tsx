@@ -1,21 +1,13 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { ourPackagesData } from "@/utils";
 import { getPackageBySlug } from "@/sanity/queries";
 import PackageDetailsClient from "./PackageDetailsClient";
 
 const SITE_URL = "https://www.holidayplanner.in";
 
-/** Resolve package from Sanity by slug, or fall back to static data by numeric ID */
+/** Resolve package from Sanity by slug */
 async function resolvePackage(idOrSlug: string) {
-  const sanityPkg = await getPackageBySlug(idOrSlug).catch(() => null);
-  if (sanityPkg) return sanityPkg;
-
-  const numericId = parseInt(idOrSlug);
-  if (!isNaN(numericId)) {
-    return ourPackagesData.find((p) => p.id === numericId) ?? null;
-  }
-  return null;
+  return getPackageBySlug(idOrSlug).catch(() => null);
 }
 
 export async function generateMetadata({

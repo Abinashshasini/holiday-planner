@@ -3,7 +3,6 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { CiLocationOn } from "react-icons/ci";
 import { FaArrowRight } from "react-icons/fa";
-import { ourPackagesData } from "@/utils";
 import type { SanityPackage } from "@/sanity/queries";
 import classes from "./ourPackages.module.scss";
 
@@ -16,16 +15,14 @@ const cardVariants: Variants = {
   },
 };
 
-type PackageItem = SanityPackage | (typeof ourPackagesData)[number];
+type PackageItem = SanityPackage;
 
 function getSlug(pkg: PackageItem): string {
-  if ("slug" in pkg && pkg.slug) return pkg.slug.current;
-  return String((pkg as (typeof ourPackagesData)[number]).id);
+  return pkg.slug.current;
 }
 
 const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
-  const source: PackageItem[] =
-    packages && packages.length > 0 ? packages : ourPackagesData;
+  const source: PackageItem[] = packages ?? [];
   const featured = source.slice(0, 6);
 
   return (
@@ -68,7 +65,7 @@ const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
         <div className={classes.carouselInner}>
           {featured.map((pkg) => (
             <motion.div
-              key={"_id" in pkg ? pkg._id : pkg.id}
+              key={pkg._id}
               className={classes.carouselItem}
               variants={cardVariants}
             >
@@ -81,7 +78,14 @@ const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
                 <div className={classes.cardOverlayFull} />
 
                 <div className={classes.badges}>
-                  <span className={classes.durationBadge}>{pkg.duration}</span>
+                  <div className={classes.badgesLeft}>
+                    <span className={classes.durationBadge}>
+                      {pkg.duration}
+                    </span>
+                    {pkg.isOnSale && (
+                      <span className={classes.saleBadge}>🔥 Sale</span>
+                    )}
+                  </div>
                   <span className={classes.categoryBadge}>{pkg.category}</span>
                 </div>
 
@@ -104,6 +108,12 @@ const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
                       <span className={classes.fromLabelWhite}>
                         Starting from
                       </span>
+                      {pkg.originalPrice != null && (
+                        <span className={classes.originalPriceStrike}>
+                          &#8377;
+                          {Number(pkg.originalPrice).toLocaleString("en-IN")}
+                        </span>
+                      )}
                       <span className={classes.priceWhite}>{pkg.price}</span>
                     </div>
                     <Link

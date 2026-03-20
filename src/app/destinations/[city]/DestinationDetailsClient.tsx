@@ -11,10 +11,9 @@ import {
   FaLightbulb,
 } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
-import { ourPackagesData } from "@/utils";
 import useWhatsApp from "@/hooks/useWhatsApp";
 import classes from "./destinationDetails.module.scss";
-
+import type { SanityPackage } from "@/sanity/queries";
 import Image from "next/image";
 
 const staggerVariants = {
@@ -29,17 +28,12 @@ const itemVariants = {
 
 export default function DestinationDetailsClient({
   cityInfo,
+  relatedPackages,
 }: {
   cityInfo: any;
+  relatedPackages: SanityPackage[];
 }) {
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
-
-  // Find related tours based on location exact or partial match
-  const relatedPackages = ourPackagesData.filter(
-    (pkg) =>
-      pkg.location.toLowerCase().includes(cityInfo.name.toLowerCase()) ||
-      pkg.title.toLowerCase().includes(cityInfo.name.toLowerCase()),
-  );
 
   return (
     <LazyMotion features={domMax}>
@@ -234,9 +228,9 @@ export default function DestinationDetailsClient({
                 whileInView="show"
                 viewport={{ once: true }}
               >
-                {relatedPackages.map((pkg: any) => (
+                {relatedPackages.map((pkg) => (
                   <motion.div
-                    key={pkg.id}
+                    key={pkg._id}
                     className={classes.packageCard}
                     variants={itemVariants}
                   >
@@ -249,9 +243,14 @@ export default function DestinationDetailsClient({
                     <div className={classes.pkgOverlayFull} />
 
                     <div className={classes.badges}>
-                      <span className={classes.durationBadge}>
-                        {pkg.duration}
-                      </span>
+                      <div className={classes.badgesLeft}>
+                        <span className={classes.durationBadge}>
+                          {pkg.duration}
+                        </span>
+                        {pkg.isOnSale && (
+                          <span className={classes.saleBadge}>🔥 Sale</span>
+                        )}
+                      </div>
                       <span className={classes.categoryBadge}>
                         {pkg.category}
                       </span>
@@ -260,7 +259,7 @@ export default function DestinationDetailsClient({
                     <div className={classes.pkgContentOverlay}>
                       <div className={classes.pkgHeaderMain}>
                         <Link
-                          href={`/packages/${pkg.id}`}
+                          href={`/packages/${pkg.slug.current}`}
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
                           <h3 className={classes.pkgTitleWhite}>{pkg.title}</h3>
@@ -285,13 +284,21 @@ export default function DestinationDetailsClient({
                             <span className={classes.fromLabelWhite}>
                               Starting from
                             </span>
+                            {pkg.originalPrice != null && (
+                              <span className={classes.originalPriceStrike}>
+                                &#8377;
+                                {Number(pkg.originalPrice).toLocaleString(
+                                  "en-IN",
+                                )}
+                              </span>
+                            )}
                             <span className={classes.priceWhite}>
                               {pkg.price}
                             </span>
                           </div>
                           <div className={classes.btnGroup}>
                             <Link
-                              href={`/packages/${pkg.id}`}
+                              href={`/packages/${pkg.slug.current}`}
                               className={classes.viewBtn}
                             >
                               View

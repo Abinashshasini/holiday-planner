@@ -16,7 +16,11 @@ export type SanityPackage = {
   image: string; // resolved to a plain URL by GROQ
   location: string;
   duration: string;
+  /** Formatted display price, e.g. "₹12,999" — computed from discountedPrice in post-processing */
   price: string;
+  originalPrice?: number;
+  discountedPrice?: number;
+  isOnSale?: boolean;
   category: string;
   highlights: string[];
   overview: string;
@@ -35,7 +39,9 @@ const ALL_PACKAGES_QUERY = `
     "image": image.asset->url,
     location,
     duration,
-    price,
+    originalPrice,
+    discountedPrice,
+    isOnSale,
     category,
     highlights,
     overview,
@@ -59,7 +65,9 @@ const PACKAGE_BY_SLUG_QUERY = `
     "image": image.asset->url,
     location,
     duration,
-    price,
+    originalPrice,
+    discountedPrice,
+    isOnSale,
     category,
     highlights,
     overview,
@@ -74,22 +82,33 @@ const PACKAGE_BY_SLUG_QUERY = `
   }
 `;
 
+/** Compute a formatted ₹X,XXX price string from Sanity's numeric price fields */
+function computePrice(pkg: SanityPackage): SanityPackage {
+  const display =
+    pkg.discountedPrice != null
+      ? "\u20b9" + pkg.discountedPrice.toLocaleString("en-IN")
+      : (pkg.price ?? "\u2014");
+  return { ...pkg, price: display };
+}
+
 export async function getAllPackages(): Promise<SanityPackage[]> {
   if (!sanityClient) return [];
-  return sanityClient.fetch(
+  const results = await sanityClient.fetch<SanityPackage[]>(
     ALL_PACKAGES_QUERY,
     {},
     { next: { revalidate: 60 } },
   );
+  return results.map(computePrice);
 }
 
 export async function getPackageBySlug(
   slug: string,
 ): Promise<SanityPackage | null> {
   if (!sanityClient) return null;
-  return sanityClient.fetch(
+  const result = await sanityClient.fetch<SanityPackage | null>(
     PACKAGE_BY_SLUG_QUERY,
     { slug },
     { next: { revalidate: 60 } },
   );
+  return result ? computePrice(result) : null;
 }

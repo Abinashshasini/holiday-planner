@@ -64,7 +64,14 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
         >
           <div className={classes.stickyContainer}>
             <div className={classes.stickyInfo}>
-              <span className={classes.stickyPrice}>{pkg.price}</span>
+              <div className={classes.stickyPriceGroup}>
+                {pkg.originalPrice && (
+                  <span className={classes.stickyOriginalPrice}>
+                    &#8377;{Number(pkg.originalPrice).toLocaleString("en-IN")}
+                  </span>
+                )}
+                <span className={classes.stickyPrice}>{pkg.price}</span>
+              </div>
               <span className={classes.stickyDuration}>/ {pkg.duration}</span>
             </div>
             <button
@@ -208,11 +215,36 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
               transition={{ delay: 0.5, type: "spring" }}
             >
               <div className={classes.bookingCard}>
-                <h3>Secure Your Spot</h3>
+                <div className={classes.bookingCardHeader}>
+                  <h3>Secure Your Spot</h3>
+                  {pkg.isOnSale && (
+                    <span className={classes.saleBadgeCard}>🔥 Sale</span>
+                  )}
+                </div>
                 <div className={classes.priceBox}>
                   <span className={classes.priceLabel}>Starting from</span>
-                  <span className={classes.priceValue}>{pkg.price}</span>
+                  <div className={classes.priceRow}>
+                    <span className={classes.priceValue}>{pkg.price}</span>
+                    {pkg.originalPrice && (
+                      <span className={classes.originalPriceStrike}>
+                        &#8377;
+                        {Number(pkg.originalPrice).toLocaleString("en-IN")}
+                      </span>
+                    )}
+                  </div>
                   <span className={classes.perPerson}>per person</span>
+                  {pkg.originalPrice &&
+                    pkg.discountedPrice &&
+                    pkg.originalPrice > pkg.discountedPrice && (
+                      <span className={classes.savingsBadge}>
+                        Save &#8377;
+                        {(
+                          Number(pkg.originalPrice) -
+                          Number(pkg.discountedPrice)
+                        ).toLocaleString("en-IN")}
+                        !
+                      </span>
+                    )}
                 </div>
 
                 <ul className={classes.summaryList}>

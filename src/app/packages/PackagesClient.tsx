@@ -7,21 +7,18 @@ import { LazyMotion, domMax, m as motion, type Variants } from "framer-motion";
 import { CiLocationOn } from "react-icons/ci";
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineFilterList } from "react-icons/md";
-import { ourPackagesData } from "@/utils";
 import type { SanityPackage } from "@/sanity/queries";
 import useWhatsApp from "@/hooks/useWhatsApp";
 import classes from "./packages.module.scss";
 
-type PackageItem = SanityPackage | (typeof ourPackagesData)[number];
+type PackageItem = SanityPackage;
 
 function getSlug(pkg: PackageItem): string {
-  if ("slug" in pkg && pkg.slug) return pkg.slug.current;
-  return String((pkg as (typeof ourPackagesData)[number]).id);
+  return pkg.slug.current;
 }
 
 function getKey(pkg: PackageItem): string {
-  if ("_id" in pkg) return pkg._id;
-  return String((pkg as (typeof ourPackagesData)[number]).id);
+  return pkg._id;
 }
 
 const categories = ["all", "beach", "heritage", "nature", "tribal"];
@@ -47,8 +44,7 @@ export default function PackagesClient({
   const [activeFilter, setActiveFilter] = useState("all");
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
 
-  const source: PackageItem[] =
-    packages && packages.length > 0 ? packages : ourPackagesData;
+  const source: PackageItem[] = packages ?? [];
 
   const filtered =
     activeFilter === "all"
@@ -151,9 +147,14 @@ export default function PackagesClient({
                   <div className={classes.cardOverlayFull} />
 
                   <div className={classes.badges}>
-                    <span className={classes.durationBadge}>
-                      {pkg.duration}
-                    </span>
+                    <div className={classes.badgesLeft}>
+                      <span className={classes.durationBadge}>
+                        {pkg.duration}
+                      </span>
+                      {pkg.isOnSale && (
+                        <span className={classes.saleBadge}>🔥 Sale</span>
+                      )}
+                    </div>
                     <span className={classes.categoryBadge}>
                       {pkg.category}
                     </span>
@@ -177,7 +178,7 @@ export default function PackagesClient({
                       <ul className={classes.highlightsWhite}>
                         {pkg.highlights
                           .slice(0, isFeatured ? 4 : 3)
-                          .map((h) => (
+                          .map((h: string) => (
                             <li key={h}>
                               <FaArrowRight /> {h}
                             </li>
@@ -189,6 +190,14 @@ export default function PackagesClient({
                           <span className={classes.fromLabelWhite}>
                             Starting from
                           </span>
+                          {pkg.originalPrice != null && (
+                            <span className={classes.originalPriceWhiteStrike}>
+                              &#8377;
+                              {Number(pkg.originalPrice).toLocaleString(
+                                "en-IN",
+                              )}
+                            </span>
+                          )}
                           <span className={classes.priceWhite}>
                             {pkg.price}
                           </span>

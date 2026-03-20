@@ -1,20 +1,25 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { popularCitiesData } from '@/utils';
-import DestinationDetailsClient from './DestinationDetailsClient';
-import Link from 'next/link';
+import React from "react";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { popularCitiesData } from "@/utils";
+import { getAllPackages, type SanityPackage } from "@/sanity/queries";
+import DestinationDetailsClient from "./DestinationDetailsClient";
+import Link from "next/link";
 
-const SITE_URL = 'https://www.holidayplanner.in';
+const SITE_URL = "https://www.holidayplanner.in";
 
-export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ city: string }>;
+}): Promise<Metadata> {
   const resolvedParams = await params;
   const citySlug = resolvedParams.city;
   const cityInfo = popularCitiesData.find((c) => c.slug === citySlug);
 
   if (!cityInfo) {
     return {
-      title: 'Destination Not Found',
+      title: "Destination Not Found",
     };
   }
 
@@ -30,19 +35,19 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
       `${cityInfo.name} tourism`,
       `${cityInfo.name} travel guide`,
       `places to visit in ${cityInfo.name}`,
-      'Odisha tourism',
-      'Holiday Planner',
+      "Odisha tourism",
+      "Holiday Planner",
     ],
     alternates: { canonical: `/destinations/${citySlug}` },
     openGraph: {
       title: `${cityInfo.name} Travel Guide | Holiday Planner`,
       description,
       url: `${SITE_URL}/destinations/${citySlug}`,
-      type: 'article',
+      type: "article",
       images: [cityInfo.image],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: `${cityInfo.name} Travel Guide | Holiday Planner`,
       description,
     },
@@ -51,19 +56,19 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
 
 function DestinationJsonLd({ cityInfo }: { cityInfo: any }) {
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'TouristDestination',
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
     name: cityInfo.name,
     description:
       cityInfo.history ||
       `Explore ${cityInfo.name}, a popular tourist destination in Odisha.`,
     image: cityInfo.image,
     url: `${SITE_URL}/destinations/${cityInfo.slug}`,
-    touristType: ['Cultural tourism', 'Sightseeing'],
+    touristType: ["Cultural tourism", "Sightseeing"],
     containedInPlace: {
-      '@type': 'State',
-      name: 'Odisha',
-      containedInPlace: { '@type': 'Country', name: 'India' },
+      "@type": "State",
+      name: "Odisha",
+      containedInPlace: { "@type": "Country", name: "India" },
     },
   };
 
@@ -75,28 +80,41 @@ function DestinationJsonLd({ cityInfo }: { cityInfo: any }) {
   );
 }
 
-export default async function DestinationPage({ params }: { params: Promise<{ city: string }> }) {
+export default async function DestinationPage({
+  params,
+}: {
+  params: Promise<{ city: string }>;
+}) {
   const resolvedParams = await params;
   const citySlug = resolvedParams.city;
   const cityInfo = popularCitiesData.find((c) => c.slug === citySlug);
 
   if (!cityInfo) {
     return (
-      <div style={{ padding: '100px', textAlign: 'center' }}>
+      <div style={{ padding: "100px", textAlign: "center" }}>
         <h1>Destination Not Found</h1>
-        <p>Attempted slug: <strong>{citySlug}</strong></p>
+        <p>
+          Attempted slug: <strong>{citySlug}</strong>
+        </p>
         <Link href="/">Go Home</Link>
       </div>
     );
   }
 
+  const allPackages = await getAllPackages().catch(() => [] as SanityPackage[]);
+  const relatedPackages = allPackages.filter(
+    (pkg) =>
+      pkg.location.toLowerCase().includes(cityInfo.name.toLowerCase()) ||
+      pkg.title.toLowerCase().includes(cityInfo.name.toLowerCase()),
+  );
+
   return (
     <>
       <DestinationJsonLd cityInfo={cityInfo} />
-      <DestinationDetailsClient cityInfo={cityInfo} />
+      <DestinationDetailsClient
+        cityInfo={cityInfo}
+        relatedPackages={relatedPackages}
+      />
     </>
   );
 }
-
-
-
