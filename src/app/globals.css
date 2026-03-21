@@ -1,44 +1,54 @@
-
 :root {
   /* Core Brand Colors - Premium & Lucrative */
-  --color-primary: #2563EB;
+  --color-primary: #2563eb;
   /* Electric Blue */
-  --color-primary-dark: #1D4ED8;
-  --color-primary-light: #EFF6FF;
+  --color-primary-dark: #;
+  --color-primary-light: #eff6ff;
 
-  --color-accent: #FF6B6B;
+  --color-accent: #ff6b6b;
   /* Vibrant Coral */
-  --color-accent-dark: #E11D48;
-  --color-accent-light: #FFE4E6;
+  --color-accent-dark: #e11d48;
+  --color-accent-light: #ffe4e6;
 
-  --color-secondary: #0EA5E9;
+  --color-secondary: #;
   /* Sky Blue */
 
   /* Neutrals - High Contrast */
-  --color-dark: #0F172A;
+  --color-dark: #0f172a;
   /* Deep Navy */
-  --color-dark-2: #1E293B;
+  --color-dark-2: #1e293b;
   --color-black: #020617;
-  --color-white: #FFFFFF;
-  --color-gray-50: #F8FAFC;
-  --color-gray-100: #F1F5F9;
-  --color-gray-200: #E2E8F0;
-  --color-gray-400: #94A3B8;
+  --color-white: #ffffff;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-400: #94a3b8;
   --color-gray-600: #475569;
-  --color-gray-800: #1E293B;
+  --color-gray-800: #1e293b;
 
   /* Premium Gradients */
-  --gradient-primary: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%);
-  --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #E11D48 100%);
-  --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  --gradient-mesh: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --gradient-accent: linear-gradient(135deg, #ff6b6b 0%, #e11d48 100%);
+  --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --gradient-mesh:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
 
   /* Overlays */
-  --overlay-dark: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.9) 100%);
-  --overlay-light: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  --overlay-dark: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0) 0%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+  --overlay-light: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
 
   /* Typography */
-  --font-main: 'Outfit', sans-serif;
+  --font-main: "Outfit", sans-serif;
 
   /* Ultra-smooth Shadows (Dribbble style) */
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
@@ -137,11 +147,15 @@ button {
 
 /* Lucrative Glow Utility */
 .glow-primary {
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3), 0 0 40px rgba(37, 99, 235, 0.1);
+  box-shadow:
+    0 0 20px rgba(37, 99, 235, 0.3),
+    0 0 40px rgba(37, 99, 235, 0.1);
 }
 
 .glow-accent {
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3), 0 0 40px rgba(255, 107, 107, 0.1);
+  box-shadow:
+    0 0 20px rgba(255, 107, 107, 0.3),
+    0 0 40px rgba(255, 107, 107, 0.1);
 }
 
 /* Typography Utilities */

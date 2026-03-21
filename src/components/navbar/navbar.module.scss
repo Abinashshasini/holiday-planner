@@ -83,28 +83,37 @@
   &.mono {
     color: white;
 
-    img { filter: brightness(0) invert(1); }
+    img {
+      filter: brightness(0) invert(1);
+    }
 
     svg {
-      color: currentColor;
       & * {
-        fill: currentColor !important;
+        // fill: currentColor !important;
         stroke: currentColor !important;
       }
     }
   }
 
   @media (max-width: 900px) {
-    img, svg { height: 40px; }
+    img,
+    svg {
+      height: 40px;
+    }
   }
 
   @media (max-width: 600px) {
-    img, svg { height: 32px; }
+    img,
+    svg {
+      height: 32px;
+    }
   }
 }
 
 /* exported helper class used to toggle monochrome logo state from JS */
-.mono { color: inherit; }
+.mono {
+  color: inherit;
+}
 
 .desktopNav {
   display: flex;
