@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 10px 0 0px; /* Vertical padding only, inner handles max-width */
+  padding: 10px 0 10px; /* Vertical padding only, inner handles max-width */
   transition: all var(--transition-smooth);
   background: transparent;
   border-bottom: 1px solid transparent;
