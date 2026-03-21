@@ -65,18 +65,19 @@ const GetInTouch = () => {
     if (handleValidateCredential()) {
       setIsSubmitting(true);
       try {
-        const response = await axios.post(
-          "https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead",
-          { name, number, message },
+        // Primary save: Sanity Studio dashboard
+        await axios.post("/api/leads", { name, number, message });
+        // Secondary: external backend (fire-and-forget)
+        axios
+          .post(
+            "https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead",
+            { name, number, message },
+          )
+          .catch(() => {});
+        toast.success(
+          "Your request has been successfully submitted! We will call you soon.",
         );
-        if (response) {
-          toast.success(
-            "Your request has been successfully submitted! We will call you soon.",
-          );
-          setUserData({ name: "", number: "", message: "" });
-        } else {
-          toast.error("Something went wrong, please try again.");
-        }
+        setUserData({ name: "", number: "", message: "" });
       } catch (error) {
         console.log("Error", error);
         toast.error("Something went wrong, please try again.");

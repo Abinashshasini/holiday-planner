@@ -1,13 +1,4 @@
 import { sanityClient } from "./client";
-import imageUrlBuilder from "@sanity/image-url";
-
-/** Build a URL from a Sanity image reference */
-const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
-export function urlFor(
-  source: Parameters<ReturnType<typeof imageUrlBuilder>["image"]>[0],
-): string {
-  return builder?.image(source).auto("format").url() ?? "";
-}
 
 export type SanityPackage = {
   _id: string;
@@ -96,7 +87,7 @@ export async function getAllPackages(): Promise<SanityPackage[]> {
   const results = await sanityClient.fetch<SanityPackage[]>(
     ALL_PACKAGES_QUERY,
     {},
-    { next: { revalidate: 60 } },
+    { next: { tags: ["sanity"] } },
   );
   return results.map(computePrice);
 }
@@ -108,7 +99,7 @@ export async function getPackageBySlug(
   const result = await sanityClient.fetch<SanityPackage | null>(
     PACKAGE_BY_SLUG_QUERY,
     { slug },
-    { next: { revalidate: 60 } },
+    { next: { tags: ["sanity", `package-${slug}`] } },
   );
   return result ? computePrice(result) : null;
 }

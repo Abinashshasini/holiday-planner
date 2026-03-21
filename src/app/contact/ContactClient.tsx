@@ -77,10 +77,15 @@ export default function ContactClient() {
 
     setLoading(true);
     try {
-      await axios.post(
-        "https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead",
-        { name, number, message },
-      );
+      // Primary save: Sanity Studio dashboard
+      await axios.post("/api/leads", { name, number, message });
+      // Secondary: external backend (fire-and-forget)
+      axios
+        .post(
+          "https://holiday-planner-be.vercel.app/api/v1/leads/submit-lead",
+          { name, number, message },
+        )
+        .catch(() => {});
       toast.success("Message sent! We'll be in touch soon 🎉");
       setUserData({ name: "", number: "", message: "" });
     } catch {

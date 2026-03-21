@@ -1,7 +1,12 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getPackageBySlug } from "@/sanity/queries";
+import { getPackageBySlug, getAllPackages } from "@/sanity/queries";
 import PackageDetailsClient from "./PackageDetailsClient";
+
+export async function generateStaticParams() {
+  const packages = await getAllPackages();
+  return packages.map((pkg) => ({ id: pkg.slug.current }));
+}
 
 const SITE_URL = "https://www.holidayplanner.in";
 

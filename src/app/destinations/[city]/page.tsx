@@ -6,6 +6,10 @@ import { getAllPackages, type SanityPackage } from "@/sanity/queries";
 import DestinationDetailsClient from "./DestinationDetailsClient";
 import Link from "next/link";
 
+export function generateStaticParams() {
+  return popularCitiesData.map((city) => ({ city: city.slug }));
+}
+
 const SITE_URL = "https://www.holidayplanner.in";
 
 export async function generateMetadata({

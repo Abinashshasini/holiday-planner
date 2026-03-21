@@ -20,6 +20,15 @@ export default defineConfig({
             S.listItem()
               .title("Tour Packages")
               .child(S.documentTypeList("package").title("Tour Packages")),
+            S.listItem()
+              .title("Callback Requests")
+              .child(
+                S.documentTypeList("lead")
+                  .title("Callback Requests")
+                  .defaultOrdering([
+                    { field: "submittedAt", direction: "desc" },
+                  ]),
+              ),
           ]),
     }),
     visionTool(),
