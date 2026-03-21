@@ -78,7 +78,7 @@ export default function AboutClient() {
             transition={{ duration: 0.8 }}
           >
             <span className={classes.heroBadge}>
-              Est. 2016 &bull; Bhubaneswar
+              Est. 2021 &bull; Bhubaneswar
             </span>
             <h1 className={classes.heroTitle}>
               We Don&apos;t Plan Trips. We Craft <span>Memories.</span>
