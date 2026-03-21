@@ -11,8 +11,6 @@ export const sanityClient =
         projectId,
         dataset: dataset ?? "production",
         apiVersion: "2024-01-01",
-        // useCdn:false so Next.js data-cache (not Sanity CDN) owns caching;
-        // on-demand revalidation via webhook then works correctly.
         useCdn: false,
         ...(token && token !== "your_read_token" ? { token } : {}),
       })

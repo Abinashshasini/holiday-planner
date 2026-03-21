@@ -3,7 +3,9 @@ import { sanityWriteClient } from "@/sanity/client";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
+
   const { name, number, message } = body ?? {};
+  console.log(" name, number, message: ", name, number, message);
 
   // Basic server-side validation
   if (
@@ -26,7 +28,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await sanityWriteClient.create({
+    const response = await sanityWriteClient.create({
       _type: "lead",
       name: name.trim(),
       number: number.trim(),
@@ -34,6 +36,7 @@ export async function POST(req: NextRequest) {
       submittedAt: new Date().toISOString(),
       status: "new",
     });
+    console.log("Sanity response:", response);
   } catch (err: any) {
     console.error("[/api/leads] Sanity write failed:", err?.message ?? err);
     return NextResponse.json(
