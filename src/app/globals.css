@@ -100,6 +100,17 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  --webkit-scrollbar-width: none; /* For WebKit browsers */
+  scrollbar-width: none;
+} /* For Firefox */
+
+body::-webkit-scrollbar {
+  display: none; /* For WebKit browsers */
+}
+
+.home-page::-webkit-scrollbar,
+main::-webkit-scrollbar {
+  display: none; /* For WebKit browsers */
 }
 
 a {

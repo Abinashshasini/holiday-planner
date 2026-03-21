@@ -15,12 +15,12 @@ export default function ConditionalShell({
   const isStudio = pathname.startsWith("/studio");
 
   return (
-    <>
+    <main>
       {!isStudio && <Navbar />}
       <main>{children}</main>
       {!isStudio && <Footer />}
       {!isStudio && <WhatsAppButton />}
       {!isStudio && <CallButton />}
-    </>
+    </main>
   );
 }

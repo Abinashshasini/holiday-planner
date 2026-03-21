@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 20px 0; /* Vertical padding only, inner handles max-width */
+  padding: 10px 0 0px; /* Vertical padding only, inner handles max-width */
   transition: all var(--transition-smooth);
   background: transparent;
   border-bottom: 1px solid transparent;
@@ -72,7 +72,7 @@
 
   img,
   svg {
-    height: 48px;
+    height: 55px;
     width: auto;
     transition: all var(--transition-smooth);
     display: inline-block;
@@ -97,14 +97,14 @@
   @media (max-width: 900px) {
     img,
     svg {
-      height: 40px;
+      height: 60px;
     }
   }
 
   @media (max-width: 600px) {
     img,
     svg {
-      height: 32px;
+      height: 55px;
     }
   }
 }

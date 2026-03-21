@@ -37,7 +37,7 @@ export default function DestinationDetailsClient({
 
   return (
     <LazyMotion features={domMax}>
-      <main className={classes.main}>
+      <section className={classes.main}>
         {/* Dynamic Hero Section */}
         <section className={classes.hero}>
           <Image
@@ -325,7 +325,7 @@ export default function DestinationDetailsClient({
             </section>
           )}
         </div>
-      </main>
+      </section>
     </LazyMotion>
   );
 }

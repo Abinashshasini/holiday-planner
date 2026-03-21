@@ -70,7 +70,7 @@ export default async function Home() {
   const packages = await getAllPackages().catch(() => []);
 
   return (
-    <div>
+    <div className="home-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
