@@ -6,8 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import classes from "./navbar.module.scss";
 import useWhatsApp from "@/hooks/useWhatsApp";
 import { IoIosArrowBack } from "react-icons/io";
-import Logo from "./logo.png";
-
+import Logo from "./Logo";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Destinations", href: "/destinations" },
@@ -49,17 +48,8 @@ const Navbar: React.FC = () => {
       >
         <div className={classes.inner}>
           <div className={classes.iconCnt}>
-            {pathname !== "/" && (
-              <div onClick={() => router.back()}>
-                <IoIosArrowBack color="#111" size={24} />
-              </div>
-            )}
             <Link href="/" className={logoClass} aria-label="Home">
-              <img
-                src={Logo.src}
-                alt="Holiday Planner Logo"
-                className={classes.logoImage}
-              />
+              <Logo width={120} height={40} alt="Holiday Planner Odisha Logo" />
             </Link>
           </div>
 

@@ -17,19 +17,31 @@
 }
 
 .subtitle {
-  display: inline-block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-wide);
   margin-bottom: 12px;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  }
 }
 
 .title {
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-weight: var(--weight-black);
   color: var(--color-dark);
   line-height: 1.1;
   margin-bottom: 16px;
@@ -70,7 +82,9 @@
   overflow: hidden;
   background: var(--color-dark);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -85,7 +99,11 @@
     }
 
     .overlay {
-      background: linear-gradient(180deg, rgba(5, 10, 25, 0.1) 0%, rgba(5, 10, 25, 0.95) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(5, 10, 25, 0.1) 0%,
+        rgba(5, 10, 25, 0.95) 100%
+      );
     }
 
     .actionWrap {
@@ -116,7 +134,11 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 10, 25, 0.1) 0%, rgba(5, 10, 25, 0.8) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(5, 10, 25, 0.1) 0%,
+    rgba(5, 10, 25, 0.8) 100%
+  );
   z-index: 1;
   transition: background 0.4s ease;
 }
@@ -153,9 +175,9 @@
 }
 
 .serviceTitle {
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: var(--weight-bold);
   color: #ffffff;
   margin: 0 0 8px;
   line-height: 1.2;

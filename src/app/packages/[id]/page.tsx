@@ -99,7 +99,7 @@ function PackageJsonLd({ pkg }: { pkg: any }) {
       "@type": "TravelAgency",
       name: "Holiday Planner",
       url: "https://www.holidayplanner.in",
-      telephone: "+91-7978065576",
+      telephone: "+91-9861151591",
     },
   };
 

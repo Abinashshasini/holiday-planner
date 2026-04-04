@@ -5,7 +5,7 @@
 /* HERO */
 .hero {
   position: relative;
-  height: 50vh;
+  height: 70vh;
   min-height: 450px;
   background-color: var(--color-dark);
   display: flex;
@@ -24,8 +24,8 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg, 
-    rgba(15, 23, 42, 0.4) 0%, 
+    180deg,
+    rgba(15, 23, 42, 0.4) 0%,
     rgba(15, 23, 42, 0.85) 100%
   );
   z-index: 1;
@@ -92,9 +92,11 @@
   a {
     color: var(--color-primary-light);
     transition: all var(--transition-fast);
-    &:hover { color: var(--color-white); }
+    &:hover {
+      color: var(--color-white);
+    }
   }
-  
+
   span {
     opacity: 0.5;
   }
@@ -137,13 +139,17 @@
   box-shadow: var(--shadow-xl);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -20%;
     right: -20%;
     width: 60%;
     height: 60%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.2) 0%,
+      transparent 70%
+    );
     z-index: 0;
   }
 
@@ -191,14 +197,15 @@
       letter-spacing: 0.1em;
     }
 
-    a, span {
+    a,
+    span {
       font-size: 1.1rem;
       color: var(--color-white);
       font-weight: 600;
       transition: all var(--transition-fast);
     }
 
-    a:hover { 
+    a:hover {
       color: var(--color-primary-light);
       transform: translateX(5px);
     }
@@ -248,9 +255,25 @@
   }
 }
 
-.socialWa:hover { background: #25d366 !important; border-color: #25d366 !important; }
-.socialIg:hover { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; border-color: #dc2743 !important; }
-.socialFb:hover { background: #1877f2 !important; border-color: #1877f2 !important; }
+.socialWa:hover {
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+}
+.socialIg:hover {
+  background: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  ) !important;
+  border-color: #dc2743 !important;
+}
+.socialFb:hover {
+  background: #1877f2 !important;
+  border-color: #1877f2 !important;
+}
 
 /* FORM PANEL */
 .formPanel {
@@ -295,7 +318,8 @@
   }
 }
 
-.input, .textarea {
+.input,
+.textarea {
   width: 100%;
   padding: 16px 20px;
   border: 1.5px solid var(--color-gray-100);

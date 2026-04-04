@@ -1,5 +1,5 @@
 .section {
-  padding: 100px 0;
+  padding: var(--section-py) 0;
   background-color: var(--color-white);
   overflow: hidden;
 
@@ -24,7 +24,7 @@
   align-items: center;
   padding: 60px 80px;
   color: var(--color-white);
-  
+
   /* Lucrative floating effect for desktop */
   @media (min-width: 1025px) {
     box-shadow: 0 40px 100px rgba(15, 23, 42, 0.15);
@@ -46,7 +46,7 @@
 .parallaxBg {
   position: absolute;
   inset: 0;
-  background-image: url('https://res.cloudinary.com/dcudnuu04/image/upload/v1773412872/Gemini_Generated_Image_ss7zkqss7zkqss7z_bbfwy7.png');
+  background-image: url("https://res.cloudinary.com/dcudnuu04/image/upload/v1773412872/Gemini_Generated_Image_ss7zkqss7zkqss7z_bbfwy7.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -95,12 +95,15 @@
 }
 
 .eyebrow {
-  display: inline-block;
-  font-size: 0.9rem;
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  font-weight: var(--weight-bold);
   color: var(--color-accent);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-wide);
   margin-bottom: 24px;
   padding: 6px 16px;
   background: rgba(255, 255, 255, 0.1);
@@ -109,9 +112,9 @@
 }
 
 .headline {
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 3.8rem);
-  font-weight: 900;
+  font-weight: var(--weight-black);
   margin-bottom: 24px;
   line-height: 1.05;
   letter-spacing: -0.03em;

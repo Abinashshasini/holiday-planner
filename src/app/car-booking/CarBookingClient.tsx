@@ -8,7 +8,6 @@ import {
   FaUsers,
   FaCar,
   FaStar,
-  FaHeadset,
   FaShieldAlt,
   FaMapMarkerAlt,
   FaUserCheck,
@@ -19,13 +18,17 @@ import useWhatsApp from "@/hooks/useWhatsApp";
 import classes from "./car-booking.module.scss";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 90 } },
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 80, damping: 20 },
+  },
 };
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.09 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const features = [
@@ -51,13 +54,6 @@ const features = [
   },
 ];
 
-const stats = [
-  { icon: FaCar, value: "50+", label: "Vehicles" },
-  { icon: FaUsers, value: "500+", label: "Happy Customers" },
-  { icon: FaStar, value: "4.8★", label: "Google Rating" },
-  { icon: FaHeadset, value: "24/7", label: "Support" },
-];
-
 const CarBookingClient = () => {
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
   const { luxuryCar, tempoTraveler, carRental } = serviceDetailsData;
@@ -81,9 +77,9 @@ const CarBookingClient = () => {
           <div className={classes.heroOverlay} />
           <motion.div
             className={classes.heroContent}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <nav className={classes.breadcrumb}>
               <Link href="/">Home</Link>
@@ -119,7 +115,7 @@ const CarBookingClient = () => {
               <motion.a
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                href="tel:+917978065576"
+                href="tel:+9861151591"
                 className={classes.heroSecondary}
               >
                 <FaPhone /> Same-Day Booking
@@ -129,22 +125,6 @@ const CarBookingClient = () => {
               No advance payment &nbsp;·&nbsp; Instant confirmation
               &nbsp;·&nbsp; Cancel anytime
             </p>
-          </motion.div>
-
-          {/* Stats strip */}
-          <motion.div
-            className={classes.statsStrip}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-          >
-            {stats.map(({ icon: Icon, value, label }) => (
-              <div key={label} className={classes.statItem}>
-                <Icon className={classes.statIcon} />
-                <strong>{value}</strong>
-                <span>{label}</span>
-              </div>
-            ))}
           </motion.div>
         </div>
 
@@ -209,10 +189,13 @@ const CarBookingClient = () => {
                   className={classes.fleetCard}
                 >
                   <div className={classes.fleetImgWrap}>
-                    <img
+                    <Image
                       src={car.image}
                       alt={car.carName}
+                      fill
+                      style={{ objectFit: "cover" }}
                       className={classes.fleetImg}
+                      unoptimized
                     />
                     <div className={classes.imgGradient} />
                     <span className={classes.categoryPill}>Luxury</span>
@@ -273,10 +256,13 @@ const CarBookingClient = () => {
                   className={classes.fleetCard}
                 >
                   <div className={classes.fleetImgWrap}>
-                    <img
+                    <Image
                       src={car.image}
                       alt={car.carName}
+                      fill
+                      style={{ objectFit: "cover" }}
                       className={classes.fleetImg}
+                      unoptimized
                     />
                     <div className={classes.imgGradient} />
                     <span
@@ -420,7 +406,7 @@ const CarBookingClient = () => {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="tel:+917978065576"
+                  href="tel:+919861151591"
                   className={classes.callBtn}
                 >
                   <FaPhone /> Call for Same-Day Booking

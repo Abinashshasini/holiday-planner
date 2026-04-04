@@ -156,7 +156,7 @@ export default function ContactClient() {
                 </div>
                 <div>
                   <strong>Phone / WhatsApp</strong>
-                  <a href="tel:+917978065576">+91 79780 65576</a>
+                  <a href="tel:+919861151591">+91 98611 51591</a>
                 </div>
               </div>
 

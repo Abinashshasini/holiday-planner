@@ -110,7 +110,7 @@ const GetInTouch = () => {
                 </div>
                 <div>
                   <h5>Call Us</h5>
-                  <p>+91 79780 65576</p>
+                  <p>+91 98611 51591</p>
                 </div>
               </div>
               <div className={classes.contactItem}>

@@ -3,7 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { LazyMotion, domMax, m as motion, type Variants } from "framer-motion";
+import {
+  LazyMotion,
+  domAnimation,
+  m as motion,
+  type Variants,
+} from "framer-motion";
 import { CiLocationOn } from "react-icons/ci";
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineFilterList } from "react-icons/md";
@@ -27,13 +32,17 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 export default function PackagesClient({
@@ -52,25 +61,26 @@ export default function PackagesClient({
       : source.filter((p) => p.category === activeFilter);
 
   return (
-    <LazyMotion features={domMax}>
+    <LazyMotion features={domAnimation}>
       <div className={classes.page}>
         {/* Page Hero */}
         <div className={classes.hero}>
           <Image
             src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773410046/odisha-desktop_s0n0fu.png"
-            alt="Chilika Lake Odisha"
+            alt="Scenic Odisha landscape"
             fill
             style={{ objectFit: "cover" }}
             className={classes.heroImage}
             priority
             unoptimized
+            sizes="100vw"
           />
           <div className={classes.heroOverlay} />
           <motion.div
             className={classes.heroContent}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className={classes.heroBadge}>
               10+ Handcrafted Itineraries
@@ -95,7 +105,7 @@ export default function PackagesClient({
             className={classes.filterBar}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className={classes.filterLabel}>
               <MdOutlineFilterList /> Filter:
@@ -143,6 +153,8 @@ export default function PackagesClient({
                     alt={pkg.title}
                     fill
                     className={classes.cardImgBackground}
+                    unoptimized
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className={classes.cardOverlayFull} />
 
@@ -236,10 +248,10 @@ export default function PackagesClient({
           {/* Bottom CTA */}
           <motion.div
             className={classes.ctaBanner}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2>
               Your Perfect Trip Doesn&apos;t Exist Yet — Let&apos;s Create It

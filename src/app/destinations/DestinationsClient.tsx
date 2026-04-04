@@ -1,72 +1,83 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { LazyMotion, domAnimation, m as motion, type Variants } from 'framer-motion';
-import { FaMapMarkerAlt, FaArrowRight, FaCameraRetro } from 'react-icons/fa';
-import classes from './destinations.module.scss';
-import { popularCitiesData } from '@/utils';
-
+import Link from "next/link";
+import Image from "next/image";
+import {
+  LazyMotion,
+  domAnimation,
+  m as motion,
+  type Variants,
+} from "framer-motion";
+import { FaMapMarkerAlt, FaArrowRight, FaCameraRetro } from "react-icons/fa";
+import classes from "./destinations.module.scss";
+import { popularCitiesData } from "@/utils";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 80, damping: 20 },
+  },
 };
 
 export default function DestinationsClient() {
   return (
     <LazyMotion features={domAnimation}>
-     
       <div className={classes.page}>
-        {/* Hero Section */}
+        {/* Hero */}
         <div className={classes.hero}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=2000&auto=format&fit=crop"
             alt="Scenic Odisha"
+            fill
+            style={{ objectFit: "cover" }}
             className={classes.heroImage}
+            priority
+            unoptimized
           />
           <div className={classes.heroOverlay} />
           <motion.div
             className={classes.heroContent}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className={classes.heroBadge}>Discovery Guide</span>
+            <span className={classes.heroBadge}>Destinations</span>
             <h1 className={classes.heroTitle}>
-              Odisha&apos;s <span>Majestic</span> Cities
+              Odisha&apos;s <span>Finest</span> Cities
             </h1>
             <p className={classes.heroSubtitle}>
-              Embark on a journey through ancient stone carvings, golden
-              coastlines, and untouched wilderness. Every destination tells a
-              story.
+              Ancient temples, golden coastlines, and untouched wilderness —
+              every destination tells a story worth exploring.
             </p>
           </motion.div>
         </div>
 
         <div className={classes.body}>
-          {/* Intro Text to make the page look full */}
+          {/* Section Header */}
           <motion.div
-            className={classes.intro}
+            className={classes.sectionHeader}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <div className={classes.introLine} />
-            <h2 className={classes.introTitle}>Explore the Landmarks</h2>
-            <p className={classes.introText}>
-              From the spiritual energy of the Jagannath Temple to the
-              architectural precision of the Sun Temple, Odisha offers a diverse
-              palette of experiences for every type of traveler. Discover our
-              curated list of must-visit cities and landmarks.
+            <span className={classes.overline}>Explore</span>
+            <h2 className={classes.sectionTitle}>
+              Popular <span>Destinations</span>
+            </h2>
+            <p className={classes.sectionSubtitle}>
+              Curated cities and landmarks across Odisha, from spiritual energy
+              to architectural marvels.
             </p>
           </motion.div>
 
@@ -76,7 +87,7 @@ export default function DestinationsClient() {
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-80px" }}
           >
             {popularCitiesData.map((dest) => (
               <motion.div
@@ -89,11 +100,13 @@ export default function DestinationsClient() {
                   className={classes.cardInner}
                 >
                   <div className={classes.imageWrapper}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={dest.image}
                       alt={dest.name}
+                      fill
+                      style={{ objectFit: "cover" }}
                       className={classes.cardImage}
+                      unoptimized
                     />
                     <div className={classes.cardOverlay} />
 
@@ -109,7 +122,7 @@ export default function DestinationsClient() {
                           {dest.attractions
                             .slice(0, 2)
                             .map((a) => a.name)
-                            .join(' • ')}
+                            .join(" · ")}
                         </span>
                       </div>
                     </div>
@@ -117,7 +130,7 @@ export default function DestinationsClient() {
 
                   <div className={classes.cardFooter}>
                     <p className={classes.cardDesc}>
-                      {dest.history.slice(0, 95)}...
+                      {dest.history.slice(0, 120)}…
                     </p>
                     <span className={classes.exploreLink}>
                       Discover More <FaArrowRight />

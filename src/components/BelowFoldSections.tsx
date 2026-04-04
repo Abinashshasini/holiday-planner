@@ -31,8 +31,8 @@ export default function BelowFoldSections({
       <SearchBar />
       <OurServices />
       <OurPackages packages={packages} />
-      <WhyChooseUs />
       <RFQCard />
+      <WhyChooseUs />
       <Ratings />
       <FAQ />
       <GetInTouch />

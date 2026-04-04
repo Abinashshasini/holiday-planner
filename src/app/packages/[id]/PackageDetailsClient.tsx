@@ -22,13 +22,17 @@ const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 export default function PackageDetailsClient({ pkg }: { pkg: any }) {
@@ -60,7 +64,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
           className={classes.stickyBar}
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          transition={{ delay: 1, type: "spring", stiffness: 100 }}
+          transition={{ delay: 1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className={classes.stickyContainer}>
             <div className={classes.stickyInfo}>
@@ -94,17 +98,18 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
             src={pkg.image}
             alt={pkg.title}
             fill
-            style={{ objectFit: "cover", objectPosition: "10% 20%" }}
+            style={{ objectFit: "cover", objectPosition: "center 20%" }}
             className={classes.heroImage}
             priority
             unoptimized
+            sizes="100vw"
           />
           <div className={classes.heroOverlay} />
           <motion.div
             className={classes.heroContent}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className={classes.heroBadge}>{pkg.category}</span>
             <h1 className={classes.heroTitle}>{pkg.title}</h1>
@@ -210,9 +215,13 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
 
             <motion.div
               className={classes.sidebar}
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, type: "spring" }}
+              transition={{
+                delay: 0.4,
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               <div className={classes.bookingCard}>
                 <div className={classes.bookingCardHeader}>
@@ -276,7 +285,7 @@ export default function PackageDetailsClient({ pkg }: { pkg: any }) {
               <div className={classes.helpCard}>
                 <h4>Need Customization?</h4>
                 <p>We can tailor this itinerary to your specific needs.</p>
-                <a href="tel:+917978065576" className={classes.helpPhone}>
+                <a href="tel:+919861151591" className={classes.helpPhone}>
                   <FaPhone /> Call Travel Expert
                 </a>
               </div>

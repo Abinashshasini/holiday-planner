@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ConditionalShell from "@/components/ConditionalShell";
-import { Inter } from "next/font/google";
+import { Inter, Outfit, JetBrains_Mono } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-display",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-main",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
 });
 
 const SITE_URL = "https://www.holidayplanner.in";
@@ -97,7 +110,7 @@ const jsonLd = {
   image: `${SITE_URL}/og-image.jpg`,
   description:
     "Bhubaneswar's most trusted travel agency offering curated Odisha tour packages, premium car rentals, tempo travellers, and luxury wedding cars.",
-  telephone: "+91-7978065576",
+  telephone: "+91-9861151591",
   email: "holidayplannertravel@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -176,7 +189,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable} scroll-smooth`}
+    >
       <head>
         <script
           type="application/ld+json"

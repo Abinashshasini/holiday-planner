@@ -1,178 +1,110 @@
-"use client";
-import React, { useRef } from "react";
+﻿"use client";
+
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MdExplore } from "react-icons/md";
-import {
-  LazyMotion,
-  domAnimation,
-  m,
-  useScroll,
-  useTransform,
-  type Variants,
-} from "framer-motion";
-import {
-  FaArrowRight,
-  FaCar,
-  FaStar,
-  FaUsers,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import { BsShieldCheck } from "react-icons/bs";
-import classes from "./hero.module.scss";
+import { LazyMotion, domAnimation, m as motion } from "framer-motion";
+import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 import useWhatsApp from "@/hooks/useWhatsApp";
-import { DesktopBg, MobileBg } from "../../utils/index";
+import classes from "./hero.module.scss";
 
-/* ─────────────────────────────────────────────────────────
-   Animation variants
-───────────────────────────────────────────────────────── */
-
-const headlineContainer: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.18, delayChildren: 0.35 },
-  },
-};
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", damping: 22, stiffness: 90 },
-  },
-};
-
-const pageStagger: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-  },
-};
-
-const trustStats = [
-  { icon: <FaUsers />, value: "500+", label: "Happy Travelers" },
-  { icon: <FaStar />, value: "4.8★", label: "Google Rating" },
-  { icon: <BsShieldCheck />, value: "3+", label: "Years Trusted" },
-  { icon: <FaMapMarkerAlt />, value: "15+", label: "Destinations" },
-];
-
-const HeroClient: React.FC = () => {
+export default function HeroClient() {
   const { handleRedirectTheUserToWhatsApp } = useWhatsApp();
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <LazyMotion features={domAnimation}>
-      <section ref={sectionRef} className={classes.hero}>
-        <m.div className={classes.bgWrap} style={{ y: yBg }}>
-          <div className={classes.desktopOnly}>
-            <Image
-              src={DesktopBg}
-              alt="Scenic Odisha"
-              fill
-              priority
-              unoptimized
-              className={classes.bgImg}
-            />
-          </div>
-          <div className={classes.mobileOnly}>
-            <Image
-              src={MobileBg}
-              alt="Scenic Odisha"
-              fill
-              priority
-              unoptimized
-              className={classes.bgImg}
-            />
-          </div>
-        </m.div>
+      <section className={classes.heroNew}>
+        {/* Background */}
+        <div className={classes.bg}>
+          <Image
+            src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773506046/odisha-desktop_s0n0fu.webp"
+            alt="Scenic Odisha landscape"
+            fill
+            priority
+            className={classes.bgImg}
+            unoptimized
+          />
+          <div className={classes.overlay} />
+        </div>
 
-        <div className={classes.overlay} />
+        <div className={classes.container}>
+          {/* Left */}
+          <motion.div
+            className={classes.left}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className={classes.badge}>
+              Odisha&apos;s Trusted Travel Experts
+            </span>
 
-        <m.div
-          className={classes.content}
-          style={{ opacity: textOpacity }}
-          variants={pageStagger}
-          initial="hidden"
-          animate="show"
-        >
-          <m.div variants={fadeUp} className={classes.badge}>
-            <MdExplore />
-            <span>Odisha&apos;s #1 Travel Partner</span>
-          </m.div>
+            <h1 className={classes.title}>
+              Discover Odisha <span>Beyond the Guidebooks</span>
+            </h1>
 
-          <m.div className={classes.headlineGroup} variants={headlineContainer}>
-            <div className={classes.lineWrap}>
-              <h1 className={classes.headline}>Discover the</h1>
+            <p className={classes.subtitle}>
+              Curated journeys, verified local experts, and unforgettable
+              experiences — from ancient temples to hidden beaches.
+            </p>
+
+            <div className={classes.actions}>
+              <button
+                className={classes.primary}
+                onClick={() =>
+                  handleRedirectTheUserToWhatsApp({
+                    messageType: "dynamic",
+                    dynamicMessage:
+                      "Hi, I'd like to plan a trip to Odisha. Please share available packages and pricing.",
+                  })
+                }
+              >
+                <FaWhatsapp /> Plan My Trip
+              </button>
+
+              <Link href="/packages" className={classes.secondary}>
+                Explore Packages <FaArrowRight />
+              </Link>
             </div>
+          </motion.div>
 
-            <div className={classes.lineWrap}>
-              <h1 className={`${classes.headline} ${classes.headlineAccent}`}>
-                Soul of Odisha
-              </h1>
-            </div>
-
-            <div className={classes.lineWrap}>
-              <h1 className={classes.headlineOutline}>
-                — Where Ancient Wonders Meet Untouched Shores
-              </h1>
-            </div>
-          </m.div>
-
-          <p className={classes.subtitle}>
-            From the sun-kissed temples of Konark to the pristine waters of
-            Chilika — experience a land where every sunrise tells a
-            thousand-year-old story. Your journey begins with one click.
-          </p>
-
-          <m.div variants={fadeUp} className={classes.actions}>
-            <Link href="/packages" className={classes.btnPrimary}>
-              Explore Packages <FaArrowRight />
-            </Link>
-            <button
-              className={classes.btnGlass}
-              onClick={() =>
-                handleRedirectTheUserToWhatsApp({ messageType: "generic" })
-              }
-            >
-              <FaCar /> Book a Ride
-            </button>
-          </m.div>
-        </m.div>
-
-        {/* Trust Stats Strip */}
-        <m.div
-          className={classes.trustStrip}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 1.2,
-            duration: 0.8,
-            type: "spring",
-            damping: 20,
-          }}
-        >
-          {trustStats.map((stat, i) => (
-            <div key={i} className={classes.trustItem}>
-              <span className={classes.trustIcon}>{stat.icon}</span>
-              <div className={classes.trustText}>
-                <span className={classes.trustValue}>{stat.value}</span>
-                <span className={classes.trustLabel}>{stat.label}</span>
+          {/* Right visual stack */}
+          <motion.div
+            className={classes.right}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={classes.cardLarge}>
+              <Image
+                src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773502340/Gemini_Generated_Image_754xh8754xh8754x_1_mxlrmz.png"
+                alt="Jagannath Temple, Puri"
+                fill
+                className={classes.cardImg}
+                unoptimized
+              />
+              <div className={classes.cardOverlay}>
+                <span>Jagannath Temple</span>
               </div>
             </div>
-          ))}
-        </m.div>
+
+            <div className={classes.cardSmall}>
+              <Image
+                src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773502340/Gemini_Generated_Image_c98ondc98ondc98o_iw3atg.png"
+                alt="Lingaraj Temple, Bhubaneswar"
+                fill
+                className={classes.cardImg}
+                unoptimized
+              />
+            </div>
+
+            <div className={classes.floatingStat}>
+              <strong>500+</strong>
+              <span>Happy Travelers</span>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </LazyMotion>
   );
-};
-
-export default HeroClient;
+}
