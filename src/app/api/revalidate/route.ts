@@ -27,9 +27,6 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Invalidate all fetch() calls tagged "sanity"
-  revalidateTag("sanity");
-
   // Also revalidate static pages that were pre-rendered at build time
   revalidatePath("/packages", "page");
   revalidatePath("/packages/[id]", "page");
