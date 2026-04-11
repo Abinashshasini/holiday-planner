@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PackagesClient from "./PackagesClient";
 import { getAllPackages } from "@/sanity/queries";
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 export const metadata: Metadata = {
   title: "Best Odisha Tour Packages 2026 — Budget & Luxury Trips",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       "Best Odisha Tour Packages 2026 — Budget & Luxury Trips | Holiday Planner",
     description:
       "Curated Odisha tour packages with flexible itineraries from ₹4,999. Explore temples, beaches, wildlife & tribal culture.",
-    url: "https://www.holidayplanner.in/packages",
+    url: "https://www.holidayplanners.co/packages",
     type: "website",
   },
   twitter: {

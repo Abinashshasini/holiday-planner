@@ -136,9 +136,9 @@ const GetInTouch = () => {
                   <FaPhoneAlt />
                 </div>
                 <div>
-                  <h5 className="text-xs font-semibold uppercase tracking-wider text-text-muted mb-1">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-text-muted mb-1 block">
                     Call Us
-                  </h5>
+                  </span>
                   <p className="text-base font-bold text-text-primary">
                     <a href="tel:+919861151591">+91 98611 51591</a>
                   </p>
@@ -149,9 +149,9 @@ const GetInTouch = () => {
                   <FaEnvelope />
                 </div>
                 <div>
-                  <h5 className="text-xs font-semibold uppercase tracking-wider text-text-muted mb-1">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-text-muted mb-1 block">
                     Email Us
-                  </h5>
+                  </span>
                   <p className="text-base font-bold text-text-primary">
                     <a href="mailto:holidayplannertravel@gmail.com">
                       holidayplannertravel@gmail.com
@@ -164,9 +164,9 @@ const GetInTouch = () => {
                   <FaMapMarkerAlt />
                 </div>
                 <div>
-                  <h5 className="text-xs font-semibold uppercase tracking-wider text-text-muted mb-1">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-text-muted mb-1 block">
                     Visit Us
-                  </h5>
+                  </span>
                   <p className="text-base font-bold text-text-primary">
                     Bhubaneswar, Odisha, India
                   </p>

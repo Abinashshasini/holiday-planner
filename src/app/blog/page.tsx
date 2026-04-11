@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Odisha Travel Blog — Tips, Guides & Itineraries",
     description:
       "Expert guides covering temples, wildlife, beaches, and hill stations across Odisha. Written by local travel experts.",
-    url: "https://www.holidayplanner.in/blog",
+    url: "https://www.holidayplanners.co/blog",
     type: "website",
   },
   twitter: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "Discover Odisha through expert travel guides: temple pilgrimage routes, wildlife safaris, hidden hill stations, and coastal getaways. Plan your perfect Odisha trip.",
     images: ["/og-image.jpg"],
   },
-  alternates: { canonical: "https://www.holidayplanner.in/blog" },
+  alternates: { canonical: "https://www.holidayplanners.co/blog" },
 };
 
 const categoryColors: Record<string, string> = {
@@ -47,7 +47,7 @@ export default function BlogPage() {
     name: "Odisha Travel Blog",
     description:
       "Expert travel guides and stories about Odisha's temples, wildlife, beaches, and hill stations.",
-    url: "https://www.holidayplanner.in/blog",
+    url: "https://www.holidayplanners.co/blog",
   };
 
   const breadcrumbJsonLd = {
@@ -58,13 +58,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanner.in",
+        item: "https://www.holidayplanners.co",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.holidayplanner.in/blog",
+        item: "https://www.holidayplanners.co/blog",
       },
     ],
   };

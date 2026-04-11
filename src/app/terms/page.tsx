@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Terms of Service | Holiday Planner",
     description:
       "Read Holiday Planner's terms of service covering booking policies, cancellation rules, and responsibilities for Odisha tour packages and car rental services.",
-    url: "https://www.holidayplanner.in/terms",
+    url: "https://www.holidayplanners.co/terms",
     type: "website",
   },
   twitter: {

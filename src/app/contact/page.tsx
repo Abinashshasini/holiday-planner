@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 function ContactPageJsonLd() {
   const jsonLd = {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "Contact Holiday Planner — Plan Your Dream Odisha Trip",
     description:
       "Call, WhatsApp, or email Holiday Planner for personalized tour packages and car rentals across Odisha.",
-    url: "https://www.holidayplanner.in/contact",
+    url: "https://www.holidayplanners.co/contact",
     type: "website",
   },
   twitter: {
@@ -93,13 +93,13 @@ export default function ContactPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanner.in",
+        item: "https://www.holidayplanners.co",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Contact Us",
-        item: "https://www.holidayplanner.in/contact",
+        item: "https://www.holidayplanners.co/contact",
       },
     ],
   };

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import DestinationsClient from "./DestinationsClient";
 import { popularCitiesData } from "@/utils";
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 export const metadata: Metadata = {
   title: "Top Destinations in Odisha — Temples, Beaches & Wildlife",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Top Destinations in Odisha — Temples, Beaches & Wildlife",
     description:
       "Discover the must-visit destinations in Odisha from ancient temples to pristine beaches. Interactive travel guide by Holiday Planner.",
-    url: "https://www.holidayplanner.in/destinations",
+    url: "https://www.holidayplanners.co/destinations",
     type: "website",
   },
   twitter: {

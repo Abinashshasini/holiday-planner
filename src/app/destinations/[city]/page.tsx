@@ -8,7 +8,7 @@ export function generateStaticParams() {
   return popularCitiesData.map((city) => ({ city: city.slug }));
 }
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 export async function generateMetadata({
   params,

@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   return packages.map((pkg) => ({ id: pkg.slug.current }));
 }
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 /** Resolve package from Sanity by slug */
 async function resolvePackage(idOrSlug: string) {
@@ -97,13 +97,13 @@ function PackageJsonLd({ pkg }: { pkg: any }) {
       seller: {
         "@type": "TravelAgency",
         name: "Holiday Planner",
-        url: "https://www.holidayplanner.in",
+        url: "https://www.holidayplanners.co",
       },
     },
     provider: {
       "@type": "TravelAgency",
       name: "Holiday Planner",
-      url: "https://www.holidayplanner.in",
+      url: "https://www.holidayplanners.co",
       telephone: "+91-9861151591",
     },
   };

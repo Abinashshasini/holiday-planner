@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogBySlug, getBlogSlugs } from "@/utils/blogPosts";
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 /* ── Static Params ── */
 export function generateStaticParams() {

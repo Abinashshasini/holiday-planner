@@ -117,9 +117,9 @@ const WhyChooseUsClient = () => {
               </div>
 
               <div className="relative">
-                <h4 className="mb-1.5 font-display text-[0.95rem] font-bold leading-[1.3] text-text-primary">
+                <h3 className="mb-1.5 font-display text-[0.95rem] font-bold leading-[1.3] text-text-primary">
                   {item.text}
-                </h4>
+                </h3>
                 <p className="text-[0.82rem] leading-[1.55] text-text-secondary">
                   {item.desc}
                 </p>

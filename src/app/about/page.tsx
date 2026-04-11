@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import AboutClient from "./AboutClient";
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 function OrganizationJsonLd() {
   const jsonLd = {
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       "About Holiday Planner — The Story Behind Odisha's #1 Travel Partner",
     description:
       "Since 2016, we've turned Odisha vacations into stories worth retelling. 500+ happy travelers, 4.8★ rated, government-recognized guides.",
-    url: "https://www.holidayplanner.in/about",
+    url: "https://www.holidayplanners.co/about",
     type: "website",
   },
   twitter: {
@@ -84,13 +84,13 @@ export default function AboutPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanner.in",
+        item: "https://www.holidayplanners.co",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "About Us",
-        item: "https://www.holidayplanner.in/about",
+        item: "https://www.holidayplanners.co/about",
       },
     ],
   };

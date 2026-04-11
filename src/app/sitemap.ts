@@ -4,7 +4,7 @@ import { getAllPackages } from "@/sanity/queries";
 import { getBlogSlugs } from "@/utils/blogPosts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.holidayplanner.in";
+  const baseUrl = "https://www.holidayplanners.co";
 
   // Static routes with priority tiers
   const staticRoutes = [

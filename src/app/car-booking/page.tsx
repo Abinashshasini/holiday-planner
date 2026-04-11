@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import CarBookingClient from "./CarBookingClient";
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 function CarServiceJsonLd() {
   const jsonLd = {
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
       "Car Rental Bhubaneswar — Luxury Cars & Tempo Travellers | Holiday Planner",
     description:
       "Premium car rental service in Bhubaneswar. Luxury cars, tempo travellers, airport pickups & outstation trips at best rates.",
-    url: "https://www.holidayplanner.in/car-booking",
+    url: "https://www.holidayplanners.co/car-booking",
     type: "website",
   },
   twitter: {
@@ -104,13 +104,13 @@ export default function CarBookingPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanner.in",
+        item: "https://www.holidayplanners.co",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Car Booking",
-        item: "https://www.holidayplanner.in/car-booking",
+        item: "https://www.holidayplanners.co/car-booking",
       },
     ],
   };

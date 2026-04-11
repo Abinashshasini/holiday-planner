@@ -11,7 +11,7 @@ export function generateStaticParams() {
   ];
 }
 
-const SITE_URL = "https://www.holidayplanner.in";
+const SITE_URL = "https://www.holidayplanners.co";
 
 const serviceKeywords: Record<string, string[]> = {
   "car-rental-and-booking": [
