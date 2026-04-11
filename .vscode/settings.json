@@ -1,6 +1,8 @@
 {
   "chat.tools.terminal.autoApprove": {
     "Test-Path": true,
-    "Set-Content": true
+    "Set-Content": true,
+    "npx next": true,
+    "npm install": true
   }
 }

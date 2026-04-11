@@ -1,5 +1,3 @@
-import React from "react";
-import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { popularCitiesData } from "@/utils";
 import { getAllPackages, type SanityPackage } from "@/sanity/queries";
@@ -27,12 +25,21 @@ export async function generateMetadata({
     };
   }
 
-  const description = cityInfo.history
-    ? cityInfo.history.slice(0, 160)
-    : `Discover the rich history and top attractions of ${cityInfo.name}, Odisha with Holiday Planner.`;
+  const topAttractions = cityInfo.attractions
+    ?.slice(0, 2)
+    .map((a: any) => a.name)
+    .join(" & ");
+  const bestTimeSummary =
+    cityInfo.bestTimeToVisit?.split(".")[0]?.split(",")[0] ?? "";
+  const description = topAttractions
+    ? `Explore ${cityInfo.name}, Odisha \u2014 ${topAttractions}${bestTimeSummary ? `. Best time: ${bestTimeSummary}` : ""}. Book curated tour packages with Holiday Planner.`.slice(
+        0,
+        160,
+      )
+    : `Discover the rich history and top attractions of ${cityInfo.name}, Odisha. Plan your perfect trip with Holiday Planner.`;
 
   return {
-    title: `${cityInfo.name} Travel Guide — Top Attractions & History | Odisha Tourism`,
+    title: `${cityInfo.name} Travel Guide 2026 — Attractions, Tips & Tour Packages`,
     description,
     keywords: [
       cityInfo.name,
@@ -44,7 +51,7 @@ export async function generateMetadata({
     ],
     alternates: { canonical: `/destinations/${citySlug}` },
     openGraph: {
-      title: `${cityInfo.name} Travel Guide | Holiday Planner`,
+      title: `${cityInfo.name} Travel Guide 2026 | Holiday Planner`,
       description,
       url: `${SITE_URL}/destinations/${citySlug}`,
       type: "article",
@@ -52,7 +59,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cityInfo.name} Travel Guide | Holiday Planner`,
+      title: `${cityInfo.name} Travel Guide 2026 | Holiday Planner`,
       description,
     },
   };
@@ -74,6 +81,12 @@ function DestinationJsonLd({ cityInfo }: { cityInfo: any }) {
       name: "Odisha",
       containedInPlace: { "@type": "Country", name: "India" },
     },
+    includesAttraction:
+      cityInfo.attractions?.map((attr: any) => ({
+        "@type": "TouristAttraction",
+        name: attr.name,
+        description: attr.desc,
+      })) ?? [],
   };
 
   return (
@@ -112,9 +125,38 @@ export default async function DestinationPage({
       pkg.title.toLowerCase().includes(cityInfo.name.toLowerCase()),
   );
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Destinations",
+        item: `${SITE_URL}/destinations`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: cityInfo.name,
+        item: `${SITE_URL}/destinations/${cityInfo.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <DestinationJsonLd cityInfo={cityInfo} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <DestinationDetailsClient
         cityInfo={cityInfo}
         relatedPackages={relatedPackages}

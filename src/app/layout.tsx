@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ConditionalShell from "@/components/ConditionalShell";
-import { Inter, Outfit, JetBrains_Mono } from "next/font/google";
+import { Oswald, Outfit, JetBrains_Mono } from "next/font/google";
 
-const inter = Inter({
+const oswald = Oswald({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
@@ -190,13 +190,45 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      lang="en-IN"
+      className={`${oswald.variable} ${outfit.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <head>
+        {/* Mark document JS-ready before first paint so Framer Motion
+            animations work normally. Without JS (crawlers, SSG preview),
+            the fm-ready class is never added and the CSS fallback in
+            globals.css makes all animated content visible. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('fm-ready')`,
+          }}
+        />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${SITE_URL}/packages?q={search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
         />
       </head>
       <body>

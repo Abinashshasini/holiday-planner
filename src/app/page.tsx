@@ -1,7 +1,39 @@
+import type { Metadata } from "next";
 import Hero from "@/components/hero";
+import TrustBar from "@/components/trust-bar";
 import BelowFoldSections from "@/components/BelowFoldSections";
-import { Suspense } from "react";
 import { getAllPackages } from "@/sanity/queries";
+import { userRatingData } from "@/utils";
+
+export const metadata: Metadata = {
+  title: "Odisha Tour Packages 2026 — Book Your Dream Trip",
+  description:
+    "Explore curated Odisha tour packages starting ₹4,999. Puri, Konark, Bhubaneswar, Chilika & more. 500+ happy travelers, 4.8★ rated. WhatsApp us to plan your trip today.",
+  keywords: [
+    "Odisha tour packages",
+    "Odisha tour packages from Bhubaneswar",
+    "best travel agency Bhubaneswar",
+    "customized Odisha tour package",
+    "Odisha holiday packages all inclusive",
+    "trip to Puri Konark Bhubaneswar",
+    "Odisha travel planner 2026",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Odisha Tour Packages 2026 — Book Your Dream Trip | Holiday Planner",
+    description:
+      "Explore curated Odisha tour packages starting ₹4,999. 500+ happy travelers, 4.8★ rated. Plan your perfect Odisha trip today.",
+    url: "https://www.holidayplanner.in",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Odisha Tour Packages 2026 — Book Your Dream Trip",
+    description:
+      "Explore curated Odisha tour packages starting ₹4,999. Puri, Konark, Bhubaneswar, Chilika & more. 500+ happy travelers, 4.8★ rated. WhatsApp us to plan your trip today.",
+    images: ["/og-image.jpg"],
+  },
+};
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -69,40 +101,48 @@ const faqJsonLd = {
 export default async function Home() {
   const packages = await getAllPackages().catch(() => []);
 
+  const ratingsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.holidayplanner.in/#localbusiness",
+    name: "Holiday Planner",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "500",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: userRatingData.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.name },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating,
+        bestRating: "5",
+      },
+      reviewBody: r.message,
+      itemReviewed: {
+        "@type": "Service",
+        name: r.packageInfo,
+        provider: { "@type": "TravelAgency", name: "Holiday Planner" },
+      },
+    })),
+  };
+
   return (
     <div className="home-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingsJsonLd) }}
+      />
       <Hero />
-      <Suspense
-        fallback={
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "80px 20px",
-              background:
-                "linear-gradient(to bottom, rgb(5, 10, 25), rgb(22 29 51))",
-            }}
-          >
-            <div
-              style={{
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "0.95rem",
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-              }}
-            >
-              Loading your experience...
-            </div>
-          </div>
-        }
-      >
-        <BelowFoldSections packages={packages} />
-      </Suspense>
+      <TrustBar />
+      <BelowFoldSections packages={packages} />
     </div>
   );
 }

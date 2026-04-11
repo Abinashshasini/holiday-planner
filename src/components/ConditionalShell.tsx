@@ -15,12 +15,12 @@ export default function ConditionalShell({
   const isStudio = pathname.startsWith("/studio");
 
   return (
-    <main>
+    <div className="flex min-h-screen flex-col">
       {!isStudio && <Navbar />}
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       {!isStudio && <Footer />}
       {!isStudio && <WhatsAppButton />}
       {!isStudio && <CallButton />}
-    </main>
+    </div>
   );
 }

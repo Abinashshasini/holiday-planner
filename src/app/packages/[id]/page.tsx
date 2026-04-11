@@ -28,9 +28,14 @@ export async function generateMetadata({
   }
 
   const slug = "slug" in pkg ? pkg.slug.current : String((pkg as any).id);
+  const baseDesc = pkg.overview
+    ? pkg.overview.slice(0, 95).trimEnd().replace(/\.$/, "")
+    : `Explore ${pkg.title} in ${pkg.location}`;
   const description =
-    pkg.overview ||
-    `Explore ${pkg.title} in ${pkg.location}. Book this ${pkg.duration} package with Holiday Planner, Odisha's most trusted travel agency.`;
+    `${baseDesc} — ${pkg.duration} tour${pkg.price ? ` from ${pkg.price}` : ""}. Book with Holiday Planner, Odisha's most trusted travel agency.`.slice(
+      0,
+      160,
+    );
 
   return {
     title: `${pkg.title} — ${pkg.duration} Tour Package in Odisha`,
@@ -88,7 +93,7 @@ function PackageJsonLd({ pkg }: { pkg: any }) {
       price: pkg.price?.replace(/[^0-9]/g, ""),
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
-      validFrom: "2026-01-01",
+      validFrom: `${new Date().getFullYear()}-01-01`,
       seller: {
         "@type": "TravelAgency",
         name: "Holiday Planner",
@@ -117,16 +122,56 @@ export default async function PackageDetailsPage({
   params: Promise<{ id: string }>;
 }) {
   const resolvedParams = await params;
-  const pkg = await resolvePackage(resolvedParams.id);
+  const [pkg, allPackages] = await Promise.all([
+    resolvePackage(resolvedParams.id),
+    getAllPackages().catch(() => []),
+  ]);
 
   if (!pkg) {
     return notFound();
   }
 
+  const related = allPackages
+    .filter(
+      (p) =>
+        p.slug.current !== resolvedParams.id &&
+        (p.category === pkg.category || p.location === pkg.location),
+    )
+    .slice(0, 3);
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Tour Packages",
+        item: `${SITE_URL}/packages`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: pkg.title,
+        item: `${SITE_URL}/packages/${pkg.slug.current}`,
+      },
+    ],
+  };
+
   return (
     <>
       <PackageJsonLd pkg={pkg} />
-      <PackageDetailsClient pkg={pkg} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <PackageDetailsClient pkg={pkg} relatedPackages={related} />
     </>
   );
 }

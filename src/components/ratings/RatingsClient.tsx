@@ -1,9 +1,7 @@
 "use client";
 import { motion, Variants } from "framer-motion";
 import UserRatingCard from "./UserRatingCard";
-import classes from "./ratings.module.scss";
 import { userRatingData } from "@/utils";
-import { FaStar } from "react-icons/fa";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -20,52 +18,49 @@ const itemVariants: Variants = {
 
 const RatingsClient = () => {
   return (
-    <section className={classes.section}>
-      <div className={classes.container}>
+    <section className="relative overflow-hidden bg-white px-4 py-24 sm:px-6">
+      {/* Background blurred glows */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-20 -left-16 h-[500px] w-[500px] rounded-full bg-gold-100/30 blur-[120px]" />
+        <div className="absolute -right-10 -bottom-10 h-[400px] w-[400px] rounded-full bg-ocean-300/10 blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-6xl">
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className={classes.header}
+          className="mb-16 text-center"
         >
-          <div className={classes.headerContent}>
-            <span className={classes.subtitle}>Wall of Love</span>
-            <h2 className={classes.title}>
-              Real Stories from <span>Real Travelers</span>
-            </h2>
-          </div>
+          <span className="text-base font-bold uppercase tracking-widest text-gold-400">
+            Wall of Love
+          </span>
 
-          <div className={classes.overallRating}>
-            <div className={classes.ratingBadge}>
-              4.8 <FaStar />
-            </div>
-            <div className={classes.ratingText}>
-              <h4>500+ Verified Reviews</h4>
-              <p>Odisha&apos;s highest-rated travel partner</p>
-            </div>
-          </div>
+          <h2 className="mt-5 font-display text-4xl font-black tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
+            Real Stories from{" "}
+            <span className="bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
+              Real Travelers
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-text-secondary">
+            Authentic voices from travelers who explored Odisha and created
+            memories they&apos;ll cherish forever.
+          </p>
         </motion.div>
 
+        {/* Card grid */}
         <motion.div
-          className={classes.bentoGrid}
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {userRatingData.map((element, index) => (
-            <motion.div
-              key={element.id}
-              variants={itemVariants}
-              className={
-                index === 0
-                  ? classes.featuredItem
-                  : index === 3
-                    ? classes.wideItem
-                    : ""
-              }
-            >
+          {userRatingData.slice(0, 6).map((element, index) => (
+            <motion.div key={element.id} variants={itemVariants}>
               <UserRatingCard
                 message={element.message}
                 name={element.name}
@@ -73,6 +68,7 @@ const RatingsClient = () => {
                 time={element.time}
                 packageInfo={element.packageInfo}
                 index={index}
+                spotlight={index === 1}
               />
             </motion.div>
           ))}

@@ -26,6 +26,14 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "coverImage",
+      title: "Cover Image",
+      type: "image",
+      options: { hotspot: true },
+      description:
+        "Hero/banner image shown at the top of the package detail page",
+    }),
+    defineField({
       name: "location",
       title: "Location",
       type: "string",

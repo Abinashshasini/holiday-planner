@@ -3,6 +3,14 @@ import { Metadata } from "next";
 import { serviceDetailsData } from "@/utils";
 import ServiceDetailsClient from "./ServiceDetailsClient";
 
+export function generateStaticParams() {
+  return [
+    { id: "car-rental-and-booking" },
+    { id: "luxury-car-wedding-car" },
+    { id: "tempo-traveler-booking" },
+  ];
+}
+
 const SITE_URL = "https://www.holidayplanner.in";
 
 const serviceKeywords: Record<string, string[]> = {
@@ -59,6 +67,12 @@ export async function generateMetadata({
       url: `${SITE_URL}/our-services/${id}`,
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} in Bhubaneswar, Odisha`,
+      description: `Professional ${title.toLowerCase()} services in Bhubaneswar, Odisha. Best rates, well-maintained vehicles, and experienced drivers. Book now with Holiday Planner.`,
+      images: ["/og-image.jpg"],
+    },
   };
 }
 
@@ -105,9 +119,38 @@ export default async function OurServicesPage({
     data = serviceDetailsData.tempoTraveler;
   else return notFound();
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: `${SITE_URL}/our-services`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `${data.hTextOne} ${data.hTextTwo}`,
+        item: `${SITE_URL}/our-services/${id}`,
+      },
+    ],
+  };
+
   return (
     <>
       <ServiceJsonLd data={data} id={id} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <ServiceDetailsClient data={data} />
     </>
   );

@@ -5,6 +5,7 @@ export type SanityPackage = {
   title: string;
   slug: { current: string };
   image: string; // resolved to a plain URL by GROQ
+  coverImage?: string; // optional hero/banner image
   location: string;
   duration: string;
   /** Formatted display price, e.g. "₹12,999" — computed from discountedPrice in post-processing */
@@ -19,6 +20,7 @@ export type SanityPackage = {
   excluded: string[];
   itinerary: { day: number; title: string; description: string }[];
   order?: number;
+  _updatedAt?: string;
 };
 
 /** Fetch all packages ordered by `order` field, then by creation date */
@@ -43,7 +45,8 @@ const ALL_PACKAGES_QUERY = `
       title,
       description
     },
-    order
+    order,
+    _updatedAt
   }
 `;
 
@@ -54,6 +57,7 @@ const PACKAGE_BY_SLUG_QUERY = `
     title,
     slug,
     "image": image.asset->url,
+    "coverImage": coverImage.asset->url,
     location,
     duration,
     originalPrice,

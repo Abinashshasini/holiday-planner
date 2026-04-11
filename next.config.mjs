@@ -28,5 +28,8 @@ const nextConfig = {
     return config;
   },
   turbopack: {},
+  experimental: {
+    inlineCss: true,
+  },
 };
 export default nextConfig;
