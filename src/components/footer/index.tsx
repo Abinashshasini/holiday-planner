@@ -219,6 +219,29 @@ const Footer: React.FC = () => {
                 </div>
               </div>
             ))}
+
+            {/* UPI QR Code */}
+            <div className="mt-4 rounded-[12px] border border-white/8 bg-white/5 p-4 text-center">
+              <div className="mx-auto mb-3 w-[140px] overflow-hidden rounded-lg border-2 border-gold-400/30">
+                <img
+                  src="https://res.cloudinary.com/dcudnuu04/image/upload/v1775927838/Screenshot_2026-04-11_224442_jnkvnl.png"
+                  alt="UPI QR Code — Scan to Pay Holiday Planner"
+                  width={140}
+                  height={140}
+                  className="block w-full"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-[0.78rem] font-semibold text-white/70">
+                IndusInd Bank
+              </p>
+              <p className="mt-0.5 text-[0.7rem] uppercase tracking-wider text-gold-400/80">
+                Scan &amp; Pay
+              </p>
+              <p className="mt-1.5 rounded-md bg-white/5 px-2 py-1.5 font-mono text-[0.7rem] text-white/40 select-all">
+                Pos.11405278@indus
+              </p>
+            </div>
           </motion.div>
         </motion.div>
 
