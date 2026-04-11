@@ -22,15 +22,18 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: `${post.title} | Holiday Planner Odisha`,
-    description: post.excerpt,
+    title: post.title,
+    description: post.excerpt.slice(0, 155),
+    keywords: post.tags,
     openGraph: {
       title: post.title,
-      description: post.excerpt,
+      description: post.excerpt.slice(0, 155),
       url: `${SITE_URL}/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishDate,
       authors: [post.author],
+      siteName: "Holiday Planner",
+      locale: "en_IN",
       images: [
         {
           url: post.image,

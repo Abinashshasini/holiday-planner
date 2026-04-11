@@ -5,9 +5,9 @@ import { popularCitiesData } from "@/utils";
 const SITE_URL = "https://www.holidayplanners.co";
 
 export const metadata: Metadata = {
-  title: "Top Destinations in Odisha — Temples, Beaches & Wildlife",
+  title: "Best Places to Visit in Odisha 2026",
   description:
-    "Explore the best places to visit in Odisha: Bhubaneswar temples, Puri beaches, Konark Sun Temple, Chilika Lake, Bhitarkanika mangrove forests, Daringbadi hill station & more. Plan your trip with Holiday Planner.",
+    "Discover Odisha’s best destinations: Bhubaneswar temples, Puri beaches, Konark, Chilika Lake & Daringbadi hills. Plan your trip with Holiday Planner.",
   keywords: [
     "Odisha destinations",
     "best places to visit in Odisha",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "Odisha beaches",
     "Bhitarkanika wildlife",
     "Daringbadi hill station",
+    "top 10 places Odisha",
+    "Odisha tour destinations",
   ],
   alternates: { canonical: "/destinations" },
   openGraph: {
@@ -27,13 +29,23 @@ export const metadata: Metadata = {
       "Discover the must-visit destinations in Odisha from ancient temples to pristine beaches. Interactive travel guide by Holiday Planner.",
     url: "https://www.holidayplanners.co/destinations",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.holidayplanners.co/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Top Destinations in Odisha — Holiday Planner",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Destinations in Odisha — Temples, Beaches & Wildlife",
+    title: "Best Places to Visit in Odisha 2026",
     description:
-      "Explore the best places to visit in Odisha: Bhubaneswar temples, Puri beaches, Konark Sun Temple, Chilika Lake, Bhitarkanika mangrove forests, Daringbadi hill station & more. Plan your trip with Holiday Planner.",
-    images: ["/og-image.jpg"],
+      "Discover Odisha’s best destinations: Bhubaneswar temples, Puri beaches, Konark, Chilika Lake & Daringbadi hills. Plan your trip with Holiday Planner.",
+    images: ["https://www.holidayplanners.co/og-image.jpg"],
   },
 };
 

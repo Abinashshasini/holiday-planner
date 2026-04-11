@@ -4,29 +4,44 @@ import Link from "next/link";
 import { blogPosts } from "@/utils/blogPosts";
 
 export const metadata: Metadata = {
-  title: "Odisha Travel Blog — Tips, Guides & Itineraries | Holiday Planner",
+  title: "Odisha Travel Blog — Guides & Itineraries",
   description:
-    "Discover Odisha through expert travel guides: temple pilgrimage routes, wildlife safaris, hidden hill stations, and coastal getaways. Plan your perfect Odisha trip.",
+    "Expert Odisha travel guides: temple routes, wildlife safaris, hidden hill stations & coastal getaways. Plan your perfect Odisha trip.",
   keywords: [
     "Odisha travel blog",
     "Odisha tourism guide",
     "temple tours Odisha",
     "Odisha travel stories",
     "best places to visit Odisha",
+    "Odisha travel tips",
+    "Odisha itinerary",
+    "Odisha trip planning",
+    "Puri travel guide",
+    "Konark travel guide",
   ],
   openGraph: {
-    title: "Odisha Travel Blog — Tips, Guides & Itineraries",
+    title: "Odisha Travel Blog — Guides & Itineraries",
     description:
       "Expert guides covering temples, wildlife, beaches, and hill stations across Odisha. Written by local travel experts.",
     url: "https://www.holidayplanners.co/blog",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.holidayplanners.co/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Odisha Travel Blog — Holiday Planner",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Odisha Travel Blog — Tips, Guides & Itineraries | Holiday Planner",
+    title: "Odisha Travel Blog — Guides & Itineraries",
     description:
-      "Discover Odisha through expert travel guides: temple pilgrimage routes, wildlife safaris, hidden hill stations, and coastal getaways. Plan your perfect Odisha trip.",
-    images: ["/og-image.jpg"],
+      "Expert Odisha travel guides: temple routes, wildlife safaris, hidden hill stations & coastal getaways. Plan your perfect Odisha trip.",
+    images: ["https://www.holidayplanners.co/og-image.jpg"],
   },
   alternates: { canonical: "https://www.holidayplanners.co/blog" },
 };

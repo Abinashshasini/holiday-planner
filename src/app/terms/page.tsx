@@ -1,30 +1,54 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Holiday Planner",
+  title: "Terms of Service",
   description:
-    "Read Holiday Planner's terms of service covering booking policies, cancellation rules, and responsibilities for Odisha tour packages and car rental services.",
+    "Holiday Planner's terms of service: booking policies, cancellation rules & responsibilities for Odisha tour packages and car rentals.",
   alternates: { canonical: "/terms" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Terms of Service | Holiday Planner",
+    title: "Terms of Service",
     description:
-      "Read Holiday Planner's terms of service covering booking policies, cancellation rules, and responsibilities for Odisha tour packages and car rental services.",
+      "Holiday Planner's terms of service: booking policies, cancellation rules & responsibilities for Odisha tour packages and car rentals.",
     url: "https://www.holidayplanners.co/terms",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Terms of Service | Holiday Planner",
+    card: "summary",
+    title: "Terms of Service",
     description:
-      "Read Holiday Planner's terms of service covering booking policies, cancellation rules, and responsibilities for Odisha tour packages and car rental services.",
-    images: ["/og-image.jpg"],
+      "Holiday Planner's terms of service: booking policies, cancellation rules & responsibilities for Odisha tour packages and car rentals.",
   },
 };
 
 export default function TermsPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.holidayplanners.co",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Terms of Service",
+        item: "https://www.holidayplanners.co/terms",
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-bg-deepest pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <article className="mx-auto max-w-[780px] px-5 md:px-8 text-text-secondary leading-[1.8] font-main">
         <h1 className="text-3xl font-bold mb-2 text-text-primary font-display">
           Terms of Service

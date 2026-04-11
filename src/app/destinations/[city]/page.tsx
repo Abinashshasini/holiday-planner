@@ -39,28 +39,42 @@ export async function generateMetadata({
     : `Discover the rich history and top attractions of ${cityInfo.name}, Odisha. Plan your perfect trip with Holiday Planner.`;
 
   return {
-    title: `${cityInfo.name} Travel Guide 2026 — Attractions, Tips & Tour Packages`,
+    title: `${cityInfo.name} Travel Guide 2026 — Top Attractions`,
     description,
     keywords: [
       cityInfo.name,
       `${cityInfo.name} tourism`,
       `${cityInfo.name} travel guide`,
       `places to visit in ${cityInfo.name}`,
+      `how to reach ${cityInfo.name}`,
+      `${cityInfo.name} best time to visit`,
+      `${cityInfo.name} tour packages`,
+      `things to do in ${cityInfo.name}`,
       "Odisha tourism",
       "Holiday Planner",
     ],
     alternates: { canonical: `/destinations/${citySlug}` },
     openGraph: {
-      title: `${cityInfo.name} Travel Guide 2026 | Holiday Planner`,
+      title: `${cityInfo.name} Travel Guide 2026`,
       description,
       url: `${SITE_URL}/destinations/${citySlug}`,
       type: "article",
-      images: [cityInfo.image],
+      siteName: "Holiday Planner",
+      locale: "en_IN",
+      images: [
+        {
+          url: cityInfo.image,
+          width: 1200,
+          height: 630,
+          alt: `${cityInfo.name} — Odisha Travel Guide`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cityInfo.name} Travel Guide 2026 | Holiday Planner`,
+      title: `${cityInfo.name} Travel Guide 2026`,
       description,
+      images: [cityInfo.image],
     },
   };
 }

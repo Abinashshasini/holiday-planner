@@ -44,9 +44,9 @@ function OrganizationJsonLd() {
 }
 
 export const metadata: Metadata = {
-  title: "About Us — The Story Behind Odisha's Most Trusted Travel Partner",
+  title: "About Holiday Planner — Odisha Travel Agency",
   description:
-    "Since 2016, Holiday Planner has been crafting unforgettable Odisha experiences for 500+ travelers. Government-recognized guides, a premium fleet, and a 4.8★ Google rating — discover why families, adventurers, and pilgrims trust us with their most cherished journeys.",
+    "Since 2016, Holiday Planner has helped 500+ travelers explore Odisha. Government-recognized guides, premium fleet & 4.8★ Google rating. Discover our story.",
   keywords: [
     "About Holiday Planner",
     "Odisha travel agency",
@@ -65,13 +65,23 @@ export const metadata: Metadata = {
       "Since 2016, we've turned Odisha vacations into stories worth retelling. 500+ happy travelers, 4.8★ rated, government-recognized guides.",
     url: "https://www.holidayplanners.co/about",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.holidayplanners.co/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About Holiday Planner — Odisha Travel Agency",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us — The Story Behind Odisha's Most Trusted Travel Partner",
+    title: "About Holiday Planner — Odisha Travel Agency",
     description:
-      "Since 2016, Holiday Planner has been crafting unforgettable Odisha experiences for 500+ travelers. Government-recognized guides, a premium fleet, and a 4.8★ Google rating — discover why families, adventurers, and pilgrims trust us with their most cherished journeys.",
-    images: ["/og-image.jpg"],
+      "Since 2016, Holiday Planner has helped 500+ travelers explore Odisha. Government-recognized guides, premium fleet & 4.8★ Google rating.",
+    images: ["https://www.holidayplanners.co/og-image.jpg"],
   },
 };
 

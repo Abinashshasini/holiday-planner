@@ -62,9 +62,9 @@ function CarServiceJsonLd() {
 }
 
 export const metadata: Metadata = {
-  title: "Car Rental Bhubaneswar — Luxury Cars, Tempo Travellers & Taxis",
+  title: "Car Rental Bhubaneswar — Cabs, SUVs & Tempos",
   description:
-    "Book premium car rentals in Bhubaneswar starting ₹1,499/day. Luxury wedding cars, Innova, Ertiga, tempo travellers for group tours, airport pickups & outstation trips across Odisha. Professional drivers included.",
+    "Book car rentals in Bhubaneswar from ₹1,499/day. Innova, Ertiga, luxury wedding cars & tempo travellers. Professional drivers included.",
   keywords: [
     "car rental Bhubaneswar",
     "luxury car rental Odisha",
@@ -76,6 +76,9 @@ export const metadata: Metadata = {
     "Ertiga rental Bhubaneswar",
     "outstation cab Bhubaneswar",
     "Bhubaneswar to Puri cab",
+    "cab service Bhubaneswar",
+    "self drive car rental Bhubaneswar",
+    "car hire Bhubaneswar",
   ],
   alternates: { canonical: "/car-booking" },
   openGraph: {
@@ -85,13 +88,23 @@ export const metadata: Metadata = {
       "Premium car rental service in Bhubaneswar. Luxury cars, tempo travellers, airport pickups & outstation trips at best rates.",
     url: "https://www.holidayplanners.co/car-booking",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.holidayplanners.co/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Car Rental Bhubaneswar — Holiday Planner",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Car Rental Bhubaneswar — Luxury Cars, Tempo Travellers & Taxis",
+    title: "Car Rental Bhubaneswar — Cabs, SUVs & Tempos",
     description:
-      "Book premium car rentals in Bhubaneswar starting ₹1,499/day. Luxury wedding cars, Innova, Ertiga, tempo travellers for group tours, airport pickups & outstation trips across Odisha. Professional drivers included.",
-    images: ["/og-image.jpg"],
+      "Book car rentals in Bhubaneswar from ₹1,499/day. Innova, Ertiga, luxury wedding cars & tempo travellers. Professional drivers included.",
+    images: ["https://www.holidayplanners.co/og-image.jpg"],
   },
 };
 

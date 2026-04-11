@@ -56,9 +56,9 @@ function ContactPageJsonLd() {
 }
 
 export const metadata: Metadata = {
-  title: "Contact Us — Get in Touch for Odisha Tours & Car Bookings",
+  title: "Contact Us — Odisha Tours & Car Booking",
   description:
-    "Reach out to Holiday Planner for customized Odisha tour packages, car rentals, and travel assistance. Available 24/7 via WhatsApp, phone, or email. Plan your perfect journey today.",
+    "Contact Holiday Planner for Odisha tour packages & car rentals. 24/7 on WhatsApp, phone or email. Get a free quote today!",
   keywords: [
     "Contact Holiday Planner",
     "Odisha travel contact",
@@ -66,6 +66,8 @@ export const metadata: Metadata = {
     "book Odisha tour",
     "travel inquiry Odisha",
     "holiday planner WhatsApp",
+    "Bhubaneswar travel agency contact number",
+    "Holiday Planner phone number",
   ],
   alternates: { canonical: "/contact" },
   openGraph: {
@@ -74,13 +76,23 @@ export const metadata: Metadata = {
       "Call, WhatsApp, or email Holiday Planner for personalized tour packages and car rentals across Odisha.",
     url: "https://www.holidayplanners.co/contact",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.holidayplanners.co/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Holiday Planner — Odisha Travel",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us — Get in Touch for Odisha Tours & Car Bookings",
+    title: "Contact Us — Odisha Tours & Car Booking",
     description:
-      "Reach out to Holiday Planner for customized Odisha tour packages, car rentals, and travel assistance. Available 24/7 via WhatsApp, phone, or email. Plan your perfect journey today.",
-    images: ["/og-image.jpg"],
+      "Contact Holiday Planner for Odisha tour packages & car rentals. 24/7 on WhatsApp, phone or email. Get a free quote today!",
+    images: ["https://www.holidayplanners.co/og-image.jpg"],
   },
 };
 

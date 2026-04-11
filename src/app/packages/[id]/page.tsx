@@ -38,27 +38,41 @@ export async function generateMetadata({
     );
 
   return {
-    title: `${pkg.title} — ${pkg.duration} Tour Package in Odisha`,
-    description: description.slice(0, 160),
+    title: `${pkg.title} — ${pkg.duration}`,
+    description: description.slice(0, 155),
     keywords: [
       pkg.title,
       `${pkg.location} tour`,
+      `${pkg.location} tour package`,
+      `${pkg.location} tour package price`,
       `${pkg.duration} Odisha trip`,
+      `${pkg.location} ${pkg.duration} itinerary`,
+      `best ${pkg.category} tour Odisha`,
       "Odisha tour package",
       "Holiday Planner",
     ],
     alternates: { canonical: `/packages/${slug}` },
     openGraph: {
-      title: `${pkg.title} — ${pkg.duration} | Holiday Planner`,
-      description: description.slice(0, 160),
+      title: `${pkg.title} — ${pkg.duration}`,
+      description: description.slice(0, 155),
       url: `${SITE_URL}/packages/${slug}`,
-      type: "website",
-      images: [pkg.image],
+      type: "article",
+      siteName: "Holiday Planner",
+      locale: "en_IN",
+      images: [
+        {
+          url: pkg.image,
+          width: 1200,
+          height: 630,
+          alt: pkg.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${pkg.title} | Holiday Planner`,
-      description: description.slice(0, 160),
+      title: `${pkg.title} — ${pkg.duration}`,
+      description: description.slice(0, 155),
+      images: [pkg.image],
     },
   };
 }

@@ -1,30 +1,54 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Holiday Planner",
+  title: "Privacy Policy",
   description:
-    "Read Holiday Planner's privacy policy to understand how we collect, use, and protect your personal information when you book tours or car rentals in Odisha.",
+    "Holiday Planner's privacy policy: how we collect, use, and protect your data when you book Odisha tours or car rentals.",
   alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Privacy Policy | Holiday Planner",
+    title: "Privacy Policy",
     description:
-      "Read Holiday Planner's privacy policy to understand how we collect, use, and protect your personal information when you book tours or car rentals in Odisha.",
+      "Holiday Planner's privacy policy: how we collect, use, and protect your data when you book Odisha tours or car rentals.",
     url: "https://www.holidayplanners.co/privacy",
     type: "website",
+    siteName: "Holiday Planner",
+    locale: "en_IN",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Privacy Policy | Holiday Planner",
+    card: "summary",
+    title: "Privacy Policy",
     description:
-      "Read Holiday Planner's privacy policy to understand how we collect, use, and protect your personal information when you book tours or car rentals in Odisha.",
-    images: ["/og-image.jpg"],
+      "Holiday Planner's privacy policy: how we collect, use, and protect your data when you book Odisha tours or car rentals.",
   },
 };
 
 export default function PrivacyPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.holidayplanners.co",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Privacy Policy",
+        item: "https://www.holidayplanners.co/privacy",
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-bg-deepest pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <article className="mx-auto max-w-[780px] px-5 md:px-8 text-text-secondary leading-[1.8] font-main">
         <h1 className="text-3xl font-bold mb-2 text-text-primary font-display">
           Privacy Policy

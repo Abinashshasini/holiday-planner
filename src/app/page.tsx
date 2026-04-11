@@ -6,9 +6,9 @@ import { getAllPackages } from "@/sanity/queries";
 import { userRatingData } from "@/utils";
 
 export const metadata: Metadata = {
-  title: "Odisha Tour Packages 2026 — Book Your Dream Trip",
+  title: "Odisha Tour Packages 2026 — Book Now",
   description:
-    "Explore curated Odisha tour packages starting ₹4,999. Puri, Konark, Bhubaneswar, Chilika & more. 500+ happy travelers, 4.8★ rated. WhatsApp us to plan your trip today.",
+    "Curated Odisha tour packages from ₹4,999. Puri, Konark, Chilika & more. 500+ happy travelers, 4.8★ rated. Book with Holiday Planner today!",
   keywords: [
     // Core package searches
     "Odisha tour packages",
