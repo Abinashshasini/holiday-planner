@@ -70,9 +70,9 @@ export default function PackagesClient({
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="bg-white min-h-screen">
+      <div className="bg-white min-h-screen pt-[70px]">
         {/* Page Hero */}
-        <div className="relative h-[70vh] min-h-[400px] bg-gray-900 flex items-center justify-center overflow-hidden pb-12 px-5 md:px-8">
+        <div className="relative h-[70vh] min-h-[400px] bg-gray-900 flex items-center justify-center overflow-hidden pb-12 md:px-8 pt-[80px]">
           <Image
             src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773502340/Gemini_Generated_Image_754xh8754xh8754x_1_mxlrmz.png"
             alt="Scenic Odisha landscape"

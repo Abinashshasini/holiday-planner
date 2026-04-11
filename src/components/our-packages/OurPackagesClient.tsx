@@ -58,7 +58,7 @@ const OurPackagesClient = ({ packages }: { packages?: SanityPackage[] }) => {
               href="/packages"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-gold-400 to-gold-500 text-bg-base text-base font-extrabold shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
             >
-              See All 15+ Packages <FaArrowRight />
+              See All 10+ Packages <FaArrowRight />
             </Link>
           </motion.div>
         </motion.div>

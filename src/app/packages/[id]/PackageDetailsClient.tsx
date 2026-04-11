@@ -89,7 +89,7 @@ export default function PackageDetailsClient({
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="bg-white min-h-screen">
+      <div className="bg-white min-h-screen pt-[70px]">
         {/* Sticky Booking Bar */}
         <motion.div
           className="fixed left-0 right-0 bottom-0 bg-white/90 backdrop-blur-xl z-[1001] py-4 border-t border-gray-100 block lg:hidden"

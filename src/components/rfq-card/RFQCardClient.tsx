@@ -36,8 +36,7 @@ const RFQCardClient = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 font-mono text-xs font-bold text-gold-400 uppercase tracking-widest mb-6 px-4 py-1.5 bg-gold-400/8 border border-gold-400/15 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+            <span className="text-base font-bold uppercase tracking-widest text-gold-400 pb-4">
               Your Journey Starts Here
             </span>
             <h2 className="font-display text-[clamp(2.2rem,5vw,3.5rem)] font-black text-text-primary mb-6 leading-[1.08] tracking-tight">
@@ -97,7 +96,7 @@ const RFQCardClient = () => {
                       {s.icon}
                     </div>
                     <div>
-                      <span className="block font-mono text-[1.1rem] font-bold text-text-primary leading-tight">
+                      <span className="block font-mono text-[1.1rem] font-bold text-text-primary leading-tight text-left">
                         {s.value}
                       </span>
                       <span className="block text-[0.82rem] text-text-muted leading-snug mt-0.5">

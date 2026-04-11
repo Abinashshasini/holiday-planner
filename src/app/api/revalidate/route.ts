@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 /**
@@ -27,7 +27,14 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  revalidateTag("sanity", "default");
+  // Invalidate all fetch() calls tagged "sanity"
+  revalidateTag("sanity");
+
+  // Also revalidate static pages that were pre-rendered at build time
+  revalidatePath("/packages", "page");
+  revalidatePath("/packages/[id]", "page");
+  revalidatePath("/destinations", "page");
+  revalidatePath("/destinations/[city]", "page");
 
   return NextResponse.json({
     revalidated: true,

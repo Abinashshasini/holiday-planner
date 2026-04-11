@@ -138,76 +138,77 @@ export default async function BlogPostPage({
       />
 
       <main className="min-h-screen bg-white pt-[60px]">
-        {/* Header */}
-        <section className="relative bg-gray-900 pt-20 pb-16 px-6 text-center overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(99,102,241,0.18),transparent)] z-[1]" />
-          <div className="absolute inset-0 bg-black/35 z-[1]" />
-          <div className="relative z-[2] max-w-[800px] mx-auto">
-            <nav className="flex items-center justify-center gap-2 text-xs text-white/50 mb-6">
-              <Link
-                href="/"
-                className="text-white/60 no-underline hover:text-gold-400 transition-colors"
-              >
-                Home
-              </Link>
-              <span className="text-white/30">/</span>
-              <Link
-                href="/blog"
-                className="text-white/60 no-underline hover:text-gold-400 transition-colors"
-              >
-                Blog
-              </Link>
-              <span className="text-white/30">/</span>
-              <span className="text-white/35">{post.category}</span>
-            </nav>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] border border-white/[0.12] backdrop-blur-xl text-white/80 font-mono text-[0.65rem] font-semibold uppercase tracking-wider mb-5">
-              {post.category}
-            </span>
-            <h1 className="text-[clamp(1.5rem,4vw,2.5rem)] font-black text-white leading-tight mb-6 tracking-tight">
-              {post.title}
-            </h1>
-            <div className="flex items-center justify-center flex-wrap gap-2 text-[0.82rem] text-white/50">
-              <span>By {post.author}</span>
-              <span className="text-white/25">·</span>
-              <time dateTime={post.publishDate}>
-                {new Date(post.publishDate).toLocaleDateString("en-IN", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <span className="text-white/25">·</span>
-              <span>{post.readTime}</span>
-            </div>
+        {/* Breadcrumb */}
+        <div className="max-w-[1180px] mx-auto px-6 pt-8 pb-4">
+          <nav className="flex items-center gap-2 text-xs text-text-muted">
+            <Link
+              href="/"
+              className="text-text-muted no-underline hover:text-gold-500 transition-colors"
+            >
+              Home
+            </Link>
+            <span className="text-gray-300">/</span>
+            <Link
+              href="/blog"
+              className="text-text-muted no-underline hover:text-gold-500 transition-colors"
+            >
+              Blog
+            </Link>
+            <span className="text-gray-300">/</span>
+            <span className="text-text-muted/60">{post.category}</span>
+          </nav>
+        </div>
+
+        {/* Article Header */}
+        <section className="max-w-[1180px] mx-auto px-6 pb-8">
+          <span className="inline-block text-[0.7rem] font-black tracking-[0.08em] uppercase text-gold-500 mb-4">
+            {post.category}
+          </span>
+          <h1 className="text-[clamp(1.75rem,4.5vw,2.75rem)] font-black text-text-primary leading-[1.15] tracking-tight mb-5">
+            {post.title}
+          </h1>
+          <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-6 max-w-[660px]">
+            {post.excerpt}
+          </p>
+          <div className="flex items-center flex-wrap gap-2 text-[0.82rem] text-text-muted">
+            <span>By {post.author}</span>
+            <span className="text-gray-300">·</span>
+            <time dateTime={post.publishDate}>
+              {new Date(post.publishDate).toLocaleDateString("en-IN", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            <span className="text-gray-300">·</span>
+            <span>{post.readTime}</span>
           </div>
         </section>
 
+        {/* Featured Image */}
+        <div className="max-w-[1180px] mx-auto px-6 mb-10">
+          <Image
+            src={post.image}
+            alt={post.title}
+            className="w-full h-auto rounded-2xl object-cover max-h-[480px]"
+            width={1200}
+            height={600}
+            sizes="100vw"
+            priority
+          />
+        </div>
+
         {/* Article + Sidebar */}
-        <div className="max-w-[1180px] mx-auto mt-12 px-6 grid grid-cols-[1fr_300px] gap-10 items-start max-[900px]:grid-cols-1">
-          <article className="bg-white rounded-3xl border border-gray-100 shadow-[var(--shadow-card-rest)] overflow-hidden">
-            {/* Featured Image */}
-            <Image
-              src={post.image}
-              alt={post.title}
-              className="w-full h-[340px] object-cover block max-sm:h-[220px]"
-              width={1200}
-              height={600}
-              sizes="100vw"
-            />
-
-            {/* Excerpt / Lead */}
-            <p className="text-lg text-text-secondary leading-relaxed px-8 pt-8 border-l-4 border-gold-400">
-              {post.excerpt}
-            </p>
-
+        <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-[1fr_300px] gap-10 items-start max-[900px]:grid-cols-1">
+          <article>
             {/* Content */}
             <div
-              className="px-8 py-8 text-text-secondary text-base leading-relaxed [&_h2]:text-text-primary [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:pb-2 [&_h2]:border-b [&_h2]:border-gray-100 [&_h3]:text-text-primary [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:text-text-secondary [&_p]:leading-relaxed [&_p]:mb-6 [&_ul]:text-text-secondary [&_ul]:pl-6 [&_ul]:mb-6 [&_li]:mb-2 [&_a]:text-gold-500 [&_a]:font-semibold [&_a]:underline [&_a]:decoration-gold-400/30 hover:[&_a]:text-gold-600 hover:[&_a]:decoration-gold-500 [&_strong]:text-text-primary [&_strong]:font-bold [&_em]:text-text-muted [&_em]:italic [&_blockquote]:border-l-4 [&_blockquote]:border-l-gold-400 [&_blockquote]:bg-gold-50/50 [&_blockquote]:text-text-secondary [&_blockquote]:pl-4 [&_blockquote]:py-3 [&_blockquote]:my-6 [&_blockquote]:rounded-r-xl"
+              className="text-text-secondary text-base leading-relaxed [&_h2]:text-text-primary [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:pb-2 [&_h2]:border-b [&_h2]:border-gray-100 [&_h3]:text-text-primary [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:text-text-secondary [&_p]:leading-relaxed [&_p]:mb-6 [&_ul]:text-text-secondary [&_ul]:pl-6 [&_ul]:mb-6 [&_li]:mb-2 [&_a]:text-gold-500 [&_a]:font-semibold [&_a]:underline [&_a]:decoration-gold-400/30 hover:[&_a]:text-gold-600 hover:[&_a]:decoration-gold-500 [&_strong]:text-text-primary [&_strong]:font-bold [&_em]:text-text-muted [&_em]:italic [&_blockquote]:border-l-4 [&_blockquote]:border-l-gold-400 [&_blockquote]:bg-gold-50/50 [&_blockquote]:text-text-secondary [&_blockquote]:pl-4 [&_blockquote]:py-3 [&_blockquote]:my-6 [&_blockquote]:rounded-r-xl"
               dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 px-8 pt-6 pb-8 border-t border-gray-100">
+            <div className="flex flex-wrap gap-2 pt-8 pb-10 border-t border-gray-100 mt-8">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
