@@ -140,7 +140,8 @@ const GetInTouch = () => {
                     Call Us
                   </span>
                   <p className="text-base font-bold text-text-primary">
-                    <a href="tel:+919861151591">+91 98611 51591</a>
+                    <a href="tel:+919861151591">+91 98611 51591</a> |{" "}
+                    <a href="tel:+918249262728">+91 82492 62728</a>
                   </p>
                 </div>
               </div>
