@@ -182,12 +182,21 @@ export default function ContactClient() {
                   <strong className="text-xs font-extrabold text-gold-400 uppercase tracking-wider">
                     Phone / WhatsApp
                   </strong>
-                  <a
-                    href="tel:+919861151591"
-                    className="text-base text-text-secondary font-semibold transition-colors hover:text-gold-500"
-                  >
-                    +91 98611 51591
-                  </a>
+                  <div>
+                    <a
+                      href="tel:+919861151591"
+                      className="text-base text-text-secondary font-semibold transition-colors hover:text-gold-500"
+                    >
+                      +91 98611 51591
+                    </a>
+                    {"  "}|{"  "}
+                    <a
+                      href="tel:+918249262728"
+                      className="text-base text-text-secondary font-semibold transition-colors hover:text-gold-500"
+                    >
+                      +91 82492 62728
+                    </a>
+                  </div>
                 </div>
               </div>
 
