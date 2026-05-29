@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy",
     description:
       "Holiday Planner's privacy policy: how we collect, use, and protect your data when you book Odisha tours or car rentals.",
-    url: "https://www.holidayplanners.co/privacy",
+    url: "https://www.holidayplanner.agency/privacy",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
@@ -32,13 +32,13 @@ export default function PrivacyPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanners.co",
+        item: "https://www.holidayplanner.agency",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Privacy Policy",
-        item: "https://www.holidayplanners.co/privacy",
+        item: "https://www.holidayplanner.agency/privacy",
       },
     ],
   };

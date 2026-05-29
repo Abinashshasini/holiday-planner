@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
-const SITE_URL = "https://www.holidayplanners.co";
+const SITE_URL = "https://www.holidayplanner.agency";
 
 function ContactPageJsonLd() {
   const jsonLd = {
@@ -74,13 +74,13 @@ export const metadata: Metadata = {
     title: "Contact Holiday Planner — Plan Your Dream Odisha Trip",
     description:
       "Call, WhatsApp, or email Holiday Planner for personalized tour packages and car rentals across Odisha.",
-    url: "https://www.holidayplanners.co/contact",
+    url: "https://www.holidayplanner.agency/contact",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Contact Holiday Planner — Odisha Travel",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     title: "Contact Us — Odisha Tours & Car Booking",
     description:
       "Contact Holiday Planner for Odisha tour packages & car rentals. 24/7 on WhatsApp, phone or email. Get a free quote today!",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
 };
 
@@ -105,13 +105,13 @@ export default function ContactPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanners.co",
+        item: "https://www.holidayplanner.agency",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Contact Us",
-        item: "https://www.holidayplanners.co/contact",
+        item: "https://www.holidayplanner.agency/contact",
       },
     ],
   };

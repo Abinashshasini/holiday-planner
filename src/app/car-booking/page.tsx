@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import CarBookingClient from "./CarBookingClient";
 
-const SITE_URL = "https://www.holidayplanners.co";
+const SITE_URL = "https://www.holidayplanner.agency";
 
 function CarServiceJsonLd() {
   const jsonLd = {
@@ -86,13 +86,13 @@ export const metadata: Metadata = {
       "Car Rental Bhubaneswar — Luxury Cars & Tempo Travellers | Holiday Planner",
     description:
       "Premium car rental service in Bhubaneswar. Luxury cars, tempo travellers, airport pickups & outstation trips at best rates.",
-    url: "https://www.holidayplanners.co/car-booking",
+    url: "https://www.holidayplanner.agency/car-booking",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Car Rental Bhubaneswar — Holiday Planner",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     title: "Car Rental Bhubaneswar — Cabs, SUVs & Tempos",
     description:
       "Book car rentals in Bhubaneswar from ₹1,499/day. Innova, Ertiga, luxury wedding cars & tempo travellers. Professional drivers included.",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
 };
 
@@ -117,13 +117,13 @@ export default function CarBookingPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanners.co",
+        item: "https://www.holidayplanner.agency",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Car Booking",
-        item: "https://www.holidayplanners.co/car-booking",
+        item: "https://www.holidayplanner.agency/car-booking",
       },
     ],
   };

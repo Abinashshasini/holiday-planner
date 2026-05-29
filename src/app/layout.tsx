@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const SITE_URL = "https://www.holidayplanners.co";
+const SITE_URL = "https://www.holidayplanner.agency";
 const SITE_NAME = "Holiday Planner";
 
 export const metadata: Metadata = {

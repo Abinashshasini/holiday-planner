@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     title: "Odisha Travel Blog — Guides & Itineraries",
     description:
       "Expert guides covering temples, wildlife, beaches, and hill stations across Odisha. Written by local travel experts.",
-    url: "https://www.holidayplanners.co/blog",
+    url: "https://www.holidayplanner.agency/blog",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Odisha Travel Blog — Holiday Planner",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     title: "Odisha Travel Blog — Guides & Itineraries",
     description:
       "Expert Odisha travel guides: temple routes, wildlife safaris, hidden hill stations & coastal getaways. Plan your perfect Odisha trip.",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
-  alternates: { canonical: "https://www.holidayplanners.co/blog" },
+  alternates: { canonical: "https://www.holidayplanner.agency/blog" },
 };
 
 const categoryColors: Record<string, string> = {
@@ -62,7 +62,7 @@ export default function BlogPage() {
     name: "Odisha Travel Blog",
     description:
       "Expert travel guides and stories about Odisha's temples, wildlife, beaches, and hill stations.",
-    url: "https://www.holidayplanners.co/blog",
+    url: "https://www.holidayplanner.agency/blog",
   };
 
   const breadcrumbJsonLd = {
@@ -73,13 +73,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanners.co",
+        item: "https://www.holidayplanner.agency",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.holidayplanners.co/blog",
+        item: "https://www.holidayplanner.agency/blog",
       },
     ],
   };

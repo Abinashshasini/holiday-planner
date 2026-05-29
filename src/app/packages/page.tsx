@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PackagesClient from "./PackagesClient";
 import { getAllPackages } from "@/sanity/queries";
 
-const SITE_URL = "https://www.holidayplanners.co";
+const SITE_URL = "https://www.holidayplanner.agency";
 
 export const metadata: Metadata = {
   title: "Odisha Tour Packages 2026 — Budget to Luxury",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
       "Best Odisha Tour Packages 2026 — Budget & Luxury Trips | Holiday Planner",
     description:
       "Curated Odisha tour packages with flexible itineraries from ₹4,999. Explore temples, beaches, wildlife & tribal culture.",
-    url: "https://www.holidayplanners.co/packages",
+    url: "https://www.holidayplanner.agency/packages",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Odisha Tour Packages — Holiday Planner",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Odisha Tour Packages 2026 — Budget to Luxury",
     description:
       "10+ curated Odisha tour packages from ₹4,999. Puri, Konark, Chilika, Daringbadi & more. Budget to luxury options. Book with Holiday Planner!",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
 };
 

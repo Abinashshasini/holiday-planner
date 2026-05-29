@@ -64,18 +64,18 @@ export const metadata: Metadata = {
     "Odisha 7 days tour package",
     "Odisha weekend trip package",
   ],
-  alternates: { canonical: "https://www.holidayplanners.co" },
+  alternates: { canonical: "https://www.holidayplanner.agency" },
   openGraph: {
     title: "Odisha Tour Packages 2026 — Book Your Dream Trip | Holiday Planner",
     description:
       "Explore curated Odisha tour packages starting ₹4,999. Puri, Konark, Bhubaneswar, Chilika & more. 500+ happy travelers, 4.8★ rated. Plan your perfect Odisha trip today.",
-    url: "https://www.holidayplanners.co",
+    url: "https://www.holidayplanner.agency",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Odisha Tour Packages — Holiday Planner",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     title: "Odisha Tour Packages 2026 — Book Your Dream Trip | Holiday Planner",
     description:
       "Explore curated Odisha tour packages starting ₹4,999. Puri, Konark, Bhubaneswar, Chilika & more. 500+ happy travelers, 4.8★ rated. WhatsApp us to plan your trip today.",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
 };
 
@@ -160,7 +160,7 @@ export default async function Home() {
   const ratingsJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.holidayplanners.co/#localbusiness",
+    "@id": "https://www.holidayplanner.agency/#localbusiness",
     name: "Holiday Planner",
     aggregateRating: {
       "@type": "AggregateRating",

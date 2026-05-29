@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Terms of Service",
     description:
       "Holiday Planner's terms of service: booking policies, cancellation rules & responsibilities for Odisha tour packages and car rentals.",
-    url: "https://www.holidayplanners.co/terms",
+    url: "https://www.holidayplanner.agency/terms",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
@@ -32,13 +32,13 @@ export default function TermsPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanners.co",
+        item: "https://www.holidayplanner.agency",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Terms of Service",
-        item: "https://www.holidayplanners.co/terms",
+        item: "https://www.holidayplanner.agency/terms",
       },
     ],
   };

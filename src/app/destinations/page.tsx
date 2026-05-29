@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import DestinationsClient from "./DestinationsClient";
 import { popularCitiesData } from "@/utils";
 
-const SITE_URL = "https://www.holidayplanners.co";
+const SITE_URL = "https://www.holidayplanner.agency";
 
 export const metadata: Metadata = {
   title: "Best Places to Visit in Odisha 2026",
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     title: "Top Destinations in Odisha — Temples, Beaches & Wildlife",
     description:
       "Discover the must-visit destinations in Odisha from ancient temples to pristine beaches. Interactive travel guide by Holiday Planner.",
-    url: "https://www.holidayplanners.co/destinations",
+    url: "https://www.holidayplanner.agency/destinations",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Top Destinations in Odisha — Holiday Planner",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Best Places to Visit in Odisha 2026",
     description:
       "Discover Odisha’s best destinations: Bhubaneswar temples, Puri beaches, Konark, Chilika Lake & Daringbadi hills. Plan your trip with Holiday Planner.",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
 };
 

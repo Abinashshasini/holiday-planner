@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import AboutClient from "./AboutClient";
 
-const SITE_URL = "https://www.holidayplanners.co";
+const SITE_URL = "https://www.holidayplanner.agency";
 
 function OrganizationJsonLd() {
   const jsonLd = {
@@ -63,13 +63,13 @@ export const metadata: Metadata = {
       "About Holiday Planner — The Story Behind Odisha's #1 Travel Partner",
     description:
       "Since 2016, we've turned Odisha vacations into stories worth retelling. 500+ happy travelers, 4.8★ rated, government-recognized guides.",
-    url: "https://www.holidayplanners.co/about",
+    url: "https://www.holidayplanner.agency/about",
     type: "website",
     siteName: "Holiday Planner",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.holidayplanners.co/og-image.jpg",
+        url: "https://www.holidayplanner.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "About Holiday Planner — Odisha Travel Agency",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     title: "About Holiday Planner — Odisha Travel Agency",
     description:
       "Since 2016, Holiday Planner has helped 500+ travelers explore Odisha. Government-recognized guides, premium fleet & 4.8★ Google rating.",
-    images: ["https://www.holidayplanners.co/og-image.jpg"],
+    images: ["https://www.holidayplanner.agency/og-image.jpg"],
   },
 };
 
@@ -94,13 +94,13 @@ export default function AboutPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.holidayplanners.co",
+        item: "https://www.holidayplanner.agency",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "About Us",
-        item: "https://www.holidayplanners.co/about",
+        item: "https://www.holidayplanner.agency/about",
       },
     ],
   };

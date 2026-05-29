@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
  * next visitor gets freshly-built pages without a full redeploy.
  *
  * Sanity webhook setup (sanity.io/manage → API → Webhooks):
- *   URL:    https://www.holidayplanners.co/api/revalidate
+ *   URL:    https://www.holidayplanner.agency/api/revalidate
  *   Method: POST
  *   Filter: (leave blank to revalidate on any change)
  *   Secret: set a random string and add it as SANITY_WEBHOOK_SECRET
