@@ -169,7 +169,8 @@ const GetInTouch = () => {
                     Visit Us
                   </span>
                   <p className="text-base font-bold text-text-primary">
-                    Bhubaneswar, Odisha, India
+                    Kunja patana sahi, Goshagareswar chhak, Ratha rode, old
+                    town, bhubaneswar, pin 751002
                   </p>
                 </div>
               </div>

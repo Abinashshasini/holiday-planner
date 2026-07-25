@@ -169,7 +169,8 @@ export default function ContactClient() {
                     Office Address
                   </strong>
                   <span className="text-base text-text-secondary font-semibold transition-colors">
-                    Bhubaneswar, Odisha, India
+                    Kunja patana sahi, Goshagareswar chhak, Ratha rode, old
+                    town, bhubaneswar, pin 751002{" "}
                   </span>
                 </div>
               </div>
