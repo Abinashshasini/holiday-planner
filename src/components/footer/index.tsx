@@ -178,7 +178,8 @@ const Footer: React.FC = () => {
               {
                 icon: <FaMapMarkerAlt />,
                 label: "Location",
-                value: "Bhubaneswar, Odisha, India",
+                value:
+                  "Kunja patana sahi, Goshagareswar chhak, Ratha rode, old town, bhubaneswar, pin 751002",
               },
               {
                 icon: <FaPhone />,
